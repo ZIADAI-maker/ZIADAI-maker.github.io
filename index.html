@@ -3,227 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زياد وليد | خبير الروبوتات والذكاء الاصطناعي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>Ziad AI | زياد وليد - تكنولوجيا واختراعات</title>
+    <meta name="description" content="الموقع الرسمي لزياد وليد (ziadai) - متخصص في الابتكارات التقنية، البرمجة، واختراعات الروبوتات والذكاء الاصطناعي.">
+    <meta name="keywords" content="ziadai, ziad ai, زياد وليد, اختراعات, تكنولوجيا, مبرمج, روبوتات, Arduino, ESP32, Raspberry Pi">
+    
     <style>
         :root {
-            --main-color: #00f2fe;
-            --secondary-color: #4facfe;
-            --bg-dark: #0a0b10;
-            --card-bg: #161b22;
+            --main-blue: #00a8ff;
+            --dark-gray: #1a1a1a;
+            --light-text: #f5f5f5;
         }
-
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-dark);
-            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: var(--light-text);
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            line-height: 1.7;
         }
-
-        /* تأثير الخلفية المتحركة */
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1f35 0%, #0a0b10 100%);
-            z-index: -1;
-        }
-
         header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #001f3f, #0074D9);
+            padding: 60px 20px;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,11,16,0.5), var(--bg-dark)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+            border-bottom: 3px solid var(--main-blue);
         }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, var(--main-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 2s;
-        }
-
-        section { padding: 80px 10%; }
-
-        h2 {
-            border-right: 5px solid var(--main-color);
-            padding-right: 15px;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            transition: 0.4s;
-            border: 1px solid #30363d;
-            text-decoration: none;
-            color: white;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--main-color);
-            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.2);
-        }
-
-        .card h3 { color: var(--main-color); margin-top: 0; }
-        .card p { font-size: 0.9rem; color: #8b949e; }
-
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            margin-top: -50px;
-            border: 1px solid var(--main-color);
-        }
-
-        .stat-item h4 { font-size: 2.5rem; margin: 0; color: var(--main-color); }
-
-        .contact-box {
-            background: linear-gradient(135deg, var(--card-bg) 0%, #1c2128 100%);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--main-color);
-            color: black;
-            font-weight: bold;
-            border-radius: 30px;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .container { width: 90%; max-width: 1100px; margin: auto; padding: 20px; }
+        .section { margin-bottom: 50px; }
+        h2 { color: var(--main-blue); border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--dark-gray); padding: 25px; border-radius: 12px; transition: 0.3s; border: 1px solid #333; }
+        .card:hover { transform: translateY(-5px); border-color: var(--main-blue); }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--main-blue); color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+        .yt-link { color: #ff0000; font-weight: bold; text-decoration: none; display: block; margin-top: 10px; }
+        footer { text-align: center; padding: 30px; background: #000; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
-<div class="bg-glow"></div>
-
 <header>
-    <h1 class="hero-title">زياد وليد محمد</h1>
-    <p style="font-size: 1.5rem;">مبتكر في مدارس STEM | مدرب معتمد | خبير ذكاء اصطناعي</p>
+    <h1>ziadai | زياد وليد</h1>
+    <p>مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
 </header>
 
-<section>
-    <div class="stats-bar">
-        <div class="stat-item"><h4>+200</h4><p>فيديو تعليمي</p></div>
-        <div class="stat-item"><h4>+300</h4><p>مشروع تقني</p></div>
-        <div class="stat-item"><h4>16</h4><p>سنة من الشغف</p></div>
-    </div>
-</section>
+<div class="container">
+    
+    <section class="section">
+        <h2>عن ziadai</h2>
+        <p>أنا زياد وليد، شغوف بعالم التكنولوجيا والاختراعات البرمجية. أعمل على تطوير أنظمة تعتمد على الذكاء الاصطناعي والإلكترونيات المتقدمة، وأشارك خبرتي التقنية مع جمهور واسع من المهتمين بالابتكار.</p>
+    </section>
 
-<section id="about">
-    <h2>نبذة عن العبقرية التقنية</h2>
-    <p style="line-height: 1.8; font-size: 1.2rem;">
-        طالب بمدارس متفوقين العلوم والتكنولوجيا (STEM)، سخرت سنوات عمري الـ 16 لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.
-    </p>
-</section>
+    <section class="section" id="services">
+        <h2>خدماتي التقنية</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>برمجة الأنظمة المدمجة</h3>
+                <p>أقدم خدمة برمجة لوحات Arduino و ESP32 وتصميم الدوائر الإلكترونية للمشاريع الذكية بدقة واحترافية عالية.</p>
+                <a href="https://khamsat.com/user/zw_2503_o8bx" class="btn">اطلب الخدمة من خمسات</a>
+            </div>
+            <div class="card">
+                <h3>استشارات تقنية</h3>
+                <p>مساعدة في حل المشكلات البرمجية وتطوير أفكار الاختراعات التقنية باستخدام أحدث الوسائل التكنولوجية.</p>
+                <a href="https://khamsat.com/user/zw_2503_o8bx" class="btn">تواصل للاستشارة</a>
+            </div>
+        </div>
+    </section>
 
-<section id="training">
-    <h2>الندوات والفعاليات (الجانب التدريبي)</h2>
-    <div class="grid">
-        <a href="https://www.facebook.com/share/p/1Cd435tnyT/" class="card" target="_blank">
-            <h3>الندوة التدريبية الأولى</h3>
-            <p>مشاركة الخبرات في مجال التحول الرقمي.</p>
-        </a>
-        <a href="https://www.facebook.com/share/p/1Dckqt3iBd/" class="card" target="_blank">
-            <h3>الندوة التدريبية الثالثة</h3>
-            <p>استراتيجيات التكنولوجيا الحديثة.</p>
-        </a>
-        <a href="https://www.facebook.com/share/p/1D5kEzi9CX/" class="card" target="_blank">
-            <h3>الندوة التدريبية الرابعة</h3>
-            <p>ورشة عمل تفاعلية للطلاب.</p>
-        </a>
-        <a href="https://www.facebook.com/share/p/1F64HBiFjW/" class="card" target="_blank">
-            <h3>مبادرة المدارس الذكية</h3>
-            <p>إدارة عابدين التعليمية - تطوير الفكر التقني.</p>
-        </a>
-        <a href="https://www.facebook.com/share/p/1HzuNEBrqM/" class="card" target="_blank">
-            <h3>ورشة عمل تدريبية</h3>
-            <p>تدريب عملي مكثف على أدوات الابتكار.</p>
-        </a>
-    </div>
-</section>
+    <section class="section" id="projects">
+        <h2>المشاريع والشروحات</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ziad AI Robot</h3>
+                <p>مشروع روبوت خدمي متطور يعتمد على تقنيات الرؤية الحاسوبية والتحكم عن بعد.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Systems</h3>
+                <p>مجموعة من الابتكارات والاختراعات التي تهدف لتسهيل الحياة اليومية عبر التكنولوجيا.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <p>لرؤية المزيد من الأعمال والمشاريع التفصيلية، تابعوني على قناتي:</p>
+            <a href="https://youtube.com/@ziadwaleedmohamed?si=gIIJW0vE2n0x8vDk" class="yt-link">زيارة قناة Ziad AI على يوتيوب 🎥</a>
+        </div>
+    </section>
 
-<section id="courses">
-    <h2>أكاديمية زياد التعليمية (YouTube)</h2>
-    <p>أكثر من 200 فيديو تعليمي لتبسيط العلوم المعقدة.</p>
-    <div class="grid">
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRvjcZF1eyLWsF9vNGk771me" class="card" target="_blank">
-            <h3>كورس Python</h3>
-            <p>تعلم لغة المستقبل من الصفر للاحتراف.</p>
-        </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRupSwUWZhrH2aj8hDfbHlJ6" class="card" target="_blank">
-            <h3>كورس الإلكترونيات</h3>
-            <p>بناء الدوائر الكهربائية والأنظمة المدمجة.</p>
-        </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRtaa-M6xLCL-Mb3ibWic_iN" class="card" target="_blank">
-            <h3>كورس الذكاء الاصطناعي</h3>
-            <p>فهم الخوارزميات وتطبيقات الـ AI.</p>
-        </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRsMCxS305ZNtrVIl4GUHQeX" class="card" target="_blank">
-            <h3>كورس الجرافيك ديزاين</h3>
-            <p>فن التصميم البصري الرقمي.</p>
-        </a>
-    </div>
-</section>
+</div>
 
-<section id="projects">
-    <h2>معرض المشاريع المبتكرة</h2>
-    <div class="grid">
-        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank">
-            <h3>روبوت الخدمة الذكي</h3>
-            <p>روبوت متطور بقدرات الملاحة الذاتية.</p>
-        </a>
-        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank">
-            <h3>مشروع Morse Code</h3>
-            <p>ترجمة الإشارات فيزيائياً وبرمجياً.</p>
-        </a>
-        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank">
-            <h3>مشروع Smart Home</h3>
-            <p>نظام أتمتة منزلية متكامل.</p>
-        </a>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="contact-box">
-        <h2>تواصل مع العقل المبتكر</h2>
-        <p>البريد الإلكتروني: ziadwaleed5454648hh@gmail.com</p>
-        <p>الهاتف: 01158357595</p>
-        <a href="mailto:ziadwaleed5454648hh@gmail.com" class="btn">أرسل رسالة الآن</a>
-    </div>
-</section>
-
-<footer style="text-align: center; padding: 20px; color: #8b949e;">
-    <p>تم تطويره بواسطة زياد وليد - 2026</p>
+<footer>
+    <p>جميع الحقوق محفوظة © 2026 - Ziad AI | المرجع الأول للاختراعات التقنية</p>
 </footer>
 
 </body>
