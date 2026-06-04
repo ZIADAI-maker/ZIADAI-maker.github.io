@@ -26,15 +26,33 @@
             scroll-behavior: smooth;
         }
 
-        /* القائمة المنسدلة */
-        .nav-container {
+        /* كانفاس الجزيئات التفاعلية */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0d1117 0%, #0a0b10 100%);
+        }
+
+        /* أزرار التحكم العلوي */
+        .top-controls {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
+            display: flex;
+            gap: 10px;
         }
 
-        .menu-btn {
+        html[dir="ltr"] .top-controls {
+            right: auto;
+            left: 20px;
+        }
+
+        .menu-btn, .lang-btn {
             background: var(--card-bg);
             border: 1px solid var(--main-color);
             color: var(--main-color);
@@ -42,7 +60,14 @@
             border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
-            font-family: 'Cairo';
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        .menu-btn:hover, .lang-btn:hover {
+            background: var(--main-color);
+            color: black;
+            box-shadow: 0 0 15px var(--main-color);
         }
 
         .dropdown-content {
@@ -55,6 +80,11 @@
             border-radius: 10px;
             border: 1px solid #30363d;
             box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        html[dir="ltr"] .dropdown-content {
+            right: auto;
+            left: 0;
         }
 
         .dropdown-content a {
@@ -72,13 +102,6 @@
 
         .show { display: block; }
 
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1f35 0%, #0a0b10 100%);
-            z-index: -1;
-        }
-
         header {
             height: 100vh;
             display: flex;
@@ -86,9 +109,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,11,16,0.6), var(--bg-dark)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+            background: linear-gradient(to bottom, rgba(10,11,16,0.4), var(--bg-dark));
         }
 
         .hero-title {
@@ -131,6 +152,13 @@
             margin-bottom: 40px;
         }
 
+        html[dir="ltr"] h2 {
+            border-right: none;
+            border-left: 5px solid var(--main-color);
+            padding-right: 0;
+            padding-left: 15px;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -165,136 +193,375 @@
             border-radius: 30px;
             text-decoration: none;
             margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 15px var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #e6edf3;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--main-color);
+            color: var(--main-color);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* تنسيقات استمارة الاتصال */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: right;
+        }
+
+        html[dir="ltr"] .contact-form {
+            text-align: left;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0b10;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--main-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        /* تقييمات العملاء */
+        .stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 99;
+            background-color: var(--card-bg);
+            color: var(--main-color);
+            border: 1px solid var(--main-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        html[dir="ltr"] #scrollTopBtn {
+            left: auto;
+            right: 30px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--main-color);
+            color: black;
+            box-shadow: 0 0 20px var(--main-color);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
 
-<div class="bg-glow"></div>
+<div id="particles-js"></div>
 
-<div class="nav-container">
-    <button onclick="toggleMenu()" class="menu-btn">القائمة ☰</button>
+<button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى">▲</button>
+
+<div class="top-controls">
+    <button onclick="toggleLang()" class="lang-btn" id="langBtn">English 🌐</button>
+    <button onclick="toggleMenu()" class="menu-btn" id="menuBtn">القائمة ☰</button>
     <div id="myDropdown" class="dropdown-content">
-        <a href="#about">عن ziadai</a>
-        <a href="https://ziadai-maker.blogspot.com/" target="_blank" style="color: var(--main-color); font-weight: bold;">📜 الأكواد والمخططات</a>
-        <a href="#services">الخدمات (خمسات)</a>
-        <a href="#training">الندوات</a>
-        <a href="#courses">الكورسات</a>
-        <a href="#projects">المشاريع</a>
-        <a href="#contact">تواصل معي</a>
+        <a href="#about" id="nav-about">عن ziadai</a>
+        <a href="https://ziadai-maker.blogspot.com/" target="_blank" style="color: var(--main-color); font-weight: bold;" id="nav-blog">📜 الأكواد والمخططات</a>
+        <a href="#services" id="nav-services">الخدمات (خمسات)</a>
+        <a href="#skills" id="nav-skills">المهارات والتقنيات</a>
+        <a href="#achievements" id="nav-achievements">الإنجازات والمبادرات</a>
+        <a href="#testimonials" id="nav-testimonials">آراء العملاء والطلاب</a>
+        <a href="#social-media" id="nav-social">صفحات التواصل</a>
+        <a href="#training" id="nav-training">الندوات</a>
+        <a href="#courses" id="nav-courses">الكورسات</a>
+        <a href="#projects" id="nav-projects">المشاريع</a>
+        <a href="#copyright" id="nav-copyright">حقوق الملكية</a>
+        <a href="#contact" id="nav-contact">تواصل معي</a>
     </div>
 </div>
 
 <header>
     <h1 class="hero-title">ziadai | زياد وليد</h1>
-    <p style="font-size: 1.5rem;">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
-    <a href="https://ziadai-maker.blogspot.com/" target="_blank" class="hero-blog-btn">
+    <p style="font-size: 1.5rem;" id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
+    <a href="https://ziadai-maker.blogspot.com/" target="_blank" class="hero-blog-btn" id="hero-btn">
         📥 رؤية المخططات والأكواد البرمجية
     </a>
 </header>
 
 <section id="services">
-    <h2>خدماتي التقنية (خمسات)</h2>
+    <h2 id="s-title">خدماتي التقنية (خمسات)</h2>
     <div class="grid">
         <div class="card">
-            <h3>برمجة الأردوينو والإلكترونيات</h3>
-            <p>تصميم وبرمجة الدوائر الإلكترونية المعقدة ومشاريع الأنظمة المدمجة باحترافية عالية.</p>
-            <a href="https://khamsat.com/user/zw_2503_o8bx" class="btn">اطلب الخدمة</a>
+            <h3 id="s1-title">برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل</h3>
+            <p id="s1-desc">تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.</p>
+            <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" class="btn" id="s1-btn">طلب الخدمة من خمسات</a>
         </div>
         <div class="card">
-            <h3>استشارات وحلول برمجية</h3>
-            <p>تقديم دعم تقني لمشاريعك وتطوير أكواد مخصصة وحل المشكلات البرمجية.</p>
-            <a href="https://khamsat.com/user/zw_2503_o8bx" class="btn">تواصل الآن</a>
+            <h3 id="s2-title">استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT</h3>
+            <p id="s2-desc">مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.</p>
+            <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" class="btn" id="s2-btn">طلب الخدمة من خمسات</a>
         </div>
+        <div class="card">
+            <h3 id="s3-title">تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi</h3>
+            <p id="s3-desc">بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.</p>
+            <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" class="btn" id="s3-btn">طلب الخدمة من خمسات</a>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://khamsat.com/user/zw_2503_o8bx" target="_blank" class="btn" id="main-khamsat-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">💼 زيارة حسابي الشخصي على خمسات</a>
     </div>
 </section>
 
 <section id="about">
-    <h2>نبذة عن العبقرية التقنية</h2>
-    <p style="line-height: 1.8; font-size: 1.2rem;">
-        أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.
+    <h2 id="a-title">نبذة عن العبقرية التقنية</h2>
+    <p style="line-height: 1.8; font-size: 1.2rem;" id="a-desc">
+         أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.
     </p>
 </section>
 
+<section id="skills">
+    <h2 id="sk-title">المهارات والتقنيات (Tech Stack)</h2>
+    <div class="skills-container">
+        <div class="skill-tag">C++ (Microcontrollers)</div>
+        <div class="skill-tag">Python (AI & Vision)</div>
+        <div class="skill-tag">Arduino Uno & Nano</div>
+        <div class="skill-tag">ESP32 & ESP32-CAM</div>
+        <div class="skill-tag">Raspberry Pi 5</div>
+        <div class="skill-tag">OpenCV (Computer Vision)</div>
+        <div class="skill-tag">MediaPipe (Gesture Control)</div>
+        <div class="skill-tag">Embedded Systems Design</div>
+        <div class="skill-tag">Circuit Troubleshooting</div>
+        <div class="skill-tag">UI/UX Design & HTML/CSS</div>
+    </div>
+</section>
+
+<section id="achievements">
+    <h2 id="ac-title">الإنجازات والمبادرات الرقمية</h2>
+    <div class="grid">
+        <div class="card">
+            <h3 id="ac1-title">مبادرة أشبال مصر الرقمية (DECA)</h3>
+            <p id="ac1-desc">الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.</p>
+        </div>
+        <div class="card">
+            <h3 id="ac2-title">Build with AI: Egypt Edition</h3>
+            <p id="ac2-desc">المشاركة الفعالة في برنامج جوجل لابتكار وتطبيق حلول الذكاء الاصطناعي المتقدمة واستكشاف خدمات وتقنيات الـ AI Vision.</p>
+        </div>
+        <div class="card">
+            <h3 id="ac3-title">Hack Club Arcade</h3>
+            <p id="ac3-desc">المشاركة في التحديات البرمجية والهندسية العالمية لبناء مشروعات تقنية مبتكرة ومشاركة الأكواد مع مجتمع المطورين الدولي.</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2 id="tst-title">آراء العملاء والطلاب</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <h3 id="tst1-user">أحمد م. (عميل خمسات)</h3>
+            <p id="tst1-text">"سرعة مذهلة في اكتشاف وتصحيح الكود المصدري لمشروع الأردوينو الخاص بي. مهندس محترف ومتمكن جداً من أدواته الإلكترونية."</p>
+        </div>
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <h3 id="tst2-user">استشاري تدريب (إدارة عابدين التعليمية)</h3>
+            <p id="tst2-text">"قدم زياد مادة تدريبية علمية ممتازة للطلاب في ندوة المدارس الذكية، يتمتع بأسلوب تبسيط رائع ومبهر رغم صغر سنه."</p>
+        </div>
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <h3 id="tst3-user">خالد ع. (طالب برمجيات)</h3>
+            <p id="tst3-text">"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."</p>
+        </div>
+    </div>
+</section>
+
+<section id="social-media">
+    <h2 id="sm-title">صفحات التواصل الاجتماعي</h2>
+    <div class="grid">
+        <a href="https://www.tiktok.com/@ziadai0?_r=1&_t=ZS-96ulPsCDlSv" class="card" target="_blank">
+            <h3 id="sm1-title">تيك توك (TikTok)</h3>
+            <p id="sm1-desc">تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.</p>
+        </a>
+        <a href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" class="card" target="_blank">
+            <h3 id="sm2-title">إنستغرام (Instagram)</h3>
+            <p id="sm2-desc">كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.</p>
+        </a>
+        <a href="https://www.facebook.com/share/1BDHiNGrks/" class="card" target="_blank">
+            <h3 id="sm3-title">فيسبوك (Facebook)</h3>
+            <p id="sm3-desc">تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.</p>
+        </a>
+    </div>
+</section>
+
 <section id="training">
-    <h2>الندوات والفعاليات (الجانب التدريبي)</h2>
+    <h2 id="t-title">الندوات والفعاليات (الجانب التدريبي)</h2>
     <div class="grid">
         <a href="https://www.facebook.com/share/p/1Cd435tnyT/" class="card" target="_blank">
-            <h3>الندوة التدريبية الأولى</h3>
-            <p>مشاركة الخبرات في مجال التحول الرقمي.</p>
+            <h3 id="t1-title">الندوة التدريبية الأولى</h3>
+            <p id="t1-desc">مشاركة الخبرات في مجال التحول الرقمي.</p>
         </a>
         <a href="https://www.facebook.com/share/p/1Dckqt3iBd/" class="card" target="_blank">
-            <h3>الندوة التدريبية الثالثة</h3>
-            <p>استراتيجيات التكنولوجيا الحديثة.</p>
+            <h3 id="t2-title">الندوة التدريبية الثالثة</h3>
+            <p id="t2-desc">استراتيجيات التكنولوجيا الحديثة.</p>
         </a>
         <a href="https://www.facebook.com/share/p/1D5kEzi9CX/" class="card" target="_blank">
-            <h3>الندوة التدريبية الرابعة</h3>
-            <p>ورشة عمل تفاعلية للطلاب.</p>
+            <h3 id="t3-title">الندوة التدريبية الرابعة</h3>
+            <p id="t3-desc">ورشة عمل تفاعلية للطلاب.</p>
         </a>
         <a href="https://www.facebook.com/share/p/1F64HBiFjW/" class="card" target="_blank">
-            <h3>مبادرة المدارس الذكية</h3>
-            <p>إدارة عابدين التعليمية - تطوير الفكر التقني.</p>
+            <h3 id="t4-title">مبادرة المدارس الذكية</h3>
+            <p id="t4-desc">إدارة عابدين التعليمية - تطوير الفكر التقني.</p>
         </a>
         <a href="https://www.facebook.com/share/p/1HzuNEBrqM/" class="card" target="_blank">
-            <h3>ورشة عمل تدريبية</h3>
-            <p>تدريب عملي مكثف على أدوات الابتكار.</p>
+            <h3 id="t5-title">ورشة عمل تدريبية</h3>
+            <p id="t5-desc">تدريب عملي مكثف على أدوات الابتكار.</p>
         </a>
     </div>
 </section>
 
 <section id="courses">
-    <h2>أكاديمية زياد التعليمية (YouTube)</h2>
+    <h2 id="c-title">أكاديمية زياد التعليمية (YouTube)</h2>
     <div class="grid">
         <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRvjcZF1eyLWsF9vNGk771me" class="card" target="_blank">
-            <h3>كورس Python</h3>
-            <p>تعلم لغة المستقبل من الصفر للاحتراف.</p>
+            <h3 id="c1-title">كورس Python</h3>
+            <p id="c1-desc">تعلم لغة المستقبل من الصفر للاحتراف.</p>
         </a>
         <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRupSwUWZhrH2aj8hDfbHlJ6" class="card" target="_blank">
-            <h3>كورس الإلكترونيات</h3>
-            <p>بناء الدوائر الكهربائية والأنظمة المدمجة.</p>
+            <h3 id="c2-title">كورس الإلكترونيات</h3>
+            <p id="c2-desc">بناء الدوائر الكهربائية والأنظمة المدمجة.</p>
         </a>
         <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRtaa-M6xLCL-Mb3ibWic_iN" class="card" target="_blank">
-            <h3>كورس الذكاء الاصطناعي</h3>
-            <p>فهم الخوارزميات وتطبيقات الـ AI.</p>
+            <h3 id="c3-title">كورس الذكاء الاصطناعي</h3>
+            <p id="c3-desc">فهم الخوارزميات وتطبيقات الـ AI.</p>
         </a>
         <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRsMCxS305ZNtrVIl4GUHQeX" class="card" target="_blank">
-            <h3>كورس الجرافيك ديزاين</h3>
-            <p>فن التصميم البصري الرقمي.</p>
+            <h3 id="c4-title">كورس الجرافيك ديزاين</h3>
+            <p id="c4-desc">فن التصميم البصري الرقمي.</p>
         </a>
     </div>
 </section>
 
 <section id="projects">
-    <h2>معرض المشاريع المبتكرة</h2>
+    <h2 id="p-title">معرض المشاريع المبتكرة</h2>
     <div class="grid">
         <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank">
-            <h3>روبوت الخدمة الذكي</h3>
-            <p>روبوت متطور بقدرات الملاحة الذاتية.</p>
+            <h3 id="p1-title">روبوت الخدمة الذكي</h3>
+            <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
         </a>
         <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank">
-            <h3>مشروع Morse Code</h3>
-            <p>ترجمة الإشارات فيزيائياً وبرمجياً.</p>
+            <h3 id="p2-title">مشروع Morse Code</h3>
+            <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
         </a>
         <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank">
-            <h3>مشروع Smart Home</h3>
-            <p>نظام أتمتة منزلية متكامل.</p>
+            <h3 id="p3-title">مشروع Smart Home</h3>
+            <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
         </a>
+    </div>
+</section>
+
+<section id="copyright">
+    <h2 id="cr-title">حقوق الملكية الفكرية وحماية المحتوى</h2>
+    <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid #30363d; line-height: 1.8;">
+        <h3 style="color: var(--main-color); margin-top: 0;" id="cr-sub">حقوق النشر والتأليف © 2026</h3>
+        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p1">
+            هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج <strong>زياد وليد (ziadai)</strong>. 
+        </p>
+        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p2">
+            يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.
+        </p>
     </div>
 </section>
 
 <section id="contact">
-    <div style="background: var(--card-bg); padding: 40px; border-radius: 20px; text-align: center;">
-        <h2>تواصل معي</h2>
-        <p>البريد الإلكتروني: ziadwaleed5454648hh@gmail.com</p>
-        <p>الهاتف: 01158357595</p>
-        <a href="mailto:ziadwaleed5454648hh@gmail.com" class="btn">أرسل رسالة الآن</a>
+    <div style="background: var(--card-bg); padding: 40px; border-radius: 20px;">
+        <h2 id="cnt-title" style="text-align: center;">تواصل معي</h2>
+        
+        <form action="https://formspree.io/f/xqeokbwy" method="POST" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" id="f-name" placeholder="الاسم الكريم" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="f-email" placeholder="بريدك الإلكتروني" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="f-msg" rows="5" placeholder="تفاصيل مشروعك أو رسالتك..." required></textarea>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn" id="f-btn">إرسال الرسالة برمجياً</button>
+            </div>
+        </form>
+        
+        <div style="text-align: center; margin-top: 30px; border-top: 1px solid #30363d; padding-top: 20px; color: #8b949e;">
+            <p>Email: ziadwaleed5454648hh@gmail.com | Phone: 01158357595</p>
+        </div>
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#00f2fe" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.2, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
+            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+        },
+        "retina_detect": true
+    });
+
     function toggleMenu() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
+    
     window.onclick = function(event) {
         if (!event.target.matches('.menu-btn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -306,11 +573,313 @@
             }
         }
     }
+
+    var mybutton = document.getElementById("scrollTopBtn");
+    window.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let currentLang = 'ar';
+    const langData = {
+        en: {
+            dir: 'ltr',
+            langBtn: 'العربية 🌐',
+            menuBtn: 'Menu ☰',
+            navAbout: 'About ziadai',
+            navBlog: '📜 Codes & Schematics',
+            navServices: 'Services (Khamsat)',
+            navSkills: 'Skills & Tech Stack',
+            navAchievements: 'Achievements',
+            navTestimonials: 'Reviews & Feedback',
+            navSocial: 'Social Media',
+            navTraining: 'Seminars',
+            navCourses: 'Courses',
+            navProjects: 'Projects',
+            navCopyright: 'Copyright',
+            navContact: 'Contact Me',
+            heroSubtitle: 'Tech Innovator • Smart Systems Programmer • Inventions Content Creator',
+            heroBtn: '📥 View Schematics & Source Codes',
+            sTitle: 'My Technical Services (Khamsat)',
+            s1Title: 'Professional Arduino & IoT Project Programming & Design with Circuit Diagram',
+            s1Desc: 'Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.',
+            s1Btn: 'Order Service on Khamsat',
+            s2Title: 'Consultation & Troubleshooting for Arduino & IoT Projects',
+            s2Desc: 'Reviewing and debugging source code, diagnosing hardware and connection errors in circuits, and providing complete technical consultations to optimize performance.',
+            s2Btn: 'Order Service on Khamsat',
+            s3Title: 'Virtual Arduino Circuit Design & Simulation via Tinkercad & Wokwi',
+            s3Desc: 'Building and testing virtual electronic circuits completely online to ensure programmatic and structural integrity before practical implementation.',
+            s3Btn: 'Order Service on Khamsat',
+            mainKhamsatBtn: '💼 Visit My Main Profile on Khamsat',
+            aTitle: 'About The Tech Innovator',
+            aDesc: 'I am Ziad Walid, an innovator and inventor in the tech field. I harnessed my passion to explore the horizons of Artificial Intelligence and Robotics. I am not just a programmer, but a solution maker and tech lecturer aiming to pass my expertise in building smart systems to the next generation.',
+            skTitle: 'Skills & Tech Stack',
+            acTitle: 'Digital Achievements & Initiatives',
+            ac1Title: 'Digital Egypt Pupils Initiative (DECA)',
+            ac1Desc: 'Joining the presidential scholarship and initiative specialized in preparing and developing young tech talents in advanced technology tracks.',
+            ac2Title: 'Build with AI: Egypt Edition',
+            ac2Desc: 'Active participation in Google\'s program for innovating and applying advanced AI solutions and exploring AI Vision technologies.',
+            ac3Title: 'Hack Club Arcade',
+            ac3Desc: 'Participating in global programming and engineering challenges to build innovative tech projects and share codes with the international developer community.',
+            tstTitle: 'Clients & Students Feedback',
+            tst1User: 'Ahmed M. (Khamsat Client)',
+            tst1Text: '"Incredible speed in detecting and debugging the source code of my Arduino project. A highly professional engineer who truly masters his tools."',
+            tst2User: 'Training Consultant (Abdeen Educational Admin.)',
+            tst2Text: '"Ziad delivered an outstanding educational lecture for students in the Smart Schools seminar. He has a brilliant ability to simplify complex topics despite his young age."',
+            tst3User: 'Khaled A. (Software Student)',
+            tst3Text: '"The YouTube courses combined with the schematics on the blog helped me immensely in building my first integrated home automation system."',
+            smTitle: 'Social Media Pages',
+            sm1Title: 'TikTok',
+            sm1Desc: 'Follow the latest short videos of inventions, project showcases, quick technical explanations, and practical experiments.',
+            sm2Title: 'Instagram',
+            sm2Desc: 'Behind the scenes of building robots, exclusive photos from inside the lab, engineering schematics, and daily updates on upcoming projects.',
+            sm3Title: 'Facebook',
+            sm3Desc: 'Broader social connection, detailed technical posts, sharing events and training seminars, and continuous scientific discussions.',
+            tTitle: 'Seminars & Events (Training Side)',
+            t1Title: 'First Training Seminar',
+            t1Desc: 'Sharing experiences in the field of digital transformation.',
+            t2Title: 'Third Training Seminar',
+            t2Desc: 'Modern technology strategies.',
+            t3Title: 'Fourth Training Seminar',
+            t3Desc: 'An interactive workshop for students.',
+            t4Title: 'Smart Schools Initiative',
+            t4Desc: 'Abdeen Educational Administration - Developing technical thinking.',
+            t5Title: 'Training Workshop',
+            t5Desc: 'Intensive practical training on innovation tools.',
+            cTitle: 'Ziad Educational Academy (YouTube)',
+            c1Title: 'Python Course',
+            c1Desc: 'Learn the language of the future from scratch to mastery.',
+            c2Title: 'Electronics Course',
+            c2Desc: 'Building electrical circuits and embedded systems.',
+            c3Title: 'AI Course',
+            c3Desc: 'Understanding algorithms and AI applications.',
+            c4Title: 'Graphic Design Course',
+            c4Desc: 'The art of digital visual design.',
+            pTitle: 'Innovative Projects Gallery',
+            p1Title: 'Smart Service Robot',
+            p1Desc: 'An advanced robot with autonomous navigation capabilities.',
+            p2Title: 'Morse Code Project',
+            p2Desc: 'Translating signals physically and programmatically.',
+            p3Title: 'Smart Home Project',
+            p3Desc: 'An integrated home automation system.',
+            crTitle: 'Intellectual Property & Content Protection',
+            crSub: 'Copyright © 2026',
+            crP1: 'This website, including interface designs, source code, texts, and introductory content, is the exclusive intellectual property of the innovator and programmer Ziad Walid (ziadai).',
+            crP2: 'It is strictly forbidden to copy, modify, or redistribute the source code of the site or any digital content displayed on it for commercial purposes without prior written permission. All innovations and projects shown are documented and protected under intellectual property laws.',
+            cntTitle: 'Contact Me',
+            fName: 'Your Name',
+            fEmail: 'Your Email',
+            fMsg: 'Your message or project details...',
+            fBtn: 'Send Message via System'
+        },
+        ar: {
+            dir: 'rtl',
+            langBtn: 'English 🌐',
+            menuBtn: 'القائمة ☰',
+            navAbout: 'عن ziadai',
+            navBlog: '📜 الأكواد والمخططات',
+            navServices: 'الخدمات (خمسات)',
+            navSkills: 'المهارات والتقنيات',
+            navAchievements: 'الإنجازات والمبادرات',
+            navTestimonials: 'آراء العملاء والطلاب',
+            navSocial: 'صفحات التواصل',
+            navTraining: 'الندوات',
+            navCourses: 'الكورسات',
+            navProjects: 'المشاريع',
+            navCopyright: 'حقوق الملكية',
+            navContact: 'تواصل معي',
+            heroSubtitle: 'مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات',
+            heroBtn: '📥 رؤية المخططات والأكواد البرمجية',
+            sTitle: 'خدماتي التقنية (خمسات)',
+            s1Title: 'برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل',
+            s1Desc: 'تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.',
+            s1Btn: 'طلب الخدمة من خمسات',
+            s2Title: 'استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT',
+            s2Desc: 'مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.',
+            s2Btn: 'طلب الخدمة من خمسات',
+            s3Title: 'تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi',
+            s3Desc: 'بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.',
+            s3Btn: 'طلب الخدمة من خمسات',
+            mainKhamsatBtn: '💼 زيارة حسابي الشخصي على خمسات',
+            aTitle: 'نبذة عن العبقرية التقنية',
+            aDesc: 'أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.',
+            skTitle: 'المهارات والتقنيات (Tech Stack)',
+            acTitle: 'الإنجازات والمبادرات الرقمية',
+            ac1Title: 'مبادرة أشبال مصر الرقمية (DECA)',
+            ac1Desc: 'الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.',
+            ac2Title: 'Build with AI: Egypt Edition',
+            ac2Desc: 'المشاركة الفعالة في برنامج جوجل لابتكار وتطبيق حلول الذكاء الاصطناعي المتقدمة واستكشاف خدمات وتقنيات الـ AI Vision.',
+            ac3Title: 'Hack Club Arcade',
+            ac3Desc: 'المشاركة في التحديات البرمجية والهندسية العالمية لبناء مشروعات تقنية مبتكرة ومشاركة الأكواد مع مجتمع المطورين الدولي.',
+            tstTitle: 'آراء العملاء والطلاب',
+            tst1User: 'أحمد م. (عميل خمسات)',
+            tst1Text: '"سرعة مذهلة في اكتشاف وتصحيح الكود المصدري لمشروع الأردوينو الخاص بي. مهندس محترف ومتمكن جداً من أدواته الإلكترونية."',
+            tst2User: 'استشاري تدريب (إدارة عابدين التعليمية)',
+            tst2Text: '"قدم زياد مادة تدريبية علمية ممتازة للطلاب في ندوة المدارس الذكية، يتمتع بأسلوب تبسيط رائع ومبهر رغم صغر سنه."',
+            tst3User: 'خالد ع. (طالب برمجيات)',
+            tst3Text: '"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."',
+            smTitle: 'صفحات التواصل الاجتماعي',
+            sm1Title: 'تيك توك (TikTok)',
+            sm1Desc: 'تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.',
+            sm2Title: 'إنستغرام (Instagram)',
+            sm2Desc: 'كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.',
+            sm3Title: 'فيسبوك (Facebook)',
+            sm3Desc: 'تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.',
+            tTitle: 'الندوات والفعاليات (الجانب التدريبي)',
+            t1Title: 'الندوة التدريبية الأولى',
+            t1Desc: 'مشاركة الخبرات في مجال التحول الرقمي.',
+            t2Title: 'الندوة التدريبية الثالثة',
+            t2Desc: 'استراتيجيات التكنولوجيا الحديثة.',
+            t3Title: 'الندوة التدريبية الرابعة',
+            t3Desc: 'ورشة عمل تفاعلية للطلاب.',
+            t4Title: 'مبادرة المدارس الذكية',
+            t4Desc: 'إدارة عابدين التعليمية - تطوير الفكر التقني.',
+            t5Title: 'ورشة عمل تدريبية',
+            t5Desc: 'تدريب عملي مكثف على أدوات الابتكار.',
+            cTitle: 'أكاديمية زياد التعليمية (YouTube)',
+            c1Title: 'كورس Python',
+            c1Desc: 'تعلم لغة المستقبل من الصفر للاحتراف.',
+            c2Title: 'كورس الإلكترونيات',
+            c2Desc: 'بناء الدوائر الكهربائية والأنظمة المدمجة.',
+            c3Title: 'كورس الذكاء الاصطناعي',
+            c3Desc: 'فهم الخوارزميات وتطبيقات الـ AI.',
+            c4Title: 'كورس الجرافيك ديزاين',
+            c4Desc: 'فن التصميم البصري الرقمي.',
+            pTitle: 'معرض المشاريع المبتكرة',
+            p1Title: 'روبوت الخدمة الذكي',
+            p1Desc: 'روبوت متطور بقدرات الملاحة الذاتية.',
+            p2Title: 'مشروع Morse Code',
+            p2Desc: 'ترجمة الإشارات فيزيائياً وبرمجياً.',
+            p3Title: 'مشروع Smart Home',
+            p3Desc: 'نظام أتمتة منزلية متكامل.',
+            crTitle: 'حقوق الملكية الفكرية وحماية المحتوى',
+            crSub: 'حقوق النشر والتأليف © 2026',
+            crP1: 'هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج زياد وليد (ziadai).',
+            crP2: 'يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.',
+            cntTitle: 'تواصل معي',
+            fName: 'الاسم الكريم',
+            fEmail: 'بريدك الإلكتروني',
+            fMsg: 'تفاصيل مشروعك أو رسالتك...',
+            fBtn: 'إرسال الرسالة برمجياً'
+        }
+    };
+
+    function toggleLang() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        const data = langData[currentLang];
+        
+        document.documentElement.dir = data.dir;
+        document.documentElement.lang = currentLang;
+        
+        document.getElementById('langBtn').innerText = data.langBtn;
+        document.getElementById('menuBtn').innerText = data.menuBtn;
+        
+        document.getElementById('nav-about').innerText = data.navAbout;
+        document.getElementById('nav-blog').innerText = data.navBlog;
+        document.getElementById('nav-services').innerText = data.navServices;
+        document.getElementById('nav-skills').innerText = data.navSkills;
+        document.getElementById('nav-achievements').innerText = data.navAchievements;
+        document.getElementById('nav-testimonials').innerText = data.navTestimonials;
+        document.getElementById('nav-social').innerText = data.navSocial;
+        document.getElementById('nav-training').innerText = data.navTraining;
+        document.getElementById('nav-courses').innerText = data.navCourses;
+        document.getElementById('nav-projects').innerText = data.navProjects;
+        document.getElementById('nav-copyright').innerText = data.navCopyright;
+        document.getElementById('nav-contact').innerText = data.navContact;
+        
+        document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
+        document.getElementById('hero-btn').innerText = data.heroBtn;
+        
+        document.getElementById('s-title').innerText = data.sTitle;
+        document.getElementById('s1-title').innerText = data.s1Title;
+        document.getElementById('s1-desc').innerText = data.s1Desc;
+        document.getElementById('s1-btn').innerText = data.s1Btn;
+        document.getElementById('s2-title').innerText = data.s2Title;
+        document.getElementById('s2-desc').innerText = data.s2Desc;
+        document.getElementById('s2-btn').innerText = data.s2Btn;
+        document.getElementById('s3-title').innerText = data.s3Title;
+        document.getElementById('s3-desc').innerText = data.s3Desc;
+        document.getElementById('s3-btn').innerText = data.s3Btn;
+        document.getElementById('main-khamsat-btn').innerText = data.mainKhamsatBtn;
+        
+        document.getElementById('a-title').innerText = data.aTitle;
+        document.getElementById('a-desc').innerText = data.aDesc;
+        document.getElementById('sk-title').innerText = data.skTitle;
+        
+        document.getElementById('ac-title').innerText = data.acTitle;
+        document.getElementById('ac1-title').innerText = data.ac1Title;
+        document.getElementById('ac1-desc').innerText = data.ac1Desc;
+        document.getElementById('ac2-title').innerText = data.ac2Title;
+        document.getElementById('ac2-desc').innerText = data.ac2Desc;
+        document.getElementById('ac3-title').innerText = data.navAchievements;
+        document.getElementById('ac3-desc').innerText = data.ac3Desc;
+        
+        document.getElementById('tst-title').innerText = data.tstTitle;
+        document.getElementById('tst1-user').innerText = data.tst1User;
+        document.getElementById('tst1-text').innerText = data.tst1Text;
+        document.getElementById('tst2-user').innerText = data.tst2User;
+        document.getElementById('tst2-text').innerText = data.tst2Text;
+        document.getElementById('tst3-user').innerText = data.tst3User;
+        document.getElementById('tst3-text').innerText = data.tst3Text;
+        
+        document.getElementById('sm-title').innerText = data.smTitle;
+        document.getElementById('sm1-title').innerText = data.sm1Title;
+        document.getElementById('sm1-desc').innerText = data.sm1Desc;
+        document.getElementById('sm2-title').innerText = data.sm2Title;
+        document.getElementById('sm2-desc').innerText = data.sm2Desc;
+        document.getElementById('sm3-title').innerText = data.sm3Title;
+        document.getElementById('sm3-desc').innerText = data.sm3Desc;
+        
+        document.getElementById('t-title').innerText = data.tTitle;
+        document.getElementById('t1-title').innerText = data.t1Title;
+        document.getElementById('t1-desc').innerText = data.t1Desc;
+        document.getElementById('t2-title').innerText = data.t2Title;
+        document.getElementById('t2-desc').innerText = data.t2Desc;
+        document.getElementById('t3-title').innerText = data.t3Title;
+        document.getElementById('t3-desc').innerText = data.t3Desc;
+        document.getElementById('t4-title').innerText = data.t4Title;
+        document.getElementById('t4-desc').innerText = data.t4Desc;
+        document.getElementById('t5-title').innerText = data.t5Title;
+        document.getElementById('t5-desc').innerText = data.t5Desc;
+        
+        document.getElementById('c-title').innerText = data.cTitle;
+        document.getElementById('c1-title').innerText = data.c1Title;
+        document.getElementById('c1-desc').innerText = data.c1Desc;
+        document.getElementById('c2-title').innerText = data.c2Title;
+        document.getElementById('c2-desc').innerText = data.c2Desc;
+        document.getElementById('c3-title').innerText = data.c3Title;
+        document.getElementById('c3-desc').innerText = data.c3Desc;
+        document.getElementById('c4-title').innerText = data.c4Title;
+        document.getElementById('c4-desc').innerText = data.c4Desc;
+        
+        document.getElementById('p-title').innerText = data.pTitle;
+        document.getElementById('p1-title').innerText = data.p1Title;
+        document.getElementById('p1-desc').innerText = data.p1Desc;
+        document.getElementById('p2-title').innerText = data.p2Title;
+        document.getElementById('p2-desc').innerText = data.p2Desc;
+        document.getElementById('p3-title').innerText = data.p3Title;
+        document.getElementById('p3-desc').innerText = data.p3Desc;
+        
+        document.getElementById('cr-title').innerText = data.crTitle;
+        document.getElementById('cr-sub').innerText = data.crSub;
+        document.getElementById('cr-p1').innerText = data.crP1;
+        document.getElementById('cr-p2').innerText = data.crP2;
+        
+        document.getElementById('cnt-title').innerText = data.cntTitle;
+        document.getElementById('f-name').placeholder = data.fName;
+        document.getElementById('f-email').placeholder = data.fEmail;
+        document.getElementById('f-msg').placeholder = data.fMsg;
+        document.getElementById('f-btn').innerText = data.fBtn;
+    }
 </script>
-
-<footer style="text-align: center; padding: 20px; color: #8b949e;">
-    <p>تم تطويره بواسطة ziadai - جميع الحقوق محفوظة 2026</p>
-</footer>
-
 </body>
 </html>
