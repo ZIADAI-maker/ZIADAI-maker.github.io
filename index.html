@@ -204,6 +204,47 @@
             transform: scale(1.02);
         }
 
+        /* أزرار طلب الخدمة المتعددة (خمسات / نفذلي / كفيل) */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-sm {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            background: var(--main-color);
+            color: black;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-sm:hover {
+            box-shadow: 0 0 15px var(--main-color);
+            transform: scale(1.03);
+        }
+
+        .btn-sm.btn-alt {
+            background: transparent;
+            border: 2px solid var(--main-color);
+            color: var(--main-color);
+        }
+
+        .btn-sm.btn-alt2 {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -336,20 +377,76 @@
         <div class="card">
             <h3 id="s1-title">برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل</h3>
             <p id="s1-desc">تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.</p>
-            <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" class="btn" id="s1-btn">طلب الخدمة من خمسات</a>
+            <div class="btn-group">
+                <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" class="btn-sm" id="s1-btn">طلب الخدمة من خمسات</a>
+                <a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88-esp32" target="_blank" class="btn-sm btn-alt" id="s1-btn2">طلب الخدمة من كفيل</a>
+            </div>
         </div>
         <div class="card">
             <h3 id="s2-title">استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT</h3>
             <p id="s2-desc">مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.</p>
-            <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" class="btn" id="s2-btn">طلب الخدمة من خمسات</a>
+            <div class="btn-group">
+                <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" class="btn-sm" id="s2-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75738-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-ESP32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm btn-alt" id="s2-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" target="_blank" class="btn-sm btn-alt2" id="s2-btn3">طلب الخدمة من كفيل</a>
+            </div>
         </div>
         <div class="card">
             <h3 id="s3-title">تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi</h3>
             <p id="s3-desc">بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.</p>
-            <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" class="btn" id="s3-btn">طلب الخدمة من خمسات</a>
+            <div class="btn-group">
+                <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" class="btn-sm" id="s3-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" target="_blank" class="btn-sm btn-alt" id="s3-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" target="_blank" class="btn-sm btn-alt2" id="s3-btn3">طلب الخدمة من كفيل</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s4-title">ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد</h3>
+            <p id="s4-desc">تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.</p>
+            <div class="btn-group">
+                <a href="https://khamsat.com/engineering/embedded-systems/4324499-%D8%B1%D8%A8%D8%B7-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1iot-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D9%84%D9%88%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85" target="_blank" class="btn-sm" id="s4-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75379-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm btn-alt" id="s4-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222011-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-iot" target="_blank" class="btn-sm btn-alt2" id="s4-btn3">طلب الخدمة من كفيل</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s5-title">تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج</h3>
+            <p id="s5-desc">إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.</p>
+            <div class="btn-group">
+                <a href="https://nafezly.com/service/75733-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC" target="_blank" class="btn-sm" id="s5-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222392-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-canvapowerpoint-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87" target="_blank" class="btn-sm btn-alt" id="s5-btn2">طلب الخدمة من كفيل</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s6-title">تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)</h3>
+            <p id="s6-desc">بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.</p>
+            <div class="btn-group">
+                <a href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm" id="s6-btn">طلب الخدمة من نفذلي</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s7-title">تصميم وأتمتة أنظمة المزارع والصوبات الذكية (Smart Farming)</h3>
+            <p id="s7-desc">تطوير أنظمة زراعية ذكية تعتمد على أجهزة استشعار وإنترنت الأشياء لمراقبة وأتمتة الري والتهوية والرطوبة تلقائياً.</p>
+            <div class="btn-group">
+                <a href="https://nafezly.com/service/76173-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%B5%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Farming-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D9%80-IoT" target="_blank" class="btn-sm" id="s7-btn">طلب الخدمة من نفذلي</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s8-title">تصميم ومحاكاة وبرمجة الأذرع والأيدي الروبوتية (Robotic Arms)</h3>
+            <p id="s8-desc">تصميم وبرمجة أذرع روبوتية وظيفية بمحركات السيرفو وأنظمة تحكم دقيقة تناسب مشاريع التخرج والتطبيقات الصناعية.</p>
+            <div class="btn-group">
+                <a href="https://nafezly.com/service/76172-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D8%8C-%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D8%A3%D8%B0%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%A3%D9%8A%D8%AF%D9%8A-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D9%8A%D8%A9-Robotic-Arms---" target="_blank" class="btn-sm" id="s8-btn">طلب الخدمة من نفذلي</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3 id="s9-title">تصميم مجسمات وهياكل الروبوتات ومشاريع التخرج 3D (SolidWorks/Fusion 360)</h3>
+            <p id="s9-desc">تصميم نماذج ثلاثية الأبعاد احترافية لهياكل الروبوتات ومكونات مشاريع التخرج باستخدام برامج SolidWorks وFusion 360 جاهزة للطباعة أو التصنيع.</p>
+            <div class="btn-group">
+                <a href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%85%D8%AC%D8%B3%D9%85%D8%A7%D8%AA-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" target="_blank" class="btn-sm" id="s9-btn">طلب الخدمة من نفذلي</a>
+            </div>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 40px;">
+    <div style="text-align: center; margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
         <a href="https://khamsat.com/user/zw_2503_o8bx" target="_blank" class="btn" id="main-khamsat-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">💼 زيارة حسابي الشخصي على خمسات</a>
     </div>
 </section>
@@ -613,12 +710,38 @@
             s1Title: 'Professional Arduino & IoT Project Programming & Design with Circuit Diagram',
             s1Desc: 'Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.',
             s1Btn: 'Order Service on Khamsat',
+            s1Btn2: 'Order Service on Kafiil',
             s2Title: 'Consultation & Troubleshooting for Arduino & IoT Projects',
             s2Desc: 'Reviewing and debugging source code, diagnosing hardware and connection errors in circuits, and providing complete technical consultations to optimize performance.',
             s2Btn: 'Order Service on Khamsat',
+            s2Btn2: 'Order Service on Nafezly',
+            s2Btn3: 'Order Service on Kafiil',
             s3Title: 'Virtual Arduino Circuit Design & Simulation via Tinkercad & Wokwi',
             s3Desc: 'Building and testing virtual electronic circuits completely online to ensure programmatic and structural integrity before practical implementation.',
             s3Btn: 'Order Service on Khamsat',
+            s3Btn2: 'Order Service on Nafezly',
+            s3Btn3: 'Order Service on Kafiil',
+            s4Title: 'Connecting & Deploying IoT Projects Online with Remote Control',
+            s4Desc: 'Designing and building fully integrated embedded systems connected to the internet, letting you monitor and control your project from anywhere via dashboards and dedicated apps.',
+            s4Btn: 'Order Service on Khamsat',
+            s4Btn2: 'Order Service on Nafezly',
+            s4Btn3: 'Order Service on Kafiil',
+            s5Title: 'Professional Presentation Design (Canva/PowerPoint) for Graduation Projects',
+            s5Desc: 'Preparing a distinctive, professional presentation to showcase your graduation or engineering project in an attractive and organized way, highlighting all its technical and scientific details.',
+            s5Btn: 'Order Service on Nafezly',
+            s5Btn2: 'Order Service on Kafiil',
+            s6Title: 'Design & Engineering of Integrated Smart Home Systems',
+            s6Desc: 'Building and programming a fully integrated smart home system based on the Internet of Things to remotely control lighting, appliances, and security.',
+            s6Btn: 'Order Service on Nafezly',
+            s7Title: 'Design & Automation of Smart Farming Systems',
+            s7Desc: 'Developing smart agricultural systems based on sensors and IoT to automatically monitor and automate irrigation, ventilation, and humidity.',
+            s7Btn: 'Order Service on Nafezly',
+            s8Title: 'Design, Simulation & Programming of Robotic Arms',
+            s8Desc: 'Designing and programming functional robotic arms with servo motors and precise control systems, suitable for graduation projects and industrial applications.',
+            s8Btn: 'Order Service on Nafezly',
+            s9Title: '3D Robot Models & Graduation Project Structures (SolidWorks/Fusion 360)',
+            s9Desc: 'Designing professional 3D models for robot structures and graduation project components using SolidWorks and Fusion 360, ready for printing or manufacturing.',
+            s9Btn: 'Order Service on Nafezly',
             mainKhamsatBtn: '💼 Visit My Main Profile on Khamsat',
             aTitle: 'About The Tech Innovator',
             aDesc: 'I am Ziad Walid, an innovator and inventor in the tech field. I harnessed my passion to explore the horizons of Artificial Intelligence and Robotics. I am not just a programmer, but a solution maker and tech lecturer aiming to pass my expertise in building smart systems to the next generation.',
@@ -703,12 +826,38 @@
             s1Title: 'برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل',
             s1Desc: 'تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.',
             s1Btn: 'طلب الخدمة من خمسات',
+            s1Btn2: 'طلب الخدمة من كفيل',
             s2Title: 'استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT',
             s2Desc: 'مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.',
             s2Btn: 'طلب الخدمة من خمسات',
+            s2Btn2: 'طلب الخدمة من نفذلي',
+            s2Btn3: 'طلب الخدمة من كفيل',
             s3Title: 'تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi',
             s3Desc: 'بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.',
             s3Btn: 'طلب الخدمة من خمسات',
+            s3Btn2: 'طلب الخدمة من نفذلي',
+            s3Btn3: 'طلب الخدمة من كفيل',
+            s4Title: 'ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد',
+            s4Desc: 'تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.',
+            s4Btn: 'طلب الخدمة من خمسات',
+            s4Btn2: 'طلب الخدمة من نفذلي',
+            s4Btn3: 'طلب الخدمة من كفيل',
+            s5Title: 'تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج',
+            s5Desc: 'إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.',
+            s5Btn: 'طلب الخدمة من نفذلي',
+            s5Btn2: 'طلب الخدمة من كفيل',
+            s6Title: 'تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)',
+            s6Desc: 'بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.',
+            s6Btn: 'طلب الخدمة من نفذلي',
+            s7Title: 'تصميم وأتمتة أنظمة المزارع والصوبات الذكية (Smart Farming)',
+            s7Desc: 'تطوير أنظمة زراعية ذكية تعتمد على أجهزة استشعار وإنترنت الأشياء لمراقبة وأتمتة الري والتهوية والرطوبة تلقائياً.',
+            s7Btn: 'طلب الخدمة من نفذلي',
+            s8Title: 'تصميم ومحاكاة وبرمجة الأذرع والأيدي الروبوتية (Robotic Arms)',
+            s8Desc: 'تصميم وبرمجة أذرع روبوتية وظيفية بمحركات السيرفو وأنظمة تحكم دقيقة تناسب مشاريع التخرج والتطبيقات الصناعية.',
+            s8Btn: 'طلب الخدمة من نفذلي',
+            s9Title: 'تصميم مجسمات وهياكل الروبوتات ومشاريع التخرج 3D (SolidWorks/Fusion 360)',
+            s9Desc: 'تصميم نماذج ثلاثية الأبعاد احترافية لهياكل الروبوتات ومكونات مشاريع التخرج باستخدام برامج SolidWorks وFusion 360 جاهزة للطباعة أو التصنيع.',
+            s9Btn: 'طلب الخدمة من نفذلي',
             mainKhamsatBtn: '💼 زيارة حسابي الشخصي على خمسات',
             aTitle: 'نبذة عن العبقرية التقنية',
             aDesc: 'أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.',
@@ -803,12 +952,38 @@
         document.getElementById('s1-title').innerText = data.s1Title;
         document.getElementById('s1-desc').innerText = data.s1Desc;
         document.getElementById('s1-btn').innerText = data.s1Btn;
+        document.getElementById('s1-btn2').innerText = data.s1Btn2;
         document.getElementById('s2-title').innerText = data.s2Title;
         document.getElementById('s2-desc').innerText = data.s2Desc;
         document.getElementById('s2-btn').innerText = data.s2Btn;
+        document.getElementById('s2-btn2').innerText = data.s2Btn2;
+        document.getElementById('s2-btn3').innerText = data.s2Btn3;
         document.getElementById('s3-title').innerText = data.s3Title;
         document.getElementById('s3-desc').innerText = data.s3Desc;
         document.getElementById('s3-btn').innerText = data.s3Btn;
+        document.getElementById('s3-btn2').innerText = data.s3Btn2;
+        document.getElementById('s3-btn3').innerText = data.s3Btn3;
+        document.getElementById('s4-title').innerText = data.s4Title;
+        document.getElementById('s4-desc').innerText = data.s4Desc;
+        document.getElementById('s4-btn').innerText = data.s4Btn;
+        document.getElementById('s4-btn2').innerText = data.s4Btn2;
+        document.getElementById('s4-btn3').innerText = data.s4Btn3;
+        document.getElementById('s5-title').innerText = data.s5Title;
+        document.getElementById('s5-desc').innerText = data.s5Desc;
+        document.getElementById('s5-btn').innerText = data.s5Btn;
+        document.getElementById('s5-btn2').innerText = data.s5Btn2;
+        document.getElementById('s6-title').innerText = data.s6Title;
+        document.getElementById('s6-desc').innerText = data.s6Desc;
+        document.getElementById('s6-btn').innerText = data.s6Btn;
+        document.getElementById('s7-title').innerText = data.s7Title;
+        document.getElementById('s7-desc').innerText = data.s7Desc;
+        document.getElementById('s7-btn').innerText = data.s7Btn;
+        document.getElementById('s8-title').innerText = data.s8Title;
+        document.getElementById('s8-desc').innerText = data.s8Desc;
+        document.getElementById('s8-btn').innerText = data.s8Btn;
+        document.getElementById('s9-title').innerText = data.s9Title;
+        document.getElementById('s9-desc').innerText = data.s9Desc;
+        document.getElementById('s9-btn').innerText = data.s9Btn;
         document.getElementById('main-khamsat-btn').innerText = data.mainKhamsatBtn;
         
         document.getElementById('a-title').innerText = data.aTitle;
