@@ -6,8 +6,32 @@
     <title>ziadai | زياد وليد - خبير التكنولوجيا والاختراعات</title>
     <meta name="description" content="الموقع الرسمي لـ ziadai (زياد وليد) - مبتكر تقني متخصص في البرمجة، الروبوتات، والحلول الذكية.">
     <meta name="keywords" content="ziadai, ziad ai, زياد وليد, اختراعات, تكنولوجيا, مبرمج, روبوتات, Arduino, ESP32, ذكاء اصطناعي">
-    
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="زياد وليد (ziadai)">
+    <meta name="theme-color" content="#0a0b10">
+    <link rel="canonical" href="https://ziadai-maker.github.io/">
+
+    <!-- Open Graph / social sharing preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ziadai | زياد وليد - خبير التكنولوجيا والاختراعات">
+    <meta property="og:description" content="مبتكر تقني متخصص في البرمجة، الروبوتات، وإنترنت الأشياء (IoT). شاهد مشاريعي وخدماتي التقنية.">
+    <meta property="og:url" content="https://ziadai-maker.github.io/">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:image" content="https://ziadai-maker.github.io/assets/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ziadai | زياد وليد - خبير التكنولوجيا والاختراعات">
+    <meta name="twitter:description" content="مبتكر تقني متخصص في البرمجة، الروبوتات، وإنترنت الأشياء (IoT).">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0b10'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Arial, sans-serif' font-weight='900' fill='%2300f2fe' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- تحميل مكتبة Particles بشكل غير متزامن لتحسين الأداء -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    
     <style>
         :root {
             --main-color: #00f2fe;
@@ -15,6 +39,8 @@
             --bg-dark: #0a0b10;
             --card-bg: #161b22;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Cairo', sans-serif;
@@ -26,7 +52,20 @@
             scroll-behavior: smooth;
         }
 
-        /* كانفاس الجزيئات التفاعلية */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--main-color);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         #particles-js {
             position: fixed;
             top: 0;
@@ -37,7 +76,6 @@
             background: radial-gradient(circle at 50% 50%, #0d1117 0%, #0a0b10 100%);
         }
 
-        /* أزرار التحكم العلوي */
         .top-controls {
             position: fixed;
             top: 20px;
@@ -77,6 +115,8 @@
             top: 50px;
             background-color: var(--card-bg);
             min-width: 220px;
+            max-height: 70vh;
+            overflow-y: auto;
             border-radius: 10px;
             border: 1px solid #30363d;
             box-shadow: 0 8px 16px rgba(0,0,0,0.5);
@@ -95,30 +135,39 @@
             border-bottom: 1px solid #30363d;
         }
 
-        .dropdown-content a:hover {
+        .dropdown-content a:hover, .dropdown-content a:focus-visible {
             background-color: var(--main-color);
             color: black;
         }
 
         .show { display: block; }
 
+        section, header {
+            scroll-margin-top: 90px;
+        }
+
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 40px 5%;
             background: linear-gradient(to bottom, rgba(10,11,16,0.4), var(--bg-dark));
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: clamp(2.2rem, 7vw, 4rem);
             font-weight: 900;
             margin-bottom: 10px;
             background: linear-gradient(to right, var(--main-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
         }
 
         .hero-blog-btn {
@@ -149,7 +198,7 @@
             border-right: 5px solid var(--main-color);
             padding-right: 15px;
             font-size: 2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         html[dir="ltr"] h2 {
@@ -157,6 +206,34 @@
             border-left: 5px solid var(--main-color);
             padding-right: 0;
             padding-left: 15px;
+        }
+
+        /* أزرار فلترة الخدمات */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--main-color);
+            color: black;
+            border-color: var(--main-color);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
         }
 
         .grid {
@@ -184,6 +261,60 @@
 
         .card h3 { color: var(--main-color); margin-top: 0; }
 
+        /* تنسيقات عرض بطاقات الشهادات */
+        .cert-card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cert-img {
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: 0.3s;
+        }
+
+        .cert-card:hover .cert-img {
+            transform: scale(1.03);
+            border-color: var(--main-color);
+        }
+
+        /* بطاقات المشاريع مع المعاينة */
+        .project-card {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumb {
+            width: 100%;
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            text-shadow: 0 0 15px rgba(0,242,254,0.8);
+            transition: 0.3s;
+        }
+
+        .project-card:hover .play-icon {
+            transform: scale(1.2);
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -204,7 +335,6 @@
             transform: scale(1.02);
         }
 
-        /* أزرار طلب الخدمة المتعددة (خمسات / نفذلي / كفيل) */
         .btn-group {
             display: flex;
             flex-wrap: wrap;
@@ -268,7 +398,6 @@
             transform: scale(1.05);
         }
 
-        /* تنسيقات استمارة الاتصال */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -278,9 +407,7 @@
             text-align: right;
         }
 
-        html[dir="ltr"] .contact-form {
-            text-align: left;
-        }
+        html[dir="ltr"] .contact-form { text-align: left; }
 
         .form-group input, .form-group textarea {
             width: 100%;
@@ -300,7 +427,6 @@
             box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
         }
 
-        /* تقييمات العملاء */
         .stars {
             color: #ffc107;
             margin-bottom: 10px;
@@ -336,22 +462,156 @@
             box-shadow: 0 0 20px var(--main-color);
             transform: translateY(-5px);
         }
+
+        /* Floating CTA للهواتف الذكية */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(22, 27, 34, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--main-color);
+            padding: 10px 15px;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+        }
+
+        .mobile-cta-inner {
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+        }
+
+        .mobile-cta-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .mobile-cta-primary {
+            background: var(--main-color);
+            color: black;
+        }
+
+        .mobile-cta-secondary {
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+        }
+
+        /* Modal النافذة المنبثقة لفيديو المشاريع */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--main-color);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        html[dir="ltr"] .close-modal {
+            right: auto;
+            left: 15px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-direct {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #30363d;
+            padding-top: 20px;
+            color: #8b949e;
+        }
+
+        .contact-direct a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 50px 6%; }
+            h2 { font-size: 1.5rem; }
+            .top-controls { top: 12px; }
+            .menu-btn, .lang-btn { padding: 8px 12px; font-size: 0.85rem; }
+            .btn-group { gap: 8px; }
+            .btn-sm { padding: 8px 14px; font-size: 0.78rem; }
+            .mobile-cta { display: block; }
+            body { padding-bottom: 60px; }
+            #scrollTopBtn { bottom: 75px; }
+        }
     </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
+<div id="particles-js" aria-hidden="true"></div>
 
-<button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى">▲</button>
+<button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى" aria-label="العودة لأعلى الصفحة">▲</button>
+
+<!-- Sticky Mobile CTA -->
+<div class="mobile-cta">
+    <div class="mobile-cta-inner">
+        <a href="#services" class="mobile-cta-btn mobile-cta-primary" id="m-cta-1">🛠️ طلب خدمة</a>
+        <a href="#contact" class="mobile-cta-btn mobile-cta-secondary" id="m-cta-2">📩 تواصل مباشر</a>
+    </div>
+</div>
 
 <div class="top-controls">
-    <button onclick="toggleLang()" class="lang-btn" id="langBtn">English 🌐</button>
-    <button onclick="toggleMenu()" class="menu-btn" id="menuBtn">القائمة ☰</button>
-    <div id="myDropdown" class="dropdown-content">
+    <button onclick="toggleLang()" class="lang-btn" id="langBtn" aria-label="Switch language">English 🌐</button>
+    <button onclick="toggleMenu()" class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-controls="myDropdown">القائمة ☰</button>
+    <nav id="myDropdown" class="dropdown-content" aria-label="التنقل الرئيسي">
         <a href="#about" id="nav-about">عن ziadai</a>
-        <a href="https://ziadai-maker.blogspot.com/" target="_blank" style="color: var(--main-color); font-weight: bold;" id="nav-blog">📜 الأكواد والمخططات</a>
+        <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" style="color: var(--main-color); font-weight: bold;" id="nav-blog">📜 الأكواد والمخططات</a>
         <a href="#services" id="nav-services">الخدمات (خمسات)</a>
         <a href="#skills" id="nav-skills">المهارات والتقنيات</a>
+        <a href="#certificates" id="nav-certificates">الشهادات والاعتماد</a>
         <a href="#achievements" id="nav-achievements">الإنجازات والمبادرات</a>
         <a href="#testimonials" id="nav-testimonials">آراء العملاء والطلاب</a>
         <a href="#social-media" id="nav-social">صفحات التواصل</a>
@@ -360,94 +620,103 @@
         <a href="#projects" id="nav-projects">المشاريع</a>
         <a href="#copyright" id="nav-copyright">حقوق الملكية</a>
         <a href="#contact" id="nav-contact">تواصل معي</a>
-    </div>
+    </nav>
 </div>
 
 <header>
     <h1 class="hero-title">ziadai | زياد وليد</h1>
-    <p style="font-size: 1.5rem;" id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
-    <a href="https://ziadai-maker.blogspot.com/" target="_blank" class="hero-blog-btn" id="hero-btn">
+    <p id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
+    <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" class="hero-blog-btn" id="hero-btn">
         📥 رؤية المخططات والأكواد البرمجية
     </a>
 </header>
 
 <section id="services">
     <h2 id="s-title">خدماتي التقنية (خمسات)</h2>
-    <div class="grid">
-        <div class="card">
+    
+    <!-- أزرار تصفية الخدمات -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterServices('all')" id="flt-all">الكل</button>
+        <button class="filter-btn" onclick="filterServices('iot')" id="flt-iot">إلكترونيات & IoT</button>
+        <button class="filter-btn" onclick="filterServices('robotics')" id="flt-robot">تصميم 3D & روبوتات</button>
+        <button class="filter-btn" onclick="filterServices('other')" id="flt-other">عروض & استشارات</button>
+    </div>
+
+    <div class="grid" id="services-grid">
+        <div class="card service-item" data-category="iot">
             <h3 id="s1-title">برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل</h3>
             <p id="s1-desc">تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.</p>
             <div class="btn-group">
-                <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" class="btn-sm" id="s1-btn">طلب الخدمة من خمسات</a>
-                <a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88-esp32" target="_blank" class="btn-sm btn-alt" id="s1-btn2">طلب الخدمة من كفيل</a>
+                <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" rel="noopener" class="btn-sm" id="s1-btn">طلب الخدمة من خمسات</a>
+                <a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%8BD-%D9%88-esp32" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s1-btn2">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="other">
             <h3 id="s2-title">استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT</h3>
             <p id="s2-desc">مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.</p>
             <div class="btn-group">
-                <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" class="btn-sm" id="s2-btn">طلب الخدمة من خمسات</a>
-                <a href="https://nafezly.com/service/75738-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-ESP32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm btn-alt" id="s2-btn2">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" target="_blank" class="btn-sm btn-alt2" id="s2-btn3">طلب الخدمة من كفيل</a>
+                <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" rel="noopener" class="btn-sm" id="s2-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75738-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-ESP32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s2-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s2-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="iot">
             <h3 id="s3-title">تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi</h3>
             <p id="s3-desc">بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.</p>
             <div class="btn-group">
-                <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" class="btn-sm" id="s3-btn">طلب الخدمة من خمسات</a>
-                <a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" target="_blank" class="btn-sm btn-alt" id="s3-btn2">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" target="_blank" class="btn-sm btn-alt2" id="s3-btn3">طلب الخدمة من كفيل</a>
+                <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" rel="noopener" class="btn-sm" id="s3-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A1%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s3-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A1%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s3-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="iot">
             <h3 id="s4-title">ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد</h3>
             <p id="s4-desc">تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.</p>
             <div class="btn-group">
-                <a href="https://khamsat.com/engineering/embedded-systems/4324499-%D8%B1%D8%A8%D8%B7-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1iot-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D9%84%D9%88%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85" target="_blank" class="btn-sm" id="s4-btn">طلب الخدمة من خمسات</a>
-                <a href="https://nafezly.com/service/75379-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm btn-alt" id="s4-btn2">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222011-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-iot" target="_blank" class="btn-sm btn-alt2" id="s4-btn3">طلب الخدمة من كفيل</a>
+                <a href="https://khamsat.com/engineering/embedded-systems/4324499-%D8%B1%D8%A8%D8%B7-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1iot-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D9%84%D9%88%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85" target="_blank" rel="noopener" class="btn-sm" id="s4-btn">طلب الخدمة من خمسات</a>
+                <a href="https://nafezly.com/service/75379-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s4-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222011-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-iot" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s4-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="other">
             <h3 id="s5-title">تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج</h3>
             <p id="s5-desc">إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/75733-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC" target="_blank" class="btn-sm" id="s5-btn">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222392-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-canvapowerpoint-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87" target="_blank" class="btn-sm btn-alt" id="s5-btn2">طلب الخدمة من كفيل</a>
+                <a href="https://nafezly.com/service/75733-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC" target="_blank" rel="noopener" class="btn-sm" id="s5-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222392-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-canvapowerpoint-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s5-btn2">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="iot">
             <h3 id="s6-title">تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)</h3>
             <p id="s6-desc">بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" class="btn-sm" id="s6-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%8BD%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm" id="s6-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="iot">
             <h3 id="s7-title">تصميم وأتمتة أنظمة المزارع والصوبات الذكية (Smart Farming)</h3>
             <p id="s7-desc">تطوير أنظمة زراعية ذكية تعتمد على أجهزة استشعار وإنترنت الأشياء لمراقبة وأتمتة الري والتهوية والرطوبة تلقائياً.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/76173-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%B5%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Farming-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D9%80-IoT" target="_blank" class="btn-sm" id="s7-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/76173-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%B5%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Farming-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D9%80-IoT" target="_blank" rel="noopener" class="btn-sm" id="s7-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="robotics">
             <h3 id="s8-title">تصميم ومحاكاة وبرمجة الأذرع والأيدي الروبوتية (Robotic Arms)</h3>
             <p id="s8-desc">تصميم وبرمجة أذرع روبوتية وظيفية بمحركات السيرفو وأنظمة تحكم دقيقة تناسب مشاريع التخرج والتطبيقات الصناعية.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/76172-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D8%8C-%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D8%A3%D8%B0%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%A3%D9%8A%D8%AF%D9%8A-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D9%8A%D8%A9-Robotic-Arms---" target="_blank" class="btn-sm" id="s8-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/76172-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D8%8C-%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D8%A3%D8%B0%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%A3%D9%8A%D8%AF%D9%8A-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D9%8A%D8%A9-Robotic-Arms---" target="_blank" rel="noopener" class="btn-sm" id="s8-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card service-item" data-category="robotics">
             <h3 id="s9-title">تصميم مجسمات وهياكل الروبوتات ومشاريع التخرج 3D (SolidWorks/Fusion 360)</h3>
             <p id="s9-desc">تصميم نماذج ثلاثية الأبعاد احترافية لهياكل الروبوتات ومكونات مشاريع التخرج باستخدام برامج SolidWorks وFusion 360 جاهزة للطباعة أو التصنيع.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%85%D8%AC%D8%B3%D9%85%D8%A7%D8%AA-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" target="_blank" class="btn-sm" id="s9-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%85%D8%AC%D8%B3%D9%85%D8%A7%D8%AA-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" target="_blank" rel="noopener" class="btn-sm" id="s9-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
     </div>
     <div style="text-align: center; margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-        <a href="https://khamsat.com/user/zw_2503_o8bx" target="_blank" class="btn" id="main-khamsat-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">💼 زيارة حسابي الشخصي على خمسات</a>
+        <a href="https://khamsat.com/user/zw_2503_o8bx" target="_blank" rel="noopener" class="btn" id="main-khamsat-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">💼 زيارة حسابي الشخصي على خمسات</a>
     </div>
 </section>
 
@@ -474,6 +743,55 @@
     </div>
 </section>
 
+<!-- قسم الشهادات الجديدة -->
+<section id="certificates">
+    <h2 id="cert-title">الشهادات والاعتمادات</h2>
+    <div class="grid">
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM.jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM.jpeg" alt="شهادة معتمدة 1" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert1-title" style="margin-top: 15px;">شهادة معتمدة 1</h3>
+            <p id="cert1-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM (1).jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM (1).jpeg" alt="شهادة معتمدة 2" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert2-title" style="margin-top: 15px;">شهادة معتمدة 2</h3>
+            <p id="cert2-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM (2).jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM (2).jpeg" alt="شهادة معتمدة 3" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert3-title" style="margin-top: 15px;">شهادة معتمدة 3</h3>
+            <p id="cert3-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM (3).jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM (3).jpeg" alt="شهادة معتمدة 4" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert4-title" style="margin-top: 15px;">شهادة معتمدة 4</h3>
+            <p id="cert4-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM (4).jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM (4).jpeg" alt="شهادة معتمدة 5" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert5-title" style="margin-top: 15px;">شهادة معتمدة 5</h3>
+            <p id="cert5-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+        <div class="card cert-card">
+            <a href="WhatsApp Image 2026-08-10 at 4.56.16 AM (5).jpeg" target="_blank">
+                <img src="WhatsApp Image 2026-08-10 at 4.56.16 AM (5).jpeg" alt="شهادة معتمدة 6" class="cert-img" loading="lazy">
+            </a>
+            <h3 id="cert6-title" style="margin-top: 15px;">شهادة معتمدة 6</h3>
+            <p id="cert6-desc">توثيق رسمي للإنجاز والخبرة التقنية.</p>
+        </div>
+    </div>
+</section>
+
 <section id="achievements">
     <h2 id="ac-title">الإنجازات والمبادرات الرقمية</h2>
     <div class="grid">
@@ -496,17 +814,17 @@
     <h2 id="tst-title">آراء العملاء والطلاب</h2>
     <div class="grid">
         <div class="card">
-            <div class="stars">★★★★★</div>
+            <div class="stars" aria-label="تقييم 5 من 5 نجوم">★★★★★</div>
             <h3 id="tst1-user">أحمد م. (عميل خمسات)</h3>
             <p id="tst1-text">"سرعة مذهلة في اكتشاف وتصحيح الكود المصدري لمشروع الأردوينو الخاص بي. مهندس محترف ومتمكن جداً من أدواته الإلكترونية."</p>
         </div>
         <div class="card">
-            <div class="stars">★★★★★</div>
+            <div class="stars" aria-label="تقييم 5 من 5 نجوم">★★★★★</div>
             <h3 id="tst2-user">استشاري تدريب (إدارة عابدين التعليمية)</h3>
             <p id="tst2-text">"قدم زياد مادة تدريبية علمية ممتازة للطلاب في ندوة المدارس الذكية، يتمتع بأسلوب تبسيط رائع ومبهر رغم صغر سنه."</p>
         </div>
         <div class="card">
-            <div class="stars">★★★★★</div>
+            <div class="stars" aria-label="تقييم 5 من 5 نجوم">★★★★★</div>
             <h3 id="tst3-user">خالد ع. (طالب برمجيات)</h3>
             <p id="tst3-text">"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."</p>
         </div>
@@ -516,15 +834,15 @@
 <section id="social-media">
     <h2 id="sm-title">صفحات التواصل الاجتماعي</h2>
     <div class="grid">
-        <a href="https://www.tiktok.com/@ziadai0?_r=1&_t=ZS-96ulPsCDlSv" class="card" target="_blank">
+        <a href="https://www.tiktok.com/@ziadai0?_r=1&_t=ZS-96ulPsCDlSv" class="card" target="_blank" rel="noopener">
             <h3 id="sm1-title">تيك توك (TikTok)</h3>
             <p id="sm1-desc">تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.</p>
         </a>
-        <a href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" class="card" target="_blank">
+        <a href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" class="card" target="_blank" rel="noopener">
             <h3 id="sm2-title">إنستغرام (Instagram)</h3>
             <p id="sm2-desc">كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.</p>
         </a>
-        <a href="https://www.facebook.com/share/1BDHiNGrks/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/1BDHiNGrks/" class="card" target="_blank" rel="noopener">
             <h3 id="sm3-title">فيسبوك (Facebook)</h3>
             <p id="sm3-desc">تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.</p>
         </a>
@@ -534,23 +852,23 @@
 <section id="training">
     <h2 id="t-title">الندوات والفعاليات (الجانب التدريبي)</h2>
     <div class="grid">
-        <a href="https://www.facebook.com/share/p/1Cd435tnyT/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/p/1Cd435tnyT/" class="card" target="_blank" rel="noopener">
             <h3 id="t1-title">الندوة التدريبية الأولى</h3>
             <p id="t1-desc">مشاركة الخبرات في مجال التحول الرقمي.</p>
         </a>
-        <a href="https://www.facebook.com/share/p/1Dckqt3iBd/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/p/1Dckqt3iBd/" class="card" target="_blank" rel="noopener">
             <h3 id="t2-title">الندوة التدريبية الثالثة</h3>
             <p id="t2-desc">استراتيجيات التكنولوجيا الحديثة.</p>
         </a>
-        <a href="https://www.facebook.com/share/p/1D5kEzi9CX/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/p/1D5kEzi9CX/" class="card" target="_blank" rel="noopener">
             <h3 id="t3-title">الندوة التدريبية الرابعة</h3>
             <p id="t3-desc">ورشة عمل تفاعلية للطلاب.</p>
         </a>
-        <a href="https://www.facebook.com/share/p/1F64HBiFjW/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/p/1F64HBiFjW/" class="card" target="_blank" rel="noopener">
             <h3 id="t4-title">مبادرة المدارس الذكية</h3>
             <p id="t4-desc">إدارة عابدين التعليمية - تطوير الفكر التقني.</p>
         </a>
-        <a href="https://www.facebook.com/share/p/1HzuNEBrqM/" class="card" target="_blank">
+        <a href="https://www.facebook.com/share/p/1HzuNEBrqM/" class="card" target="_blank" rel="noopener">
             <h3 id="t5-title">ورشة عمل تدريبية</h3>
             <p id="t5-desc">تدريب عملي مكثف على أدوات الابتكار.</p>
         </a>
@@ -560,19 +878,19 @@
 <section id="courses">
     <h2 id="c-title">أكاديمية زياد التعليمية (YouTube)</h2>
     <div class="grid">
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRvjcZF1eyLWsF9vNGk771me" class="card" target="_blank">
+        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRvjcZF1eyLWsF9vNGk771me" class="card" target="_blank" rel="noopener">
             <h3 id="c1-title">كورس Python</h3>
             <p id="c1-desc">تعلم لغة المستقبل من الصفر للاحتراف.</p>
         </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRupSwUWZhrH2aj8hDfbHlJ6" class="card" target="_blank">
+        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRupSwUWZhrH2aj8hDfbHlJ6" class="card" target="_blank" rel="noopener">
             <h3 id="c2-title">كورس الإلكترونيات</h3>
             <p id="c2-desc">بناء الدوائر الكهربائية والأنظمة المدمجة.</p>
         </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRtaa-M6xLCL-Mb3ibWic_iN" class="card" target="_blank">
+        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRtaa-M6xLCL-Mb3ibWic_iN" class="card" target="_blank" rel="noopener">
             <h3 id="c3-title">كورس الذكاء الاصطناعي</h3>
             <p id="c3-desc">فهم الخوارزميات وتطبيقات الـ AI.</p>
         </a>
-        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRsMCxS305ZNtrVIl4GUHQeX" class="card" target="_blank">
+        <a href="https://youtube.com/playlist?list=PLXc_TLMtdyRsMCxS305ZNtrVIl4GUHQeX" class="card" target="_blank" rel="noopener">
             <h3 id="c4-title">كورس الجرافيك ديزاين</h3>
             <p id="c4-desc">فن التصميم البصري الرقمي.</p>
         </a>
@@ -582,20 +900,39 @@
 <section id="projects">
     <h2 id="p-title">معرض المشاريع المبتكرة</h2>
     <div class="grid">
-        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank">
+        <div class="card project-card" onclick="openVideoModal('ALOXriHfY5w')">
+            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/ALOXriHfY5w/hqdefault.jpg');">
+                <span class="play-icon">▶</span>
+            </div>
             <h3 id="p1-title">روبوت الخدمة الذكي</h3>
             <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
-        </a>
-        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank">
+        </div>
+        <div class="card project-card" onclick="openVideoModal('LNi_gEQzdWA')">
+            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/LNi_gEQzdWA/hqdefault.jpg');">
+                <span class="play-icon">▶</span>
+            </div>
             <h3 id="p2-title">مشروع Morse Code</h3>
             <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
-        </a>
-        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank">
+        </div>
+        <div class="card project-card" onclick="openVideoModal('92r0lysDW6I')">
+            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/92r0lysDW6I/hqdefault.jpg');">
+                <span class="play-icon">▶</span>
+            </div>
             <h3 id="p3-title">مشروع Smart Home</h3>
             <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
-        </a>
+        </div>
     </div>
 </section>
+
+<!-- Modal عرض الفيديو -->
+<div id="videoModal" class="modal" onclick="closeVideoModal(event)">
+    <div class="modal-content">
+        <span class="close-modal" onclick="forceCloseModal()">&times;</span>
+        <div class="video-container">
+            <iframe id="youtubeIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 
 <section id="copyright">
     <h2 id="cr-title">حقوق الملكية الفكرية وحماية المحتوى</h2>
@@ -613,52 +950,102 @@
 <section id="contact">
     <div style="background: var(--card-bg); padding: 40px; border-radius: 20px;">
         <h2 id="cnt-title" style="text-align: center;">تواصل معي</h2>
-        
-        <form action="https://formspree.io/f/xqeokbwy" method="POST" class="contact-form">
+
+        <form action="https://formspree.io/f/xqeokbwy" method="POST" class="contact-form" id="contact-form">
             <div class="form-group">
+                <label for="f-name" class="sr-only" style="display:none;">الاسم الكريم</label>
                 <input type="text" name="name" id="f-name" placeholder="الاسم الكريم" required>
             </div>
             <div class="form-group">
+                <label for="f-email" class="sr-only" style="display:none;">بريدك الإلكتروني</label>
                 <input type="email" name="email" id="f-email" placeholder="بريدك الإلكتروني" required>
             </div>
             <div class="form-group">
+                <label for="f-msg" class="sr-only" style="display:none;">رسالتك</label>
                 <textarea name="message" id="f-msg" rows="5" placeholder="تفاصيل مشروعك أو رسالتك..." required></textarea>
             </div>
-            <div style="text-align: center;">
-                <button type="submit" class="btn" id="f-btn">إرسال الرسالة برمجياً</button>
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
             </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn" id="f-btn">إرسال الرسالة</button>
+            </div>
+            <p class="form-status" id="form-status" role="status"></p>
         </form>
-        
-        <div style="text-align: center; margin-top: 30px; border-top: 1px solid #30363d; padding-top: 20px; color: #8b949e;">
-            <p>Email: ziadwaleed5454648hh@gmail.com | Phone: 01158357595</p>
+
+        <div class="contact-direct" id="contact-direct">
+            <p id="contact-direct-text">تقدر كمان تتواصل معايا مباشرة من هنا:</p>
+            <p><span id="email-link"></span> | <span id="phone-link"></span></p>
         </div>
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#00f2fe" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.2, "random": false },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
-            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
-        },
-        "retina_detect": true
+    window.addEventListener('DOMContentLoaded', (event) => {
+        if(typeof particlesJS !== 'undefined') {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#00f2fe" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.2, "random": false },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
+                    "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+                },
+                "retina_detect": true
+            });
+        }
     });
 
-    function toggleMenu() {
-        document.getElementById("myDropdown").classList.toggle("show");
+    function filterServices(category) {
+        let items = document.querySelectorAll('.service-item');
+        let buttons = document.querySelectorAll('.filter-btn');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        items.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
     }
-    
+
+    function openVideoModal(videoId) {
+        let modal = document.getElementById('videoModal');
+        let iframe = document.getElementById('youtubeIframe');
+        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+        modal.style.display = "flex";
+    }
+
+    function closeVideoModal(e) {
+        if (e.target.id === 'videoModal') {
+            forceCloseModal();
+        }
+    }
+
+    function forceCloseModal() {
+        let modal = document.getElementById('videoModal');
+        let iframe = document.getElementById('youtubeIframe');
+        iframe.src = "";
+        modal.style.display = "none";
+    }
+
+    function toggleMenu() {
+        var dd = document.getElementById("myDropdown");
+        var btn = document.getElementById("menuBtn");
+        var isOpen = dd.classList.toggle("show");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
     window.onclick = function(event) {
         if (!event.target.matches('.menu-btn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -666,6 +1053,7 @@
                 var openDropdown = dropdowns[i];
                 if (openDropdown.classList.contains('show')) {
                     openDropdown.classList.remove('show');
+                    document.getElementById("menuBtn").setAttribute("aria-expanded", "false");
                 }
             }
         }
@@ -686,6 +1074,47 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    (function() {
+        var userPart = "ziadwaleed5454648hh";
+        var domainPart = "gmail.com";
+        var email = userPart + "@" + domainPart;
+        var emailEl = document.getElementById("email-link");
+        var a = document.createElement("a");
+        a.href = "mailto:" + email;
+        a.textContent = "📧 " + email;
+        emailEl.appendChild(a);
+
+        var phoneDigits = ["0", "1", "1", "5", "8", "3", "5", "7", "5", "9", "5"];
+        var phone = phoneDigits.join("");
+        var phoneEl = document.getElementById("phone-link");
+        var p = document.createElement("a");
+        p.href = "tel:+2" + phone;
+        p.textContent = "📞 " + phone;
+        phoneEl.appendChild(p);
+    })();
+
+    var contactForm = document.getElementById("contact-form");
+    var formStatus = document.getElementById("form-status");
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var data = new FormData(contactForm);
+        formStatus.textContent = currentLang === 'ar' ? "جاري الإرسال..." : "Sending...";
+        fetch(contactForm.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+        }).then(function(response) {
+            if (response.ok) {
+                formStatus.textContent = currentLang === 'ar' ? "✅ تم إرسال رسالتك بنجاح، هرد عليك في أقرب وقت!" : "✅ Message sent successfully!";
+                contactForm.reset();
+            } else {
+                formStatus.textContent = currentLang === 'ar' ? "⚠️ حصل خطأ أثناء الإرسال، جرب تاني أو تواصل مباشرة." : "⚠️ Error sending message.";
+            }
+        }).catch(function() {
+            formStatus.textContent = currentLang === 'ar' ? "⚠️ حصل خطأ في الاتصال، جرب تاني." : "⚠️ Connection error.";
+        });
+    });
+
     let currentLang = 'ar';
     const langData = {
         en: {
@@ -696,6 +1125,7 @@
             navBlog: '📜 Codes & Schematics',
             navServices: 'Services (Khamsat)',
             navSkills: 'Skills & Tech Stack',
+            navCertificates: 'Certificates & Credentials',
             navAchievements: 'Achievements',
             navTestimonials: 'Reviews & Feedback',
             navSocial: 'Social Media',
@@ -704,6 +1134,12 @@
             navProjects: 'Projects',
             navCopyright: 'Copyright',
             navContact: 'Contact Me',
+            mCta1: '🛠️ Order Service',
+            mCta2: '📩 Direct Contact',
+            fltAll: 'All',
+            fltIot: 'Electronics & IoT',
+            fltRobot: '3D & Robotics',
+            fltOther: 'Presentations & Consulting',
             heroSubtitle: 'Tech Innovator • Smart Systems Programmer • Inventions Content Creator',
             heroBtn: '📥 View Schematics & Source Codes',
             sTitle: 'My Technical Services (Khamsat)',
@@ -746,6 +1182,19 @@
             aTitle: 'About The Tech Innovator',
             aDesc: 'I am Ziad Walid, an innovator and inventor in the tech field. I harnessed my passion to explore the horizons of Artificial Intelligence and Robotics. I am not just a programmer, but a solution maker and tech lecturer aiming to pass my expertise in building smart systems to the next generation.',
             skTitle: 'Skills & Tech Stack',
+            certTitle: 'Certificates & Credentials',
+            cert1Title: 'Certified Certificate 1',
+            cert1Desc: 'Official documentation of achievement and technical expertise.',
+            cert2Title: 'Certified Certificate 2',
+            cert2Desc: 'Official documentation of achievement and technical expertise.',
+            cert3Title: 'Certified Certificate 3',
+            cert3Desc: 'Official documentation of achievement and technical expertise.',
+            cert4Title: 'Certified Certificate 4',
+            cert4Desc: 'Official documentation of achievement and technical expertise.',
+            cert5Title: 'Certified Certificate 5',
+            cert5Desc: 'Official documentation of achievement and technical expertise.',
+            cert6Title: 'Certified Certificate 6',
+            cert6Desc: 'Official documentation of achievement and technical expertise.',
             acTitle: 'Digital Achievements & Initiatives',
             ac1Title: 'Digital Egypt Pupils Initiative (DECA)',
             ac1Desc: 'Joining the presidential scholarship and initiative specialized in preparing and developing young tech talents in advanced technology tracks.',
@@ -802,7 +1251,8 @@
             fName: 'Your Name',
             fEmail: 'Your Email',
             fMsg: 'Your message or project details...',
-            fBtn: 'Send Message via System'
+            fBtn: 'Send Message',
+            contactDirectText: 'You can also reach me directly here:'
         },
         ar: {
             dir: 'rtl',
@@ -812,6 +1262,7 @@
             navBlog: '📜 الأكواد والمخططات',
             navServices: 'الخدمات (خمسات)',
             navSkills: 'المهارات والتقنيات',
+            navCertificates: 'الشهادات والاعتماد',
             navAchievements: 'الإنجازات والمبادرات',
             navTestimonials: 'آراء العملاء والطلاب',
             navSocial: 'صفحات التواصل',
@@ -820,6 +1271,12 @@
             navProjects: 'المشاريع',
             navCopyright: 'حقوق الملكية',
             navContact: 'تواصل معي',
+            mCta1: '🛠️ طلب خدمة',
+            mCta2: '📩 تواصل مباشر',
+            fltAll: 'الكل',
+            fltIot: 'إلكترونيات & IoT',
+            fltRobot: 'تصميم 3D & روبوتات',
+            fltOther: 'عروض & استشارات',
             heroSubtitle: 'مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات',
             heroBtn: '📥 رؤية المخططات والأكواد البرمجية',
             sTitle: 'خدماتي التقنية (خمسات)',
@@ -862,6 +1319,19 @@
             aTitle: 'نبذة عن العبقرية التقنية',
             aDesc: 'أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.',
             skTitle: 'المهارات والتقنيات (Tech Stack)',
+            certTitle: 'الشهادات والاعتمادات',
+            cert1Title: 'شهادة معتمدة 1',
+            cert1Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
+            cert2Title: 'شهادة معتمدة 2',
+            cert2Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
+            cert3Title: 'شهادة معتمدة 3',
+            cert3Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
+            cert4Title: 'شهادة معتمدة 4',
+            cert4Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
+            cert5Title: 'شهادة معتمدة 5',
+            cert5Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
+            cert6Title: 'شهادة معتمدة 6',
+            cert6Desc: 'توثيق رسمي للإنجاز والخبرة التقنية.',
             acTitle: 'الإنجازات والمبادرات الرقمية',
             ac1Title: 'مبادرة أشبال مصر الرقمية (DECA)',
             ac1Desc: 'الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.',
@@ -918,7 +1388,8 @@
             fName: 'الاسم الكريم',
             fEmail: 'بريدك الإلكتروني',
             fMsg: 'تفاصيل مشروعك أو رسالتك...',
-            fBtn: 'إرسال الرسالة برمجياً'
+            fBtn: 'إرسال الرسالة',
+            contactDirectText: 'تقدر كمان تتواصل معايا مباشرة من هنا:'
         }
     };
 
@@ -932,10 +1403,19 @@
         document.getElementById('langBtn').innerText = data.langBtn;
         document.getElementById('menuBtn').innerText = data.menuBtn;
         
+        document.getElementById('m-cta-1').innerText = data.mCta1;
+        document.getElementById('m-cta-2').innerText = data.mCta2;
+
+        document.getElementById('flt-all').innerText = data.fltAll;
+        document.getElementById('flt-iot').innerText = data.fltIot;
+        document.getElementById('flt-robot').innerText = data.fltRobot;
+        document.getElementById('flt-other').innerText = data.fltOther;
+
         document.getElementById('nav-about').innerText = data.navAbout;
         document.getElementById('nav-blog').innerText = data.navBlog;
         document.getElementById('nav-services').innerText = data.navServices;
         document.getElementById('nav-skills').innerText = data.navSkills;
+        document.getElementById('nav-certificates').innerText = data.navCertificates;
         document.getElementById('nav-achievements').innerText = data.navAchievements;
         document.getElementById('nav-testimonials').innerText = data.navTestimonials;
         document.getElementById('nav-social').innerText = data.navSocial;
@@ -989,6 +1469,20 @@
         document.getElementById('a-title').innerText = data.aTitle;
         document.getElementById('a-desc').innerText = data.aDesc;
         document.getElementById('sk-title').innerText = data.skTitle;
+
+        document.getElementById('cert-title').innerText = data.certTitle;
+        document.getElementById('cert1-title').innerText = data.cert1Title;
+        document.getElementById('cert1-desc').innerText = data.cert1Desc;
+        document.getElementById('cert2-title').innerText = data.cert2Title;
+        document.getElementById('cert2-desc').innerText = data.cert2Desc;
+        document.getElementById('cert3-title').innerText = data.cert3Title;
+        document.getElementById('cert3-desc').innerText = data.cert3Desc;
+        document.getElementById('cert4-title').innerText = data.cert4Title;
+        document.getElementById('cert4-desc').innerText = data.cert4Desc;
+        document.getElementById('cert5-title').innerText = data.cert5Title;
+        document.getElementById('cert5-desc').innerText = data.cert5Desc;
+        document.getElementById('cert6-title').innerText = data.cert6Title;
+        document.getElementById('cert6-desc').innerText = data.cert6Desc;
         
         document.getElementById('ac-title').innerText = data.acTitle;
         document.getElementById('ac1-title').innerText = data.ac1Title;
@@ -1054,6 +1548,13 @@
         document.getElementById('f-email').placeholder = data.fEmail;
         document.getElementById('f-msg').placeholder = data.fMsg;
         document.getElementById('f-btn').innerText = data.fBtn;
+        document.getElementById('contact-direct-text').innerText = data.contactDirectText;
+
+        if (currentLang === 'en') {
+            document.title = "ziadai | Ziad Walid - Tech & Invention Expert";
+        } else {
+            document.title = "ziadai | زياد وليد - خبير التكنولوجيا والاختراعات";
+        }
     }
 </script>
 </body>
