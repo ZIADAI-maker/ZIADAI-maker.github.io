@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -17,21 +17,28 @@
     <meta property="og:description" content="مبتكر تقني متخصص في البرمجة، الروبوتات، وإنترنت الأشياء (IoT). شاهد مشاريعي وخدماتي التقنية.">
     <meta property="og:url" content="https://ziadai-maker.github.io/">
     <meta property="og:locale" content="ar_AR">
-    <meta property="og:image" content="https://ziadai-maker.github.io/assets/preview.jpg">
+    <meta property="og:image" content="https://ziadai-maker.github.io/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ziadai | زياد وليد - خبير التكنولوجيا والاختراعات">
     <meta name="twitter:description" content="مبتكر تقني متخصص في البرمجة، الروبوتات، وإنترنت الأشياء (IoT).">
 
-    <!-- Favicon -->
+    <!-- Favicon (بسيط SVG، تقدر تستبدله بلوجو حقيقي لاحقاً) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0b10'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Arial, sans-serif' font-weight='900' fill='%2300f2fe' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+
+    <!-- ⚠️ حساب Google Analytics: لو عندك GA Measurement ID حطه هنا بدل G-XXXXXXXXXX وشيل التعليق -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- تحميل مكتبة Particles بشكل غير متزامن لتحسين الأداء -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-    
     <style>
         :root {
             --main-color: #00f2fe;
@@ -157,6 +164,17 @@
             background: linear-gradient(to bottom, rgba(10,11,16,0.4), var(--bg-dark));
         }
 
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--main-color);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+            margin-bottom: 22px;
+            object-fit: cover;
+            background: var(--card-bg);
+        }
+
         .hero-title {
             font-size: clamp(2.2rem, 7vw, 4rem);
             font-weight: 900;
@@ -166,9 +184,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-        }
+        header p.hero-sub { font-size: clamp(1rem, 3vw, 1.5rem); }
 
         .hero-blog-btn {
             display: inline-block;
@@ -192,13 +208,35 @@
             transform: scale(1.08);
         }
 
+        .hero-secondary-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .hero-cv-btn {
+            display: inline-block;
+            padding: 10px 26px;
+            color: #cdd9e5;
+            border: 1px solid #30363d;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .hero-cv-btn:hover { border-color: var(--main-color); color: var(--main-color); }
+
         section { padding: 80px 10%; }
 
         h2 {
             border-right: 5px solid var(--main-color);
             padding-right: 15px;
             font-size: 2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         html[dir="ltr"] h2 {
@@ -206,34 +244,6 @@
             border-left: 5px solid var(--main-color);
             padding-right: 0;
             padding-left: 15px;
-        }
-
-        /* أزرار فلترة الخدمات */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .filter-btn {
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--main-color);
-            color: black;
-            border-color: var(--main-color);
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
         }
 
         .grid {
@@ -260,37 +270,6 @@
         }
 
         .card h3 { color: var(--main-color); margin-top: 0; }
-
-        /* بطاقات المشاريع مع المعاينة */
-        .project-card {
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-thumb {
-            width: 100%;
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #000;
-        }
-
-        .play-icon {
-            font-size: 3rem;
-            color: var(--main-color);
-            text-shadow: 0 0 15px rgba(0,242,254,0.8);
-            transition: 0.3s;
-        }
-
-        .project-card:hover .play-icon {
-            transform: scale(1.2);
-        }
 
         .btn {
             display: inline-block;
@@ -375,6 +354,38 @@
             transform: scale(1.05);
         }
 
+        /* شريط الإحصائيات */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            padding: 24px 10px;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--main-color);
+            display: block;
+        }
+
+        .stat-label { color: #8b949e; font-size: 0.9rem; margin-top: 6px; }
+
+        /* معاينة المدونة */
+        .blog-preview-note {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -384,7 +395,9 @@
             text-align: right;
         }
 
-        html[dir="ltr"] .contact-form { text-align: left; }
+        html[dir="ltr"] .contact-form {
+            text-align: left;
+        }
 
         .form-group input, .form-group textarea {
             width: 100%;
@@ -402,6 +415,12 @@
             border-color: var(--main-color);
             outline: none;
             box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .form-status {
+            text-align: center;
+            font-size: 0.95rem;
+            min-height: 20px;
         }
 
         .stars {
@@ -440,105 +459,29 @@
             transform: translateY(-5px);
         }
 
-        /* Floating CTA للهواتف الذكية */
-        .mobile-cta {
-            display: none;
+        /* زرار واتساب العائم */
+        #whatsappBtn {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(22, 27, 34, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--main-color);
-            padding: 10px 15px;
-            z-index: 999;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-        }
-
-        .mobile-cta-inner {
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background-color: #25D366;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
             display: flex;
-            gap: 10px;
-            justify-content: space-around;
-        }
-
-        .mobile-cta-btn {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .mobile-cta-primary {
-            background: var(--main-color);
-            color: black;
-        }
-
-        .mobile-cta-secondary {
-            border: 1px solid var(--main-color);
-            color: var(--main-color);
-        }
-
-        /* Modal النافذة المنبثقة لفيديو المشاريع */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            text-decoration: none;
+            font-size: 26px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            transition: 0.3s;
         }
 
-        .modal-content {
-            background: var(--card-bg);
-            border: 1px solid var(--main-color);
-            border-radius: 15px;
-            width: 100%;
-            max-width: 800px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
-        }
+        html[dir="ltr"] #whatsappBtn { right: auto; left: 30px; }
 
-        .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        html[dir="ltr"] .close-modal {
-            right: auto;
-            left: 15px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        #whatsappBtn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(37,211,102,0.6); }
 
         .contact-direct {
             text-align: center;
@@ -560,9 +503,7 @@
             .menu-btn, .lang-btn { padding: 8px 12px; font-size: 0.85rem; }
             .btn-group { gap: 8px; }
             .btn-sm { padding: 8px 14px; font-size: 0.78rem; }
-            .mobile-cta { display: block; }
-            body { padding-bottom: 60px; }
-            #scrollTopBtn { bottom: 75px; }
+            #whatsappBtn, #scrollTopBtn { width: 46px; height: 46px; bottom: 20px; }
         }
     </style>
 </head>
@@ -572,13 +513,10 @@
 
 <button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى" aria-label="العودة لأعلى الصفحة">▲</button>
 
-<!-- Sticky Mobile CTA -->
-<div class="mobile-cta">
-    <div class="mobile-cta-inner">
-        <a href="#services" class="mobile-cta-btn mobile-cta-primary" id="m-cta-1">🛠️ طلب خدمة</a>
-        <a href="#contact" class="mobile-cta-btn mobile-cta-secondary" id="m-cta-2">📩 تواصل مباشر</a>
-    </div>
-</div>
+<!-- ⚠️ رقم الواتساب مأخوذ من رقم التليفون اللي في قسم التواصل، غيّره هنا لو مختلف -->
+<a href="https://wa.me/201158357595" target="_blank" rel="noopener" id="whatsappBtn" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.42a9.87 9.87 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.7 8.25-8.25 8.25a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25zm-4.4 4.6c-.17 0-.44.06-.67.32-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.02 2.57.12.17 1.75 2.67 4.23 3.74.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28-.25-.13-1.47-.72-1.7-.81-.23-.08-.4-.13-.56.13-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.36-.78-1.86-.2-.48-.4-.42-.56-.42z"/></svg>
+</a>
 
 <div class="top-controls">
     <button onclick="toggleLang()" class="lang-btn" id="langBtn" aria-label="Switch language">English 🌐</button>
@@ -590,6 +528,7 @@
         <a href="#skills" id="nav-skills">المهارات والتقنيات</a>
         <a href="#achievements" id="nav-achievements">الإنجازات والمبادرات</a>
         <a href="#testimonials" id="nav-testimonials">آراء العملاء والطلاب</a>
+        <a href="#blog-preview" id="nav-blogpreview">أحدث المقالات</a>
         <a href="#social-media" id="nav-social">صفحات التواصل</a>
         <a href="#training" id="nav-training">الندوات</a>
         <a href="#courses" id="nav-courses">الكورسات</a>
@@ -600,52 +539,58 @@
 </div>
 
 <header>
+    <img class="avatar" src="./profile.jpg" alt="صورة زياد وليد الشخصية" loading="lazy">
     <h1 class="hero-title">ziadai | زياد وليد</h1>
-    <p id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
+    <p class="hero-sub" id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
     <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" class="hero-blog-btn" id="hero-btn">
         📥 رؤية المخططات والأكواد البرمجية
     </a>
+    <div class="hero-secondary-actions">
+        <!-- ⚠️ الرابط ده بيصدّر مستند الـ CV من جوجل دوكس كـ PDF مباشرة، تأكد إن إعدادات المشاركة "Anyone with the link - Viewer" عشان يشتغل لأي زائر -->
+        <a href="https://docs.google.com/document/d/1oFcuNPTFegvpqrFP59NxpaW9RPagVQp0ZlXN0IByCU0/export?format=pdf" target="_blank" rel="noopener" class="hero-cv-btn" id="cv-btn">📄 تحميل السيرة الذاتية</a>
+    </div>
 </header>
+
+<section id="stats">
+    <div class="stats-bar">
+        <!-- ⚠️ غيّر الأرقام دي بأرقامك الحقيقية -->
+        <div class="stat-item"><span class="stat-number">312+</span><span class="stat-label" id="stat1-label">مشروع منجز</span></div>
+        <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label" id="stat2-label">عميل راضٍ</span></div>
+        <div class="stat-item"><span class="stat-number">5</span><span class="stat-label" id="stat3-label">ندوات تدريبية</span></div>
+        <div class="stat-item"><span class="stat-number">3+</span><span class="stat-label" id="stat4-label">سنوات خبرة</span></div>
+    </div>
+</section>
 
 <section id="services">
     <h2 id="s-title">خدماتي التقنية (خمسات)</h2>
-    
-    <!-- أزرار تصفية الخدمات -->
-    <div class="filter-container">
-        <button class="filter-btn active" onclick="filterServices('all')" id="flt-all">الكل</button>
-        <button class="filter-btn" onclick="filterServices('iot')" id="flt-iot">إلكترونيات & IoT</button>
-        <button class="filter-btn" onclick="filterServices('robotics')" id="flt-robot">تصميم 3D & روبوتات</button>
-        <button class="filter-btn" onclick="filterServices('other')" id="flt-other">عروض & استشارات</button>
-    </div>
-
-    <div class="grid" id="services-grid">
-        <div class="card service-item" data-category="iot">
+    <div class="grid">
+        <div class="card">
             <h3 id="s1-title">برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل</h3>
             <p id="s1-desc">تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.</p>
             <div class="btn-group">
                 <a href="https://khamsat.com/programming/it-support-services/4256730" target="_blank" rel="noopener" class="btn-sm" id="s1-btn">طلب الخدمة من خمسات</a>
-                <a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%8BD-%D9%88-esp32" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s1-btn2">طلب الخدمة من كفيل</a>
+                <a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88-esp32" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s1-btn2">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card service-item" data-category="other">
+        <div class="card">
             <h3 id="s2-title">استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT</h3>
             <p id="s2-desc">مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.</p>
             <div class="btn-group">
                 <a href="https://khamsat.com/programming/code-review/4299185" target="_blank" rel="noopener" class="btn-sm" id="s2-btn">طلب الخدمة من خمسات</a>
                 <a href="https://nafezly.com/service/75738-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-ESP32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s2-btn2">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s2-btn3">طلب الخدمة من كفيل</a>
+                <a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s2-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card service-item" data-category="iot">
+        <div class="card">
             <h3 id="s3-title">تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi</h3>
             <p id="s3-desc">بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.</p>
             <div class="btn-group">
                 <a href="https://khamsat.com/programming/software-testing/4306427" target="_blank" rel="noopener" class="btn-sm" id="s3-btn">طلب الخدمة من خمسات</a>
-                <a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A1%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s3-btn2">طلب الخدمة من نفذلي</a>
-                <a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A1%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s3-btn3">طلب الخدمة من كفيل</a>
+                <a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s3-btn2">طلب الخدمة من نفذلي</a>
+                <a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s3-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card service-item" data-category="iot">
+        <div class="card">
             <h3 id="s4-title">ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد</h3>
             <p id="s4-desc">تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.</p>
             <div class="btn-group">
@@ -654,7 +599,7 @@
                 <a href="https://kafiil.com/service/222011-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-iot" target="_blank" rel="noopener" class="btn-sm btn-alt2" id="s4-btn3">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card service-item" data-category="other">
+        <div class="card">
             <h3 id="s5-title">تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج</h3>
             <p id="s5-desc">إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.</p>
             <div class="btn-group">
@@ -662,32 +607,32 @@
                 <a href="https://kafiil.com/service/222392-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-canvapowerpoint-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87" target="_blank" rel="noopener" class="btn-sm btn-alt" id="s5-btn2">طلب الخدمة من كفيل</a>
             </div>
         </div>
-        <div class="card service-item" data-category="iot">
+        <div class="card">
             <h3 id="s6-title">تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)</h3>
             <p id="s6-desc">بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%8BD%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm" id="s6-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" target="_blank" rel="noopener" class="btn-sm" id="s6-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card service-item" data-category="iot">
+        <div class="card">
             <h3 id="s7-title">تصميم وأتمتة أنظمة المزارع والصوبات الذكية (Smart Farming)</h3>
             <p id="s7-desc">تطوير أنظمة زراعية ذكية تعتمد على أجهزة استشعار وإنترنت الأشياء لمراقبة وأتمتة الري والتهوية والرطوبة تلقائياً.</p>
             <div class="btn-group">
                 <a href="https://nafezly.com/service/76173-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%B5%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Farming-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D9%80-IoT" target="_blank" rel="noopener" class="btn-sm" id="s7-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card service-item" data-category="robotics">
+        <div class="card">
             <h3 id="s8-title">تصميم ومحاكاة وبرمجة الأذرع والأيدي الروبوتية (Robotic Arms)</h3>
             <p id="s8-desc">تصميم وبرمجة أذرع روبوتية وظيفية بمحركات السيرفو وأنظمة تحكم دقيقة تناسب مشاريع التخرج والتطبيقات الصناعية.</p>
             <div class="btn-group">
                 <a href="https://nafezly.com/service/76172-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D8%8C-%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D8%A3%D8%B0%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%A3%D9%8A%D8%AF%D9%8A-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D9%8A%D8%A9-Robotic-Arms---" target="_blank" rel="noopener" class="btn-sm" id="s8-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
-        <div class="card service-item" data-category="robotics">
+        <div class="card">
             <h3 id="s9-title">تصميم مجسمات وهياكل الروبوتات ومشاريع التخرج 3D (SolidWorks/Fusion 360)</h3>
             <p id="s9-desc">تصميم نماذج ثلاثية الأبعاد احترافية لهياكل الروبوتات ومكونات مشاريع التخرج باستخدام برامج SolidWorks وFusion 360 جاهزة للطباعة أو التصنيع.</p>
             <div class="btn-group">
-                <a href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" target="_blank" rel="noopener" class="btn-sm" id="s9-btn">طلب الخدمة من نفذلي</a>
+                <a href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%85%D8%AC%D8%B3%D9%85%D8%A7%D8%AA-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" target="_blank" rel="noopener" class="btn-sm" id="s9-btn">طلب الخدمة من نفذلي</a>
             </div>
         </div>
     </div>
@@ -755,6 +700,14 @@
             <h3 id="tst3-user">خالد ع. (طالب برمجيات)</h3>
             <p id="tst3-text">"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."</p>
         </div>
+    </div>
+</section>
+
+<section id="blog-preview">
+    <h2 id="bp-title">أحدث المقالات من المدونة</h2>
+    <p class="blog-preview-note" id="bp-note">بيتم تحميل آخر 3 مقالات تلقائياً من مدونة ziadai على Blogspot.</p>
+    <div class="grid" id="blog-preview-grid">
+        <!-- المقالات هتتحمل هنا تلقائياً بالجافاسكريبت -->
     </div>
 </section>
 
@@ -827,39 +780,20 @@
 <section id="projects">
     <h2 id="p-title">معرض المشاريع المبتكرة</h2>
     <div class="grid">
-        <div class="card project-card" onclick="openVideoModal('ALOXriHfY5w')">
-            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/ALOXriHfY5w/hqdefault.jpg');">
-                <span class="play-icon">▶</span>
-            </div>
+        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank" rel="noopener">
             <h3 id="p1-title">روبوت الخدمة الذكي</h3>
             <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
-        </div>
-        <div class="card project-card" onclick="openVideoModal('LNi_gEQzdWA')">
-            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/LNi_gEQzdWA/hqdefault.jpg');">
-                <span class="play-icon">▶</span>
-            </div>
+        </a>
+        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank" rel="noopener">
             <h3 id="p2-title">مشروع Morse Code</h3>
             <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
-        </div>
-        <div class="card project-card" onclick="openVideoModal('92r0lysDW6I')">
-            <div class="project-thumb" style="background-image: url('https://img.youtube.com/vi/92r0lysDW6I/hqdefault.jpg');">
-                <span class="play-icon">▶</span>
-            </div>
+        </a>
+        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank" rel="noopener">
             <h3 id="p3-title">مشروع Smart Home</h3>
             <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
-        </div>
+        </a>
     </div>
 </section>
-
-<!-- Modal عرض الفيديو -->
-<div id="videoModal" class="modal" onclick="closeVideoModal(event)">
-    <div class="modal-content">
-        <span class="close-modal" onclick="forceCloseModal()">&times;</span>
-        <div class="video-container">
-            <iframe id="youtubeIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
 
 <section id="copyright">
     <h2 id="cr-title">حقوق الملكية الفكرية وحماية المحتوى</h2>
@@ -880,15 +814,12 @@
 
         <form action="https://formspree.io/f/xqeokbwy" method="POST" class="contact-form" id="contact-form">
             <div class="form-group">
-                <label for="f-name" class="sr-only" style="display:none;">الاسم الكريم</label>
                 <input type="text" name="name" id="f-name" placeholder="الاسم الكريم" required>
             </div>
             <div class="form-group">
-                <label for="f-email" class="sr-only" style="display:none;">بريدك الإلكتروني</label>
                 <input type="email" name="email" id="f-email" placeholder="بريدك الإلكتروني" required>
             </div>
             <div class="form-group">
-                <label for="f-msg" class="sr-only" style="display:none;">رسالتك</label>
                 <textarea name="message" id="f-msg" rows="5" placeholder="تفاصيل مشروعك أو رسالتك..." required></textarea>
             </div>
             <div style="position:absolute; left:-9999px;" aria-hidden="true">
@@ -907,64 +838,25 @@
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        if(typeof particlesJS !== 'undefined') {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#00f2fe" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.2, "random": false },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
-                    "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
-                },
-                "retina_detect": true
-            });
-        }
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#00f2fe" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.2, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
+            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+        },
+        "retina_detect": true
     });
-
-    function filterServices(category) {
-        let items = document.querySelectorAll('.service-item');
-        let buttons = document.querySelectorAll('.filter-btn');
-        
-        buttons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-        items.forEach(item => {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    }
-
-    function openVideoModal(videoId) {
-        let modal = document.getElementById('videoModal');
-        let iframe = document.getElementById('youtubeIframe');
-        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
-        modal.style.display = "flex";
-    }
-
-    function closeVideoModal(e) {
-        if (e.target.id === 'videoModal') {
-            forceCloseModal();
-        }
-    }
-
-    function forceCloseModal() {
-        let modal = document.getElementById('videoModal');
-        let iframe = document.getElementById('youtubeIframe');
-        iframe.src = "";
-        modal.style.display = "none";
-    }
 
     function toggleMenu() {
         var dd = document.getElementById("myDropdown");
@@ -1001,6 +893,37 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // ===== تحميل آخر 3 مقالات من مدونة Blogspot تلقائياً =====
+    (function loadBlogPosts() {
+        var grid = document.getElementById('blog-preview-grid');
+        var feedUrl = 'https://ziadai-maker.blogspot.com/feeds/posts/default?alt=json&max-results=3';
+        fetch(feedUrl)
+            .then(function(res) { if (!res.ok) throw new Error('feed error'); return res.json(); })
+            .then(function(data) {
+                var entries = (data.feed && data.feed.entry) ? data.feed.entry : [];
+                if (!entries.length) { document.getElementById('blog-preview').style.display = 'none'; return; }
+                grid.innerHTML = '';
+                entries.forEach(function(entry) {
+                    var title = entry.title.$t;
+                    var link = '#';
+                    for (var i = 0; i < entry.link.length; i++) {
+                        if (entry.link[i].rel === 'alternate') { link = entry.link[i].href; break; }
+                    }
+                    var summaryRaw = entry.summary ? entry.summary.$t : '';
+                    var summary = summaryRaw.replace(/<[^>]*>/g, '').slice(0, 110) + '...';
+                    var a = document.createElement('a');
+                    a.href = link; a.target = '_blank'; a.rel = 'noopener'; a.className = 'card';
+                    a.innerHTML = '<h3>' + title + '</h3><p>' + summary + '</p>';
+                    grid.appendChild(a);
+                });
+            })
+            .catch(function() {
+                // لو المدونة مقفولة أو فيها مشكلة في الـ feed، نخفي القسم بهدوء
+                var section = document.getElementById('blog-preview');
+                if (section) section.style.display = 'none';
+            });
+    })();
+
     (function() {
         var userPart = "ziadwaleed5454648hh";
         var domainPart = "gmail.com";
@@ -1025,20 +948,20 @@
     contactForm.addEventListener("submit", function(e) {
         e.preventDefault();
         var data = new FormData(contactForm);
-        formStatus.textContent = currentLang === 'ar' ? "جاري الإرسال..." : "Sending...";
+        formStatus.textContent = "جاري الإرسال...";
         fetch(contactForm.action, {
             method: "POST",
             body: data,
             headers: { "Accept": "application/json" }
         }).then(function(response) {
             if (response.ok) {
-                formStatus.textContent = currentLang === 'ar' ? "✅ تم إرسال رسالتك بنجاح، هرد عليك في أقرب وقت!" : "✅ Message sent successfully!";
+                formStatus.textContent = "✅ تم إرسال رسالتك بنجاح، هرد عليك في أقرب وقت!";
                 contactForm.reset();
             } else {
-                formStatus.textContent = currentLang === 'ar' ? "⚠️ حصل خطأ أثناء الإرسال، جرب تاني أو تواصل مباشرة." : "⚠️ Error sending message.";
+                formStatus.textContent = "⚠️ حصل خطأ أثناء الإرسال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
             }
         }).catch(function() {
-            formStatus.textContent = currentLang === 'ar' ? "⚠️ حصل خطأ في الاتصال، جرب تاني." : "⚠️ Connection error.";
+            formStatus.textContent = "⚠️ حصل خطأ في الاتصال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
         });
     });
 
@@ -1046,52 +969,33 @@
     const langData = {
         en: {
             dir: 'ltr',
-            langBtn: 'العربية 🌐',
-            menuBtn: 'Menu ☰',
-            navAbout: 'About ziadai',
-            navBlog: '📜 Codes & Schematics',
-            navServices: 'Services (Khamsat)',
-            navSkills: 'Skills & Tech Stack',
-            navAchievements: 'Achievements',
-            navTestimonials: 'Reviews & Feedback',
-            navSocial: 'Social Media',
-            navTraining: 'Seminars',
-            navCourses: 'Courses',
-            navProjects: 'Projects',
-            navCopyright: 'Copyright',
-            navContact: 'Contact Me',
-            mCta1: '🛠️ Order Service',
-            mCta2: '📩 Direct Contact',
-            fltAll: 'All',
-            fltIot: 'Electronics & IoT',
-            fltRobot: '3D & Robotics',
-            fltOther: 'Presentations & Consulting',
+            langBtn: 'العربية 🌐', menuBtn: 'Menu ☰',
+            navAbout: 'About ziadai', navBlog: '📜 Codes & Schematics', navServices: 'Services (Khamsat)',
+            navSkills: 'Skills & Tech Stack', navAchievements: 'Achievements', navTestimonials: 'Reviews & Feedback',
+            navBlogpreview: 'Latest Posts',
+            navSocial: 'Social Media', navTraining: 'Seminars', navCourses: 'Courses', navProjects: 'Projects',
+            navCopyright: 'Copyright', navContact: 'Contact Me',
             heroSubtitle: 'Tech Innovator • Smart Systems Programmer • Inventions Content Creator',
             heroBtn: '📥 View Schematics & Source Codes',
+            cvBtn: '📄 Download CV',
+            stat1: 'Projects Delivered', stat2: 'Happy Clients', stat3: 'Training Seminars', stat4: 'Years of Experience',
+            bpTitle: 'Latest Blog Posts', bpNote: 'The latest 3 posts load automatically from the ziadai Blogspot blog.',
             sTitle: 'My Technical Services (Khamsat)',
             s1Title: 'Professional Arduino & IoT Project Programming & Design with Circuit Diagram',
             s1Desc: 'Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.',
-            s1Btn: 'Order Service on Khamsat',
-            s1Btn2: 'Order Service on Kafiil',
+            s1Btn: 'Order Service on Khamsat', s1Btn2: 'Order Service on Kafiil',
             s2Title: 'Consultation & Troubleshooting for Arduino & IoT Projects',
             s2Desc: 'Reviewing and debugging source code, diagnosing hardware and connection errors in circuits, and providing complete technical consultations to optimize performance.',
-            s2Btn: 'Order Service on Khamsat',
-            s2Btn2: 'Order Service on Nafezly',
-            s2Btn3: 'Order Service on Kafiil',
+            s2Btn: 'Order Service on Khamsat', s2Btn2: 'Order Service on Nafezly', s2Btn3: 'Order Service on Kafiil',
             s3Title: 'Virtual Arduino Circuit Design & Simulation via Tinkercad & Wokwi',
             s3Desc: 'Building and testing virtual electronic circuits completely online to ensure programmatic and structural integrity before practical implementation.',
-            s3Btn: 'Order Service on Khamsat',
-            s3Btn2: 'Order Service on Nafezly',
-            s3Btn3: 'Order Service on Kafiil',
+            s3Btn: 'Order Service on Khamsat', s3Btn2: 'Order Service on Nafezly', s3Btn3: 'Order Service on Kafiil',
             s4Title: 'Connecting & Deploying IoT Projects Online with Remote Control',
             s4Desc: 'Designing and building fully integrated embedded systems connected to the internet, letting you monitor and control your project from anywhere via dashboards and dedicated apps.',
-            s4Btn: 'Order Service on Khamsat',
-            s4Btn2: 'Order Service on Nafezly',
-            s4Btn3: 'Order Service on Kafiil',
+            s4Btn: 'Order Service on Khamsat', s4Btn2: 'Order Service on Nafezly', s4Btn3: 'Order Service on Kafiil',
             s5Title: 'Professional Presentation Design (Canva/PowerPoint) for Graduation Projects',
             s5Desc: 'Preparing a distinctive, professional presentation to showcase your graduation or engineering project in an attractive and organized way, highlighting all its technical and scientific details.',
-            s5Btn: 'Order Service on Nafezly',
-            s5Btn2: 'Order Service on Kafiil',
+            s5Btn: 'Order Service on Nafezly', s5Btn2: 'Order Service on Kafiil',
             s6Title: 'Design & Engineering of Integrated Smart Home Systems',
             s6Desc: 'Building and programming a fully integrated smart home system based on the Internet of Things to remotely control lighting, appliances, and security.',
             s6Btn: 'Order Service on Nafezly',
@@ -1161,60 +1065,38 @@
             crP1: 'This website, including interface designs, source code, texts, and introductory content, is the exclusive intellectual property of the innovator and programmer Ziad Walid (ziadai).',
             crP2: 'It is strictly forbidden to copy, modify, or redistribute the source code of the site or any digital content displayed on it for commercial purposes without prior written permission. All innovations and projects shown are documented and protected under intellectual property laws.',
             cntTitle: 'Contact Me',
-            fName: 'Your Name',
-            fEmail: 'Your Email',
-            fMsg: 'Your message or project details...',
-            fBtn: 'Send Message',
-            contactDirectText: 'You can also reach me directly here:'
+            fName: 'Your Name', fEmail: 'Your Email', fMsg: 'Your message or project details...',
+            fBtn: 'Send Message', contactDirectText: 'You can also reach me directly here:'
         },
         ar: {
             dir: 'rtl',
-            langBtn: 'English 🌐',
-            menuBtn: 'القائمة ☰',
-            navAbout: 'عن ziadai',
-            navBlog: '📜 الأكواد والمخططات',
-            navServices: 'الخدمات (خمسات)',
-            navSkills: 'المهارات والتقنيات',
-            navAchievements: 'الإنجازات والمبادرات',
-            navTestimonials: 'آراء العملاء والطلاب',
-            navSocial: 'صفحات التواصل',
-            navTraining: 'الندوات',
-            navCourses: 'الكورسات',
-            navProjects: 'المشاريع',
-            navCopyright: 'حقوق الملكية',
-            navContact: 'تواصل معي',
-            mCta1: '🛠️ طلب خدمة',
-            mCta2: '📩 تواصل مباشر',
-            fltAll: 'الكل',
-            fltIot: 'إلكترونيات & IoT',
-            fltRobot: 'تصميم 3D & روبوتات',
-            fltOther: 'عروض & استشارات',
+            langBtn: 'English 🌐', menuBtn: 'القائمة ☰',
+            navAbout: 'عن ziadai', navBlog: '📜 الأكواد والمخططات', navServices: 'الخدمات (خمسات)',
+            navSkills: 'المهارات والتقنيات', navAchievements: 'الإنجازات والمبادرات', navTestimonials: 'آراء العملاء والطلاب',
+            navBlogpreview: 'أحدث المقالات',
+            navSocial: 'صفحات التواصل', navTraining: 'الندوات', navCourses: 'الكورسات', navProjects: 'المشاريع',
+            navCopyright: 'حقوق الملكية', navContact: 'تواصل معي',
             heroSubtitle: 'مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات',
             heroBtn: '📥 رؤية المخططات والأكواد البرمجية',
+            cvBtn: '📄 تحميل السيرة الذاتية',
+            stat1: 'مشروع منجز', stat2: 'عميل راضٍ', stat3: 'ندوات تدريبية', stat4: 'سنوات خبرة',
+            bpTitle: 'أحدث المقالات من المدونة', bpNote: 'بيتم تحميل آخر 3 مقالات تلقائياً من مدونة ziadai على Blogspot.',
             sTitle: 'خدماتي التقنية (خمسات)',
             s1Title: 'برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل',
             s1Desc: 'تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.',
-            s1Btn: 'طلب الخدمة من خمسات',
-            s1Btn2: 'طلب الخدمة من كفيل',
+            s1Btn: 'طلب الخدمة من خمسات', s1Btn2: 'طلب الخدمة من كفيل',
             s2Title: 'استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT',
             s2Desc: 'مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.',
-            s2Btn: 'طلب الخدمة من خمسات',
-            s2Btn2: 'طلب الخدمة من نفذلي',
-            s2Btn3: 'طلب الخدمة من كفيل',
+            s2Btn: 'طلب الخدمة من خمسات', s2Btn2: 'طلب الخدمة من نفذلي', s2Btn3: 'طلب الخدمة من كفيل',
             s3Title: 'تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi',
             s3Desc: 'بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.',
-            s3Btn: 'طلب الخدمة من خمسات',
-            s3Btn2: 'طلب الخدمة من نفذلي',
-            s3Btn3: 'طلب الخدمة من كفيل',
+            s3Btn: 'طلب الخدمة من خمسات', s3Btn2: 'طلب الخدمة من نفذلي', s3Btn3: 'طلب الخدمة من كفيل',
             s4Title: 'ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد',
             s4Desc: 'تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.',
-            s4Btn: 'طلب الخدمة من خمسات',
-            s4Btn2: 'طلب الخدمة من نفذلي',
-            s4Btn3: 'طلب الخدمة من كفيل',
+            s4Btn: 'طلب الخدمة من خمسات', s4Btn2: 'طلب الخدمة من نفذلي', s4Btn3: 'طلب الخدمة من كفيل',
             s5Title: 'تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج',
             s5Desc: 'إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.',
-            s5Btn: 'طلب الخدمة من نفذلي',
-            s5Btn2: 'طلب الخدمة من كفيل',
+            s5Btn: 'طلب الخدمة من نفذلي', s5Btn2: 'طلب الخدمة من كفيل',
             s6Title: 'تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)',
             s6Desc: 'بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.',
             s6Btn: 'طلب الخدمة من نفذلي',
@@ -1284,161 +1166,91 @@
             crP1: 'هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج زياد وليد (ziadai).',
             crP2: 'يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.',
             cntTitle: 'تواصل معي',
-            fName: 'الاسم الكريم',
-            fEmail: 'بريدك الإلكتروني',
-            fMsg: 'تفاصيل مشروعك أو رسالتك...',
-            fBtn: 'إرسال الرسالة',
-            contactDirectText: 'تقدر كمان تتواصل معايا مباشرة من هنا:'
+            fName: 'الاسم الكريم', fEmail: 'بريدك الإلكتروني', fMsg: 'تفاصيل مشروعك أو رسالتك...',
+            fBtn: 'إرسال الرسالة', contactDirectText: 'تقدر كمان تتواصل معايا مباشرة من هنا:'
         }
     };
+
+    function setText(id, val) { var el = document.getElementById(id); if (el) el.innerText = val; }
 
     function toggleLang() {
         currentLang = currentLang === 'ar' ? 'en' : 'ar';
         const data = langData[currentLang];
-        
+
         document.documentElement.dir = data.dir;
         document.documentElement.lang = currentLang;
-        
-        document.getElementById('langBtn').innerText = data.langBtn;
-        document.getElementById('menuBtn').innerText = data.menuBtn;
-        
-        document.getElementById('m-cta-1').innerText = data.mCta1;
-        document.getElementById('m-cta-2').innerText = data.mCta2;
 
-        document.getElementById('flt-all').innerText = data.fltAll;
-        document.getElementById('flt-iot').innerText = data.fltIot;
-        document.getElementById('flt-robot').innerText = data.fltRobot;
-        document.getElementById('flt-other').innerText = data.fltOther;
+        setText('langBtn', data.langBtn); setText('menuBtn', data.menuBtn);
+        setText('nav-about', data.navAbout); setText('nav-blog', data.navBlog); setText('nav-services', data.navServices);
+        setText('nav-skills', data.navSkills); setText('nav-achievements', data.navAchievements); setText('nav-testimonials', data.navTestimonials);
+        setText('nav-blogpreview', data.navBlogpreview);
+        setText('nav-social', data.navSocial); setText('nav-training', data.navTraining); setText('nav-courses', data.navCourses);
+        setText('nav-projects', data.navProjects); setText('nav-copyright', data.navCopyright); setText('nav-contact', data.navContact);
 
-        document.getElementById('nav-about').innerText = data.navAbout;
-        document.getElementById('nav-blog').innerText = data.navBlog;
-        document.getElementById('nav-services').innerText = data.navServices;
-        document.getElementById('nav-skills').innerText = data.navSkills;
-        document.getElementById('nav-achievements').innerText = data.navAchievements;
-        document.getElementById('nav-testimonials').innerText = data.navTestimonials;
-        document.getElementById('nav-social').innerText = data.navSocial;
-        document.getElementById('nav-training').innerText = data.navTraining;
-        document.getElementById('nav-courses').innerText = data.navCourses;
-        document.getElementById('nav-projects').innerText = data.navProjects;
-        document.getElementById('nav-copyright').innerText = data.navCopyright;
-        document.getElementById('nav-contact').innerText = data.navContact;
-        
-        document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
-        document.getElementById('hero-btn').innerText = data.heroBtn;
-        
-        document.getElementById('s-title').innerText = data.sTitle;
-        document.getElementById('s1-title').innerText = data.s1Title;
-        document.getElementById('s1-desc').innerText = data.s1Desc;
-        document.getElementById('s1-btn').innerText = data.s1Btn;
-        document.getElementById('s1-btn2').innerText = data.s1Btn2;
-        document.getElementById('s2-title').innerText = data.s2Title;
-        document.getElementById('s2-desc').innerText = data.s2Desc;
-        document.getElementById('s2-btn').innerText = data.s2Btn;
-        document.getElementById('s2-btn2').innerText = data.s2Btn2;
-        document.getElementById('s2-btn3').innerText = data.s2Btn3;
-        document.getElementById('s3-title').innerText = data.s3Title;
-        document.getElementById('s3-desc').innerText = data.s3Desc;
-        document.getElementById('s3-btn').innerText = data.s3Btn;
-        document.getElementById('s3-btn2').innerText = data.s3Btn2;
-        document.getElementById('s3-btn3').innerText = data.s3Btn3;
-        document.getElementById('s4-title').innerText = data.s4Title;
-        document.getElementById('s4-desc').innerText = data.s4Desc;
-        document.getElementById('s4-btn').innerText = data.s4Btn;
-        document.getElementById('s4-btn2').innerText = data.s4Btn2;
-        document.getElementById('s4-btn3').innerText = data.s4Btn3;
-        document.getElementById('s5-title').innerText = data.s5Title;
-        document.getElementById('s5-desc').innerText = data.s5Desc;
-        document.getElementById('s5-btn').innerText = data.s5Btn;
-        document.getElementById('s5-btn2').innerText = data.s5Btn2;
-        document.getElementById('s6-title').innerText = data.s6Title;
-        document.getElementById('s6-desc').innerText = data.s6Desc;
-        document.getElementById('s6-btn').innerText = data.s6Btn;
-        document.getElementById('s7-title').innerText = data.s7Title;
-        document.getElementById('s7-desc').innerText = data.s7Desc;
-        document.getElementById('s7-btn').innerText = data.s7Btn;
-        document.getElementById('s8-title').innerText = data.s8Title;
-        document.getElementById('s8-desc').innerText = data.s8Desc;
-        document.getElementById('s8-btn').innerText = data.s8Btn;
-        document.getElementById('s9-title').innerText = data.s9Title;
-        document.getElementById('s9-desc').innerText = data.s9Desc;
-        document.getElementById('s9-btn').innerText = data.s9Btn;
-        document.getElementById('main-khamsat-btn').innerText = data.mainKhamsatBtn;
-        
-        document.getElementById('a-title').innerText = data.aTitle;
-        document.getElementById('a-desc').innerText = data.aDesc;
-        document.getElementById('sk-title').innerText = data.skTitle;
+        setText('hero-subtitle', data.heroSubtitle); setText('hero-btn', data.heroBtn); setText('cv-btn', data.cvBtn);
 
-        document.getElementById('ac-title').innerText = data.acTitle;
-        document.getElementById('ac1-title').innerText = data.ac1Title;
-        document.getElementById('ac1-desc').innerText = data.ac1Desc;
-        document.getElementById('ac2-title').innerText = data.ac2Title;
-        document.getElementById('ac2-desc').innerText = data.ac2Desc;
-        document.getElementById('ac3-title').innerText = data.navAchievements;
-        document.getElementById('ac3-desc').innerText = data.ac3Desc;
-        
-        document.getElementById('tst-title').innerText = data.tstTitle;
-        document.getElementById('tst1-user').innerText = data.tst1User;
-        document.getElementById('tst1-text').innerText = data.tst1Text;
-        document.getElementById('tst2-user').innerText = data.tst2User;
-        document.getElementById('tst2-text').innerText = data.tst2Text;
-        document.getElementById('tst3-user').innerText = data.tst3User;
-        document.getElementById('tst3-text').innerText = data.tst3Text;
-        
-        document.getElementById('sm-title').innerText = data.smTitle;
-        document.getElementById('sm1-title').innerText = data.sm1Title;
-        document.getElementById('sm1-desc').innerText = data.sm1Desc;
-        document.getElementById('sm2-title').innerText = data.sm2Title;
-        document.getElementById('sm2-desc').innerText = data.sm2Desc;
-        document.getElementById('sm3-title').innerText = data.sm3Title;
-        document.getElementById('sm3-desc').innerText = data.sm3Desc;
-        
-        document.getElementById('t-title').innerText = data.tTitle;
-        document.getElementById('t1-title').innerText = data.t1Title;
-        document.getElementById('t1-desc').innerText = data.t1Desc;
-        document.getElementById('t2-title').innerText = data.t2Title;
-        document.getElementById('t2-desc').innerText = data.t2Desc;
-        document.getElementById('t3-title').innerText = data.t3Title;
-        document.getElementById('t3-desc').innerText = data.t3Desc;
-        document.getElementById('t4-title').innerText = data.t4Title;
-        document.getElementById('t4-desc').innerText = data.t4Desc;
-        document.getElementById('t5-title').innerText = data.t5Title;
-        document.getElementById('t5-desc').innerText = data.t5Desc;
-        
-        document.getElementById('c-title').innerText = data.cTitle;
-        document.getElementById('c1-title').innerText = data.c1Title;
-        document.getElementById('c1-desc').innerText = data.c1Desc;
-        document.getElementById('c2-title').innerText = data.c2Title;
-        document.getElementById('c2-desc').innerText = data.c2Desc;
-        document.getElementById('c3-title').innerText = data.c3Title;
-        document.getElementById('c3-desc').innerText = data.c3Desc;
-        document.getElementById('c4-title').innerText = data.c4Title;
-        document.getElementById('c4-desc').innerText = data.c4Desc;
-        
-        document.getElementById('p-title').innerText = data.pTitle;
-        document.getElementById('p1-title').innerText = data.p1Title;
-        document.getElementById('p1-desc').innerText = data.p1Desc;
-        document.getElementById('p2-title').innerText = data.p2Title;
-        document.getElementById('p2-desc').innerText = data.p2Desc;
-        document.getElementById('p3-title').innerText = data.p3Title;
-        document.getElementById('p3-desc').innerText = data.p3Desc;
-        
-        document.getElementById('cr-title').innerText = data.crTitle;
-        document.getElementById('cr-sub').innerText = data.crSub;
-        document.getElementById('cr-p1').innerText = data.crP1;
-        document.getElementById('cr-p2').innerText = data.crP2;
-        
-        document.getElementById('cnt-title').innerText = data.cntTitle;
+        setText('stat1-label', data.stat1); setText('stat2-label', data.stat2); setText('stat3-label', data.stat3); setText('stat4-label', data.stat4);
+        setText('bp-title', data.bpTitle); setText('bp-note', data.bpNote);
+
+        setText('s-title', data.sTitle);
+        setText('s1-title', data.s1Title); setText('s1-desc', data.s1Desc); setText('s1-btn', data.s1Btn); setText('s1-btn2', data.s1Btn2);
+        setText('s2-title', data.s2Title); setText('s2-desc', data.s2Desc); setText('s2-btn', data.s2Btn); setText('s2-btn2', data.s2Btn2); setText('s2-btn3', data.s2Btn3);
+        setText('s3-title', data.s3Title); setText('s3-desc', data.s3Desc); setText('s3-btn', data.s3Btn); setText('s3-btn2', data.s3Btn2); setText('s3-btn3', data.s3Btn3);
+        setText('s4-title', data.s4Title); setText('s4-desc', data.s4Desc); setText('s4-btn', data.s4Btn); setText('s4-btn2', data.s4Btn2); setText('s4-btn3', data.s4Btn3);
+        setText('s5-title', data.s5Title); setText('s5-desc', data.s5Desc); setText('s5-btn', data.s5Btn); setText('s5-btn2', data.s5Btn2);
+        setText('s6-title', data.s6Title); setText('s6-desc', data.s6Desc); setText('s6-btn', data.s6Btn);
+        setText('s7-title', data.s7Title); setText('s7-desc', data.s7Desc); setText('s7-btn', data.s7Btn);
+        setText('s8-title', data.s8Title); setText('s8-desc', data.s8Desc); setText('s8-btn', data.s8Btn);
+        setText('s9-title', data.s9Title); setText('s9-desc', data.s9Desc); setText('s9-btn', data.s9Btn);
+        setText('main-khamsat-btn', data.mainKhamsatBtn);
+
+        setText('a-title', data.aTitle); setText('a-desc', data.aDesc);
+        setText('sk-title', data.skTitle);
+
+        setText('ac-title', data.acTitle);
+        setText('ac1-title', data.ac1Title); setText('ac1-desc', data.ac1Desc);
+        setText('ac2-title', data.ac2Title); setText('ac2-desc', data.ac2Desc);
+        setText('ac3-title', data.ac3Title); setText('ac3-desc', data.ac3Desc);
+
+        setText('tst-title', data.tstTitle);
+        setText('tst1-user', data.tst1User); setText('tst1-text', data.tst1Text);
+        setText('tst2-user', data.tst2User); setText('tst2-text', data.tst2Text);
+        setText('tst3-user', data.tst3User); setText('tst3-text', data.tst3Text);
+
+        setText('sm-title', data.smTitle);
+        setText('sm1-title', data.sm1Title); setText('sm1-desc', data.sm1Desc);
+        setText('sm2-title', data.sm2Title); setText('sm2-desc', data.sm2Desc);
+        setText('sm3-title', data.sm3Title); setText('sm3-desc', data.sm3Desc);
+
+        setText('t-title', data.tTitle);
+        setText('t1-title', data.t1Title); setText('t1-desc', data.t1Desc);
+        setText('t2-title', data.t2Title); setText('t2-desc', data.t2Desc);
+        setText('t3-title', data.t3Title); setText('t3-desc', data.t3Desc);
+        setText('t4-title', data.t4Title); setText('t4-desc', data.t4Desc);
+        setText('t5-title', data.t5Title); setText('t5-desc', data.t5Desc);
+
+        setText('c-title', data.cTitle);
+        setText('c1-title', data.c1Title); setText('c1-desc', data.c1Desc);
+        setText('c2-title', data.c2Title); setText('c2-desc', data.c2Desc);
+        setText('c3-title', data.c3Title); setText('c3-desc', data.c3Desc);
+        setText('c4-title', data.c4Title); setText('c4-desc', data.c4Desc);
+
+        setText('p-title', data.pTitle);
+        setText('p1-title', data.p1Title); setText('p1-desc', data.p1Desc);
+        setText('p2-title', data.p2Title); setText('p2-desc', data.p2Desc);
+        setText('p3-title', data.p3Title); setText('p3-desc', data.p3Desc);
+
+        setText('cr-title', data.crTitle); setText('cr-sub', data.crSub);
+        setText('cr-p1', data.crP1); setText('cr-p2', data.crP2);
+
+        setText('cnt-title', data.cntTitle);
         document.getElementById('f-name').placeholder = data.fName;
         document.getElementById('f-email').placeholder = data.fEmail;
         document.getElementById('f-msg').placeholder = data.fMsg;
-        document.getElementById('f-btn').innerText = data.fBtn;
-        document.getElementById('contact-direct-text').innerText = data.contactDirectText;
+        setText('f-btn', data.fBtn);
+        setText('contact-direct-text', data.contactDirectText);
 
-        if (currentLang === 'en') {
-            document.title = "ziadai | Ziad Walid - Tech & Invention Expert";
-        } else {
-            document.title = "ziadai | زياد وليد - خبير التكنولوجيا والاختراعات";
-        }
+        document.title = currentLang === 'en' ? "ziadai | Ziad Walid - Tech & Invention Expert" : "ziadai | زياد وليد - خبير التكنولوجيا والاختراعات";
     }
 </script>
 </body>
