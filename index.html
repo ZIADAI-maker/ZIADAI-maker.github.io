@@ -10,6 +10,9 @@
     <meta name="author" content="زياد وليد (ziadai)">
     <meta name="theme-color" content="#0a0b10">
     <link rel="canonical" href="https://ziadai-maker.github.io/">
+    <link rel="alternate" hreflang="ar" href="https://ziadai-maker.github.io/">
+    <link rel="alternate" hreflang="en" href="https://ziadai-maker.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://ziadai-maker.github.io/">
 
     <!-- Open Graph / social sharing preview -->
     <meta property="og:type" content="website">
@@ -105,6 +108,23 @@
             --secondary-color: #4facfe;
             --bg-dark: #0a0b10;
             --card-bg: #161b22;
+            --text-color: #ffffff;
+            --border-color: #30363d;
+            --muted-text: #8b949e;
+            --soft-text: #cdd9e5;
+            --hero-overlay: rgba(10, 11, 16, 0.4);
+        }
+
+        html[data-theme="light"] {
+            --main-color: #0089a8;
+            --secondary-color: #045e82;
+            --bg-dark: #f4f7fa;
+            --card-bg: #ffffff;
+            --text-color: #0d1117;
+            --border-color: #dde3ea;
+            --muted-text: #57606a;
+            --soft-text: #3a4552;
+            --hero-overlay: rgba(255, 255, 255, 0.5);
         }
 
         * { box-sizing: border-box; }
@@ -112,11 +132,12 @@
         body {
             font-family: 'Cairo', sans-serif;
             background-color: var(--bg-dark);
-            color: white;
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            transition: background-color 0.4s, color 0.4s;
         }
 
         a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
@@ -135,12 +156,50 @@
 
         #particles-js {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #0d1117 0%, #0a0b10 100%);
+            overflow: hidden;
+            background: var(--bg-dark);
+            transition: background-color 0.4s;
+        }
+
+        #particles-js::before, #particles-js::after {
+            content: '';
+            position: absolute;
+            width: 55vw;
+            height: 55vw;
+            min-width: 400px;
+            min-height: 400px;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: 0.16;
+            will-change: transform;
+        }
+
+        #particles-js::before {
+            background: var(--main-color);
+            top: -15%;
+            left: -12%;
+            animation: auroraMove1 24s ease-in-out infinite alternate;
+        }
+
+        #particles-js::after {
+            background: var(--secondary-color);
+            bottom: -18%;
+            right: -12%;
+            animation: auroraMove2 28s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraMove1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(8vw, 6vh) scale(1.15); }
+        }
+
+        @keyframes auroraMove2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-7vw, -5vh) scale(1.1); }
         }
 
         .top-controls {
@@ -157,7 +216,7 @@
             left: 20px;
         }
 
-        .menu-btn, .lang-btn {
+        .menu-btn, .lang-btn, .theme-btn {
             background: var(--card-bg);
             border: 1px solid var(--main-color);
             color: var(--main-color);
@@ -169,7 +228,9 @@
             transition: 0.3s;
         }
 
-        .menu-btn:hover, .lang-btn:hover {
+        .theme-btn { padding: 10px 13px; font-size: 1rem; line-height: 1; }
+
+        .menu-btn:hover, .lang-btn:hover, .theme-btn:hover {
             background: var(--main-color);
             color: black;
             box-shadow: 0 0 15px var(--main-color);
@@ -185,7 +246,7 @@
             max-height: 70vh;
             overflow-y: auto;
             border-radius: 10px;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border-color);
             box-shadow: 0 8px 16px rgba(0,0,0,0.5);
         }
 
@@ -195,11 +256,11 @@
         }
 
         .dropdown-content a {
-            color: white;
+            color: var(--text-color);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .dropdown-content a:hover, .dropdown-content a:focus-visible {
@@ -221,7 +282,7 @@
             align-items: center;
             text-align: center;
             padding: 40px 5%;
-            background: linear-gradient(to bottom, rgba(10,11,16,0.4), var(--bg-dark));
+            background: linear-gradient(to bottom, var(--hero-overlay), var(--bg-dark));
         }
 
         .avatar {
@@ -233,6 +294,37 @@
             margin-bottom: 22px;
             object-fit: cover;
             background: var(--card-bg);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--soft-text);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero-tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .hero-tech-pills span {
+            border: 1px solid var(--border-color);
+            color: var(--muted-text);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: bold;
         }
 
         .hero-title {
@@ -279,8 +371,8 @@
         .hero-cv-btn {
             display: inline-block;
             padding: 10px 26px;
-            color: #cdd9e5;
-            border: 1px solid #30363d;
+            color: var(--soft-text);
+            border: 1px solid var(--border-color);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
@@ -290,7 +382,15 @@
 
         .hero-cv-btn:hover { border-color: var(--main-color); color: var(--main-color); }
 
-        section { padding: 80px 10%; }
+        section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:not(:last-of-type) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
         h2 {
             border-right: 5px solid var(--main-color);
@@ -317,9 +417,9 @@
             border-radius: 15px;
             padding: 20px;
             transition: 0.4s;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border-color);
             text-decoration: none;
-            color: white;
+            color: var(--text-color);
             display: block;
         }
 
@@ -387,11 +487,11 @@
 
         .skill-tag {
             background: var(--card-bg);
-            border: 1px solid #30363d;
+            border: 1px solid var(--border-color);
             padding: 10px 20px;
             border-radius: 50px;
             font-weight: bold;
-            color: #e6edf3;
+            color: var(--soft-text);
             transition: 0.3s;
         }
 
@@ -409,7 +509,7 @@
 
         .service-alt summary {
             cursor: pointer;
-            color: #8b949e;
+            color: var(--muted-text);
             font-size: 0.82rem;
             font-weight: bold;
             list-style: none;
@@ -434,7 +534,7 @@
 
         .service-alt-links a {
             font-size: 0.8rem;
-            color: #cdd9e5;
+            color: var(--soft-text);
             text-decoration: underline;
             text-underline-offset: 3px;
             transition: 0.25s;
@@ -460,7 +560,7 @@
 
         /* معاينة المدونة */
         .blog-preview-note {
-            color: #8b949e;
+            color: var(--muted-text);
             font-size: 0.9rem;
             margin-top: -20px;
             margin-bottom: 30px;
@@ -482,10 +582,10 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 12px;
-            background: #0a0b10;
-            border: 1px solid #30363d;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            color: white;
+            color: var(--text-color);
             font-family: 'Cairo', sans-serif;
             box-sizing: border-box;
             transition: 0.3s;
@@ -566,9 +666,9 @@
         .contact-direct {
             text-align: center;
             margin-top: 30px;
-            border-top: 1px solid #30363d;
+            border-top: 1px solid var(--border-color);
             padding-top: 20px;
-            color: #8b949e;
+            color: var(--muted-text);
         }
 
         .contact-direct a {
@@ -580,7 +680,7 @@
             section { padding: 50px 6%; }
             h2 { font-size: 1.5rem; }
             .top-controls { top: 12px; }
-            .menu-btn, .lang-btn { padding: 8px 12px; font-size: 0.85rem; }
+            .menu-btn, .lang-btn, .theme-btn { padding: 8px 12px; font-size: 0.85rem; }
             .btn-group { gap: 8px; }
             .btn-sm { padding: 8px 14px; font-size: 0.78rem; }
             #whatsappBtn, #scrollTopBtn { width: 46px; height: 46px; bottom: 20px; }
@@ -599,6 +699,7 @@
 </a>
 
 <div class="top-controls">
+    <button onclick="toggleTheme()" class="theme-btn" id="themeBtn" aria-label="تبديل الوضع الليلي/النهاري" title="تبديل الوضع الليلي/النهاري">🌙</button>
     <select onchange="setLanguage(this.value)" class="lang-select" id="langSelect" aria-label="اختر لغة الموقع / Choose site language">
         <option value="ar">🇸🇦 العربية</option>
         <option value="en">🇬🇧 English</option>
@@ -610,34 +711,78 @@
     <button onclick="toggleMenu()" class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-controls="myDropdown">القائمة ☰</button>
     <nav id="myDropdown" class="dropdown-content" aria-label="التنقل الرئيسي">
         <a href="#about" id="nav-about">عن ziadai</a>
-        <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" style="color: var(--main-color); font-weight: bold;" id="nav-blog">📜 الأكواد والمخططات</a>
-        <a href="#services" id="nav-services">الخدمات (خمسات)</a>
         <a href="#skills" id="nav-skills">المهارات والتقنيات</a>
         <a href="#achievements" id="nav-achievements">الإنجازات والمبادرات</a>
+        <a href="#services" id="nav-services">الخدمات (خمسات)</a>
+        <a href="#projects" id="nav-projects">المشاريع</a>
         <a href="#testimonials" id="nav-testimonials">آراء العملاء والطلاب</a>
-        <a href="#blog-preview" id="nav-blogpreview">أحدث المقالات</a>
-        <a href="#social-media" id="nav-social">صفحات التواصل</a>
         <a href="#training" id="nav-training">الندوات</a>
         <a href="#courses" id="nav-courses">الكورسات</a>
-        <a href="#projects" id="nav-projects">المشاريع</a>
+        <a href="#blog-preview" id="nav-blogpreview">أحدث المقالات</a>
+        <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" style="color: var(--main-color); font-weight: bold;" id="nav-blog">📜 الأكواد والمخططات</a>
+        <a href="#social-media" id="nav-social">صفحات التواصل</a>
         <a href="#faq" id="nav-faq">أسئلة شائعة</a>
-        <a href="#copyright" id="nav-copyright">حقوق الملكية</a>
         <a href="#contact" id="nav-contact">تواصل معي</a>
+        <a href="#copyright" id="nav-copyright">حقوق الملكية</a>
     </nav>
 </div>
 
 <header>
     <img class="avatar" src="./profile.jpg" alt="صورة زياد وليد الشخصية" loading="lazy">
+    <span class="availability-badge" id="hero-availability">🟢 متاح لاستلام مشاريع جديدة الآن</span>
     <h1 class="hero-title">ziadai | زياد وليد</h1>
     <p class="hero-sub" id="hero-subtitle">مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات</p>
-    <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" class="hero-blog-btn" id="hero-btn">
-        📥 رؤية المخططات والأكواد البرمجية
-    </a>
+    <div class="hero-tech-pills" aria-hidden="true">
+        <span>Arduino</span><span>ESP32</span><span>Python</span><span>IoT</span><span>Robotics</span>
+    </div>
+    <a href="#services" class="hero-blog-btn" id="hero-primary-btn">🚀 اطلب خدمتك دلوقتي</a>
     <div class="hero-secondary-actions">
+        <a href="https://ziadai-maker.blogspot.com/" target="_blank" rel="noopener" class="hero-cv-btn" id="hero-btn">📥 رؤية المخططات والأكواد البرمجية</a>
         <!-- ⚠️ الرابط ده بيصدّر مستند الـ CV من جوجل دوكس كـ PDF مباشرة، تأكد إن إعدادات المشاركة "Anyone with the link - Viewer" عشان يشتغل لأي زائر -->
         <a href="https://docs.google.com/document/d/1oFcuNPTFegvpqrFP59NxpaW9RPagVQp0ZlXN0IByCU0/export?format=pdf" target="_blank" rel="noopener" class="hero-cv-btn" id="cv-btn">📄 تحميل السيرة الذاتية</a>
     </div>
 </header>
+
+<section id="about">
+    <h2 id="a-title">نبذة عن العبقرية التقنية</h2>
+    <p style="line-height: 1.8; font-size: 1.2rem;" id="a-desc">
+         أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.
+    </p>
+</section>
+
+<section id="skills">
+    <h2 id="sk-title">المهارات والتقنيات (Tech Stack)</h2>
+    <div class="skills-container">
+        <div class="skill-tag">C++ (Microcontrollers)</div>
+        <div class="skill-tag">Python (AI & Vision)</div>
+        <div class="skill-tag">Arduino Uno & Nano</div>
+        <div class="skill-tag">ESP32 & ESP32-CAM</div>
+        <div class="skill-tag">Raspberry Pi 5</div>
+        <div class="skill-tag">OpenCV (Computer Vision)</div>
+        <div class="skill-tag">MediaPipe (Gesture Control)</div>
+        <div class="skill-tag">Embedded Systems Design</div>
+        <div class="skill-tag">Circuit Troubleshooting</div>
+        <div class="skill-tag">UI/UX Design & HTML/CSS</div>
+    </div>
+</section>
+
+<section id="achievements">
+    <h2 id="ac-title">الإنجازات والمبادرات الرقمية</h2>
+    <div class="grid">
+        <div class="card">
+            <h3 id="ac1-title">مبادرة أشبال مصر الرقمية (DECA)</h3>
+            <p id="ac1-desc">الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.</p>
+        </div>
+        <div class="card">
+            <h3 id="ac2-title">Build with AI: Egypt Edition</h3>
+            <p id="ac2-desc">المشاركة الفعالة في برنامج جوجل لابتكار وتطبيق حلول الذكاء الاصطناعي المتقدمة واستكشاف خدمات وتقنيات الـ AI Vision.</p>
+        </div>
+        <div class="card">
+            <h3 id="ac3-title">Hack Club Arcade</h3>
+            <p id="ac3-desc">المشاركة في التحديات البرمجية والهندسية العالمية لبناء مشروعات تقنية مبتكرة ومشاركة الأكواد مع مجتمع المطورين الدولي.</p>
+        </div>
+    </div>
+</section>
 
 <section id="services">
     <h2 id="s-title">خدماتي التقنية (خمسات)</h2>
@@ -744,44 +889,24 @@
     </div>
 </section>
 
-<section id="about">
-    <h2 id="a-title">نبذة عن العبقرية التقنية</h2>
-    <p style="line-height: 1.8; font-size: 1.2rem;" id="a-desc">
-         أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.
-    </p>
-</section>
-
-<section id="skills">
-    <h2 id="sk-title">المهارات والتقنيات (Tech Stack)</h2>
-    <div class="skills-container">
-        <div class="skill-tag">C++ (Microcontrollers)</div>
-        <div class="skill-tag">Python (AI & Vision)</div>
-        <div class="skill-tag">Arduino Uno & Nano</div>
-        <div class="skill-tag">ESP32 & ESP32-CAM</div>
-        <div class="skill-tag">Raspberry Pi 5</div>
-        <div class="skill-tag">OpenCV (Computer Vision)</div>
-        <div class="skill-tag">MediaPipe (Gesture Control)</div>
-        <div class="skill-tag">Embedded Systems Design</div>
-        <div class="skill-tag">Circuit Troubleshooting</div>
-        <div class="skill-tag">UI/UX Design & HTML/CSS</div>
-    </div>
-</section>
-
-<section id="achievements">
-    <h2 id="ac-title">الإنجازات والمبادرات الرقمية</h2>
+<section id="projects">
+    <h2 id="p-title">معرض المشاريع المبتكرة</h2>
     <div class="grid">
-        <div class="card">
-            <h3 id="ac1-title">مبادرة أشبال مصر الرقمية (DECA)</h3>
-            <p id="ac1-desc">الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.</p>
-        </div>
-        <div class="card">
-            <h3 id="ac2-title">Build with AI: Egypt Edition</h3>
-            <p id="ac2-desc">المشاركة الفعالة في برنامج جوجل لابتكار وتطبيق حلول الذكاء الاصطناعي المتقدمة واستكشاف خدمات وتقنيات الـ AI Vision.</p>
-        </div>
-        <div class="card">
-            <h3 id="ac3-title">Hack Club Arcade</h3>
-            <p id="ac3-desc">المشاركة في التحديات البرمجية والهندسية العالمية لبناء مشروعات تقنية مبتكرة ومشاركة الأكواد مع مجتمع المطورين الدولي.</p>
-        </div>
+        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank" rel="noopener">
+            <h3 id="p1-title">روبوت الخدمة الذكي</h3>
+            <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
+        </a>
+        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank" rel="noopener">
+            <h3 id="p2-title">مشروع Morse Code</h3>
+            <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
+        </a>
+        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank" rel="noopener">
+            <h3 id="p3-title">مشروع Smart Home</h3>
+            <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
+        </a>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://youtube.com/@ziadwaleedmohamed?si=qrFoZAU11A9xjG9o" target="_blank" rel="noopener" class="btn" id="main-youtube-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">🎬 زور قناتي على يوتيوب</a>
     </div>
 </section>
 
@@ -803,32 +928,6 @@
             <h3 id="tst3-user">خالد ع. (طالب برمجيات)</h3>
             <p id="tst3-text">"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."</p>
         </div>
-    </div>
-</section>
-
-<section id="blog-preview">
-    <h2 id="bp-title">أحدث المقالات من المدونة</h2>
-    <p class="blog-preview-note" id="bp-note">بيتم تحميل آخر 3 مقالات تلقائياً من مدونة ziadai على Blogspot.</p>
-    <div class="grid" id="blog-preview-grid">
-        <!-- المقالات هتتحمل هنا تلقائياً بالجافاسكريبت -->
-    </div>
-</section>
-
-<section id="social-media">
-    <h2 id="sm-title">صفحات التواصل الاجتماعي</h2>
-    <div class="grid">
-        <a href="https://www.tiktok.com/@ziadai0?_r=1&_t=ZS-96ulPsCDlSv" class="card" target="_blank" rel="noopener">
-            <h3 id="sm1-title">تيك توك (TikTok)</h3>
-            <p id="sm1-desc">تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.</p>
-        </a>
-        <a href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" class="card" target="_blank" rel="noopener">
-            <h3 id="sm2-title">إنستغرام (Instagram)</h3>
-            <p id="sm2-desc">كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.</p>
-        </a>
-        <a href="https://www.facebook.com/share/1BDHiNGrks/" class="card" target="_blank" rel="noopener">
-            <h3 id="sm3-title">فيسبوك (Facebook)</h3>
-            <p id="sm3-desc">تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.</p>
-        </a>
     </div>
 </section>
 
@@ -880,34 +979,29 @@
     </div>
 </section>
 
-<section id="projects">
-    <h2 id="p-title">معرض المشاريع المبتكرة</h2>
-    <div class="grid">
-        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank" rel="noopener">
-            <h3 id="p1-title">روبوت الخدمة الذكي</h3>
-            <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
-        </a>
-        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank" rel="noopener">
-            <h3 id="p2-title">مشروع Morse Code</h3>
-            <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
-        </a>
-        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank" rel="noopener">
-            <h3 id="p3-title">مشروع Smart Home</h3>
-            <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
-        </a>
+<section id="blog-preview">
+    <h2 id="bp-title">أحدث المقالات من المدونة</h2>
+    <p class="blog-preview-note" id="bp-note">بيتم تحميل آخر 3 مقالات تلقائياً من مدونة ziadai على Blogspot.</p>
+    <div class="grid" id="blog-preview-grid">
+        <!-- المقالات هتتحمل هنا تلقائياً بالجافاسكريبت -->
     </div>
 </section>
 
-<section id="copyright">
-    <h2 id="cr-title">حقوق الملكية الفكرية وحماية المحتوى</h2>
-    <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid #30363d; line-height: 1.8;">
-        <h3 style="color: var(--main-color); margin-top: 0;" id="cr-sub">حقوق النشر والتأليف © 2026</h3>
-        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p1">
-            هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج <strong>زياد وليد (ziadai)</strong>. 
-        </p>
-        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p2">
-            يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.
-        </p>
+<section id="social-media">
+    <h2 id="sm-title">صفحات التواصل الاجتماعي</h2>
+    <div class="grid">
+        <a href="https://www.tiktok.com/@ziadai0?_r=1&_t=ZS-96ulPsCDlSv" class="card" target="_blank" rel="noopener">
+            <h3 id="sm1-title">تيك توك (TikTok)</h3>
+            <p id="sm1-desc">تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.</p>
+        </a>
+        <a href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" class="card" target="_blank" rel="noopener">
+            <h3 id="sm2-title">إنستغرام (Instagram)</h3>
+            <p id="sm2-desc">كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.</p>
+        </a>
+        <a href="https://www.facebook.com/share/1BDHiNGrks/" class="card" target="_blank" rel="noopener">
+            <h3 id="sm3-title">فيسبوك (Facebook)</h3>
+            <p id="sm3-desc">تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.</p>
+        </a>
     </div>
 </section>
 
@@ -963,24 +1057,46 @@
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<section id="copyright">
+    <h2 id="cr-title">حقوق الملكية الفكرية وحماية المحتوى</h2>
+    <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); line-height: 1.8;">
+        <h3 style="color: var(--main-color); margin-top: 0;" id="cr-sub">حقوق النشر والتأليف © 2026</h3>
+        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p1">
+            هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج <strong>زياد وليد (ziadai)</strong>. 
+        </p>
+        <p style="font-size: 1.1rem; color: #e6edf3;" id="cr-p2">
+            يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.
+        </p>
+    </div>
+</section>
+
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#00f2fe" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.2, "random": false },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#4facfe", "opacity": 0.15, "width": 1 },
-            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
-        },
-        "retina_detect": true
+    // الوضع الليلي/النهاري: افتراضي دارك، والاختيار بيتحفظ للزيارة الجاية
+    (function initTheme() {
+        var saved = localStorage.getItem('ziadaiTheme');
+        if (saved === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    })();
+
+    function toggleTheme() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        var themeBtn = document.getElementById('themeBtn');
+        if (isLight) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('ziadaiTheme', 'dark');
+            themeBtn.textContent = '🌙';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('ziadaiTheme', 'light');
+            themeBtn.textContent = '☀️';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.documentElement.getAttribute('data-theme') === 'light') {
+            document.getElementById('themeBtn').textContent = '☀️';
+        }
     });
 
     function toggleMenu() {
@@ -1104,6 +1220,8 @@
             navFaq: 'أسئلة شائعة',
             navCopyright: 'حقوق الملكية', navContact: 'تواصل معي',
             heroSubtitle: 'مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات',
+            heroAvailability: '🟢 متاح لاستلام مشاريع جديدة الآن',
+            heroPrimaryBtn: '🚀 اطلب خدمتك دلوقتي',
             heroBtn: '📥 رؤية المخططات والأكواد البرمجية',
             cvBtn: '📄 تحميل السيرة الذاتية',
             altPlatforms: 'منصات أخرى',
@@ -1188,6 +1306,7 @@
             p2Desc: 'ترجمة الإشارات فيزيائياً وبرمجياً.',
             p3Title: 'مشروع Smart Home',
             p3Desc: 'نظام أتمتة منزلية متكامل.',
+            mainYoutubeBtn: '🎬 زور قناتي على يوتيوب',
             faqTitle: 'أسئلة شائعة',
             faq1Q: 'هل ينفع أتعلم برمجة الأردوينو من الصفر؟',
             faq1A: 'أيوه، أردوينو من أسهل نقاط البداية في عالم الأنظمة المدمجة. أقدم كورسات مجانية على قناتي في اليوتيوب تبدأ من الصفر، وخدمات استشارية لو احتجت مساعدة في مشروع محدد.',
@@ -1217,6 +1336,8 @@
             navFaq: 'FAQ',
             navCopyright: 'Copyright', navContact: 'Contact Me',
             heroSubtitle: 'Tech Innovator • Smart Systems Programmer • Inventions Content Creator',
+            heroAvailability: '🟢 Available for new projects',
+            heroPrimaryBtn: '🚀 Get Your Project Started',
             heroBtn: '📥 View Schematics & Source Codes',
             cvBtn: '📄 Download CV',
             altPlatforms: 'Other platforms',
@@ -1301,6 +1422,7 @@
             p2Desc: 'Translating signals physically and programmatically.',
             p3Title: 'Smart Home Project',
             p3Desc: 'An integrated home automation system.',
+            mainYoutubeBtn: '🎬 Visit My YouTube Channel',
             faqTitle: 'Frequently Asked Questions',
             faq1Q: 'Is it worth learning Arduino from scratch?',
             faq1A: 'Yes, Arduino is one of the easiest entry points into embedded systems. I offer free courses on my YouTube channel starting from zero, plus consulting services if you need help with a specific project.',
@@ -1330,6 +1452,8 @@
             navFaq: "FAQ",
             navCopyright: "Droits d'auteur", navContact: "Me contacter",
             heroSubtitle: "Innovateur technologique • Programmeur de systèmes intelligents • Créateur de contenu d'inventions",
+            heroAvailability: "🟢 Disponible pour de nouveaux projets",
+            heroPrimaryBtn: "🚀 Démarrer votre projet",
             heroBtn: "📥 Voir les schémas et les codes sources",
             cvBtn: "📄 Télécharger le CV",
             altPlatforms: "Autres plateformes",
@@ -1414,6 +1538,7 @@
             p2Desc: "Traduction des signaux, physiquement et par logiciel.",
             p3Title: "Projet maison intelligente",
             p3Desc: "Un système domotique intégré.",
+            mainYoutubeBtn: "🎬 Visiter ma chaîne YouTube",
             faqTitle: "Questions fréquentes",
             faq1Q: "Est-ce utile d'apprendre l'Arduino à partir de zéro ?",
             faq1A: "Oui, l'Arduino est l'un des points d'entrée les plus faciles dans le monde des systèmes embarqués. Je propose des cours gratuits sur ma chaîne YouTube dès le niveau débutant, ainsi que des services de conseil pour un projet spécifique.",
@@ -1443,6 +1568,8 @@
             navFaq: "Preguntas frecuentes",
             navCopyright: "Derechos de autor", navContact: "Contáctame",
             heroSubtitle: "Innovador tecnológico • Programador de sistemas inteligentes • Creador de contenido sobre inventos",
+            heroAvailability: "🟢 Disponible para nuevos proyectos",
+            heroPrimaryBtn: "🚀 Empieza tu proyecto",
             heroBtn: "📥 Ver esquemas y códigos fuente",
             cvBtn: "📄 Descargar currículum",
             altPlatforms: "Otras plataformas",
@@ -1527,6 +1654,7 @@
             p2Desc: "Traducción de señales, física y programáticamente.",
             p3Title: "Proyecto de hogar inteligente",
             p3Desc: "Un sistema de automatización del hogar totalmente integrado.",
+            mainYoutubeBtn: "🎬 Visita mi canal de YouTube",
             faqTitle: "Preguntas frecuentes",
             faq1Q: "¿Vale la pena aprender Arduino desde cero?",
             faq1A: "Sí, Arduino es uno de los puntos de entrada más sencillos al mundo de los sistemas embebidos. Ofrezco cursos gratuitos en mi canal de YouTube desde cero, además de servicios de consultoría para un proyecto específico.",
@@ -1556,6 +1684,8 @@
             navFaq: "常见问题",
             navCopyright: "版权信息", navContact: "联系我",
             heroSubtitle: "科技创新者 • 智能系统程序员 • 发明内容创作者",
+            heroAvailability: "🟢 目前可接新项目",
+            heroPrimaryBtn: "🚀 立即开始你的项目",
             heroBtn: "📥 查看电路图与源代码",
             cvBtn: "📄 下载简历",
             altPlatforms: "其他平台",
@@ -1640,6 +1770,7 @@
             p2Desc: "通过硬件与软件实现信号翻译。",
             p3Title: "智能家居项目",
             p3Desc: "完整的家庭自动化系统。",
+            mainYoutubeBtn: "🎬 访问我的 YouTube 频道",
             faqTitle: "常见问题",
             faq1Q: "从零开始学习 Arduino 编程值得吗?",
             faq1A: "当然值得,Arduino 是进入嵌入式系统领域最简单的入门方式之一。我在 YouTube 频道上提供从零开始的免费课程,如果您在具体项目中需要帮助,也可以获得咨询服务。",
@@ -1669,6 +1800,8 @@
             navFaq: "अक्सर पूछे जाने वाले सवाल",
             navCopyright: "कॉपीराइट", navContact: "मुझसे संपर्क करें",
             heroSubtitle: "टेक इनोवेटर • स्मार्ट सिस्टम प्रोग्रामर • इन्वेंशन कंटेंट क्रिएटर",
+            heroAvailability: "🟢 नए प्रोजेक्ट्स के लिए उपलब्ध",
+            heroPrimaryBtn: "🚀 अपना प्रोजेक्ट शुरू करें",
             heroBtn: "📥 डायग्राम और सोर्स कोड देखें",
             cvBtn: "📄 सीवी डाउनलोड करें",
             altPlatforms: "अन्य प्लेटफ़ॉर्म",
@@ -1753,6 +1886,7 @@
             p2Desc: "फिजिकली और प्रोग्रामेटिकली सिग्नल्स का अनुवाद।",
             p3Title: "स्मार्ट होम प्रोजेक्ट",
             p3Desc: "एक पूर्णतः इंटीग्रेटेड होम ऑटोमेशन सिस्टम।",
+            mainYoutubeBtn: "🎬 मेरा YouTube चैनल देखें",
             faqTitle: "अक्सर पूछे जाने वाले सवाल",
             faq1Q: "क्या शुरुआत से Arduino प्रोग्रामिंग सीखना फायदेमंद है?",
             faq1A: "हाँ, एम्बेडेड सिस्टम्स की दुनिया में Arduino सबसे आसान शुरुआती बिंदुओं में से एक है। मैं अपने YouTube चैनल पर शुरुआत से मुफ़्त कोर्सेज़ देता हूँ, साथ ही किसी खास प्रोजेक्ट में मदद के लिए परामर्श सेवाएँ भी।",
@@ -1798,6 +1932,7 @@
         setText('nav-projects', data.navProjects); setText('nav-faq', data.navFaq); setText('nav-copyright', data.navCopyright); setText('nav-contact', data.navContact);
 
         setText('hero-subtitle', data.heroSubtitle); setText('hero-btn', data.heroBtn); setText('cv-btn', data.cvBtn);
+        setText('hero-availability', data.heroAvailability); setText('hero-primary-btn', data.heroPrimaryBtn);
 
         setAll('.alt-platforms-label', data.altPlatforms);
 
@@ -1850,6 +1985,7 @@
         setText('p1-title', data.p1Title); setText('p1-desc', data.p1Desc);
         setText('p2-title', data.p2Title); setText('p2-desc', data.p2Desc);
         setText('p3-title', data.p3Title); setText('p3-desc', data.p3Desc);
+        setText('main-youtube-btn', data.mainYoutubeBtn);
 
         setText('faq-title', data.faqTitle);
         setText('faq1-q', data.faq1Q); setText('faq1-a', data.faq1A);
