@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ziadai | Ziad Walid - Tech &amp; Invention Expert</title>
+<meta content="A tech innovator specialized in programming, robotics, and IoT. Check out my projects and technical services." name="description"/>
+<meta content="ziadai, ziad ai, زياد وليد, اختراعات, تكنولوجيا, مبرمج, روبوتات, Arduino, ESP32, ذكاء اصطناعي" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="زياد وليد (ziadai)" name="author"/>
+<meta content="#0a0b10" name="theme-color"/>
+<link href="https://ziadai-maker.github.io/en/" rel="canonical"/>
+
+
+
+<!-- Open Graph / social sharing preview -->
+<meta content="website" property="og:type"/>
+<meta content="ziadai | Ziad Walid - Tech &amp; Invention Expert" property="og:title"/>
+<meta content="A tech innovator specialized in programming, robotics, and IoT. Check out my projects and technical services." property="og:description"/>
+<meta content="https://ziadai-maker.github.io/en/" property="og:url"/>
+<meta content="ar_AR" property="og:locale"/>
+<meta content="https://ziadai-maker.github.io/profile.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="ziadai | Ziad Walid - Tech &amp; Invention Expert" name="twitter:title"/>
+<meta content="A tech innovator specialized in programming, robotics, and IoT. Check out my projects and technical services." name="twitter:description"/>
+<!-- Structured Data لجوجل: بيوضح هويتك وخدماتك بشكل يفهمه محرك البحث ويزود فرصة الظهور المميز في النتائج -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ziad Walid",
+      "alternateName": "ziadai",
+      "url": "https://ziadai-maker.github.io/en/",
+      "image": "https://ziadai-maker.github.io/profile.jpg",
+      "jobTitle": "Embedded Systems Programmer & IoT Specialist",
+      "knowsAbout": ["Arduino", "ESP32", "IoT", "Embedded Systems", "Python", "Robotics"],
+      "sameAs": [
+        "https://www.tiktok.com/@ziadai0",
+        "https://www.instagram.com/ziadai763",
+        "https://www.facebook.com/share/1BDHiNGrks/",
+        "https://khamsat.com/user/zw_2503_o8bx"
+      ]
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it worth learning Arduino from scratch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Arduino is one of the easiest entry points into embedded systems. I offer free courses on my YouTube channel starting from zero, plus consulting services if you need help with a specific project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between full project programming and consulting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Full programming means I build your project from scratch (code and schematic). Consulting means you already have a working or partially working project and need a review or a specific fix."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work on university graduation projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, graduation projects are one of the main things I work on — whether Arduino, IoT, robotics, or even presentation design and 3D models for the project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I order a service from you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can order directly through Khamsat, Nafezly, or Kafiil using the service links on the site, or reach me directly via WhatsApp or the contact form at the bottom of the page."
+          }
+        }
+      ]
+    }
+    </script>
+<!-- Favicon (بسيط SVG، تقدر تستبدله بلوجو حقيقي لاحقاً) -->
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0b10'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Arial, sans-serif' font-weight='900' fill='%2300f2fe' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<!-- ⚠️ حساب Google Analytics: لو عندك GA Measurement ID حطه هنا بدل G-XXXXXXXXXX وشيل التعليق -->
+<!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --main-color: #00f2fe;
+            --secondary-color: #4facfe;
+            --bg-dark: #0a0b10;
+            --card-bg: #161b22;
+            --text-color: #ffffff;
+            --border-color: #30363d;
+            --muted-text: #8b949e;
+            --soft-text: #cdd9e5;
+            --hero-overlay: rgba(10, 11, 16, 0.4);
+        }
+
+        html[data-theme="light"] {
+            --main-color: #0089a8;
+            --secondary-color: #045e82;
+            --bg-dark: #f4f7fa;
+            --card-bg: #ffffff;
+            --text-color: #0d1117;
+            --border-color: #dde3ea;
+            --muted-text: #57606a;
+            --soft-text: #3a4552;
+            --hero-overlay: rgba(255, 255, 255, 0.5);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--main-color);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-dark);
+            transition: background-color 0.4s;
+        }
+
+        #particles-js::before, #particles-js::after {
+            content: '';
+            position: absolute;
+            width: 55vw;
+            height: 55vw;
+            min-width: 400px;
+            min-height: 400px;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: 0.16;
+            will-change: transform;
+        }
+
+        #particles-js::before {
+            background: var(--main-color);
+            top: -15%;
+            left: -12%;
+            animation: auroraMove1 24s ease-in-out infinite alternate;
+        }
+
+        #particles-js::after {
+            background: var(--secondary-color);
+            bottom: -18%;
+            right: -12%;
+            animation: auroraMove2 28s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraMove1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(8vw, 6vh) scale(1.15); }
+        }
+
+        @keyframes auroraMove2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-7vw, -5vh) scale(1.1); }
+        }
+
+        .top-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        html[dir="ltr"] .top-controls {
+            right: auto;
+            left: 20px;
+        }
+
+        .menu-btn, .lang-btn, .theme-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        .theme-btn { padding: 10px 13px; font-size: 1rem; line-height: 1; }
+
+        .menu-btn:hover, .lang-btn:hover, .theme-btn:hover {
+            background: var(--main-color);
+            color: black;
+            box-shadow: 0 0 15px var(--main-color);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background-color: var(--card-bg);
+            min-width: 220px;
+            max-height: 70vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        html[dir="ltr"] .dropdown-content {
+            right: auto;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dropdown-content a:hover, .dropdown-content a:focus-visible {
+            background-color: var(--main-color);
+            color: black;
+        }
+
+        .show { display: block; }
+
+        section, header {
+            scroll-margin-top: 90px;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 5%;
+            background: linear-gradient(to bottom, var(--hero-overlay), var(--bg-dark));
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--main-color);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+            margin-bottom: 22px;
+            object-fit: cover;
+            background: var(--card-bg);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--soft-text);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero-tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .hero-tech-pills span {
+            border: 1px solid var(--border-color);
+            color: var(--muted-text);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: bold;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p.hero-sub { font-size: clamp(1rem, 3vw, 1.5rem); }
+
+        .hero-blog-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 45px;
+            background: transparent;
+            color: var(--main-color);
+            border: 2px solid var(--main-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            transition: 0.4s;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .hero-blog-btn:hover {
+            background: var(--main-color);
+            color: black;
+            box-shadow: 0 0 35px var(--main-color);
+            transform: scale(1.08);
+        }
+
+        .hero-secondary-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .hero-cv-btn {
+            display: inline-block;
+            padding: 10px 26px;
+            color: var(--soft-text);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .hero-cv-btn:hover { border-color: var(--main-color); color: var(--main-color); }
+
+        section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:not(:last-of-type) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            border-right: 5px solid var(--main-color);
+            padding-right: 15px;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        html[dir="ltr"] h2 {
+            border-right: none;
+            border-left: 5px solid var(--main-color);
+            padding-right: 0;
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            transition: 0.4s;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.2);
+        }
+
+        .card h3 { color: var(--main-color); margin-top: 0; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--main-color);
+            color: black;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 15px var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-sm {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            background: var(--main-color);
+            color: black;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-sm:hover {
+            box-shadow: 0 0 15px var(--main-color);
+            transform: scale(1.03);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--soft-text);
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--main-color);
+            color: var(--main-color);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* أزرار الخدمات: زرار أساسي واحد + منصات إضافية مطوية عشان نقلل الزحمة */
+        .service-actions { margin-top: 20px; }
+
+        .service-alt { margin-top: 10px; }
+
+        .service-alt summary {
+            cursor: pointer;
+            color: var(--muted-text);
+            font-size: 0.82rem;
+            font-weight: bold;
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.25s;
+        }
+
+        .service-alt summary::-webkit-details-marker { display: none; }
+        .service-alt summary::before { content: '▾'; transition: transform 0.25s; }
+        .service-alt[open] summary::before { transform: rotate(180deg); }
+
+        .service-alt summary:hover, .service-alt[open] summary { color: var(--main-color); }
+
+        .service-alt-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            margin-top: 10px;
+        }
+
+        .service-alt-links a {
+            font-size: 0.8rem;
+            color: var(--soft-text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: 0.25s;
+        }
+
+        .service-alt-links a:hover { color: var(--main-color); }
+
+        /* سويتشر اللغة الحقيقي */
+        .lang-select {
+            background: var(--card-bg);
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .lang-select:hover, .lang-select:focus { box-shadow: 0 0 15px var(--main-color); }
+
+        /* معاينة المدونة */
+        .blog-preview-note {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: right;
+        }
+
+        html[dir="ltr"] .contact-form {
+            text-align: left;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--main-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .form-status {
+            text-align: center;
+            font-size: 0.95rem;
+            min-height: 20px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 99;
+            background-color: var(--card-bg);
+            color: var(--main-color);
+            border: 1px solid var(--main-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        html[dir="ltr"] #scrollTopBtn {
+            left: auto;
+            right: 30px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--main-color);
+            color: black;
+            box-shadow: 0 0 20px var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        /* زرار واتساب العائم */
+        #whatsappBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background-color: #25D366;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        html[dir="ltr"] #whatsappBtn { right: auto; left: 30px; }
+
+        #whatsappBtn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(37,211,102,0.6); }
+
+        .contact-direct {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            color: var(--muted-text);
+        }
+
+        .contact-direct a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 50px 6%; }
+            h2 { font-size: 1.5rem; }
+            .top-controls { top: 12px; }
+            .menu-btn, .lang-btn, .theme-btn { padding: 8px 12px; font-size: 0.85rem; }
+            .btn-group { gap: 8px; }
+            .btn-sm { padding: 8px 14px; font-size: 0.78rem; }
+            #whatsappBtn, #scrollTopBtn { width: 46px; height: 46px; bottom: 20px; }
+        }
+    </style>
+<link href="https://ziadai-maker.github.io/" hreflang="ar" rel="alternate"/><link href="https://ziadai-maker.github.io/en/" hreflang="en" rel="alternate"/><link href="https://ziadai-maker.github.io/" hreflang="x-default" rel="alternate"/></head>
+<body>
+<div aria-hidden="true" id="particles-js"></div>
+<button aria-label="Back to top" id="scrollTopBtn" onclick="scrollToTop()" title="Back to top">▲</button>
+<!-- ⚠️ رقم الواتساب مأخوذ من رقم التليفون اللي في قسم التواصل، غيّره هنا لو مختلف -->
+<a aria-label="Contact via WhatsApp" href="https://wa.me/201158357595" id="whatsappBtn" rel="noopener" target="_blank" title="Contact via WhatsApp">
+<svg aria-hidden="true" fill="white" height="28" viewbox="0 0 24 24" width="28"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.42a9.87 9.87 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.7 8.25-8.25 8.25a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25zm-4.4 4.6c-.17 0-.44.06-.67.32-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.02 2.57.12.17 1.75 2.67 4.23 3.74.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28-.25-.13-1.47-.72-1.7-.81-.23-.08-.4-.13-.56.13-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.36-.78-1.86-.2-.48-.4-.42-.56-.42z"></path></svg>
+</a>
+<div class="top-controls">
+<button aria-label="Toggle dark / light mode" class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle dark / light mode">🌙</button>
+<select aria-label="Choose site language" class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
+<option value="ar">🇸🇦 العربية</option>
+<option value="en" selected>🇬🇧 English</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="es">🇪🇸 Español</option>
+<option value="zh">🇨🇳 中文</option>
+<option value="hi">🇮🇳 हिन्दी</option>
+</select>
+<button aria-controls="myDropdown" aria-expanded="false" aria-haspopup="true" aria-label="Open navigation menu" class="menu-btn" id="menuBtn" onclick="toggleMenu()">Menu ☰</button>
+<nav aria-label="Main navigation" class="dropdown-content" id="myDropdown">
+<a href="#about" id="nav-about">About ziadai</a>
+<a href="#skills" id="nav-skills">Skills &amp; Tech Stack</a>
+<a href="#achievements" id="nav-achievements">Achievements</a>
+<a href="#services" id="nav-services">Services (Khamsat)</a>
+<a href="#projects" id="nav-projects">Projects</a>
+<a href="#testimonials" id="nav-testimonials">Reviews &amp; Feedback</a>
+<a href="#training" id="nav-training">Seminars</a>
+<a href="#courses" id="nav-courses">Courses</a>
+<a href="#blog-preview" id="nav-blogpreview">Latest Posts</a>
+<a href="https://ziadai-maker.blogspot.com/" id="nav-blog" rel="noopener" style="color: var(--main-color); font-weight: bold;" target="_blank">📜 Codes &amp; Schematics</a>
+<a href="#social-media" id="nav-social">Social Media</a>
+<a href="#faq" id="nav-faq">FAQ</a>
+<a href="#contact" id="nav-contact">Contact Me</a>
+<a href="#copyright" id="nav-copyright">Copyright</a>
+</nav>
+</div>
+<header>
+<img alt="Ziad Walid's profile photo" class="avatar" loading="lazy" src="../profile.jpg"/>
+<span class="availability-badge" id="hero-availability">🟢 Available for new projects</span>
+<h1 class="hero-title">ziadai | زياد وليد</h1>
+<p class="hero-sub" id="hero-subtitle">Tech Innovator • Smart Systems Programmer • Inventions Content Creator</p>
+<div aria-hidden="true" class="hero-tech-pills">
+<span>Arduino</span><span>ESP32</span><span>Python</span><span>IoT</span><span>Robotics</span>
+</div>
+<a class="hero-blog-btn" href="#services" id="hero-primary-btn">🚀 Get Your Project Started</a>
+<div class="hero-secondary-actions">
+<a class="hero-cv-btn" href="https://ziadai-maker.blogspot.com/" id="hero-btn" rel="noopener" target="_blank">📥 View Schematics &amp; Source Codes</a>
+<!-- ⚠️ الرابط ده بيصدّر مستند الـ CV من جوجل دوكس كـ PDF مباشرة، تأكد إن إعدادات المشاركة "Anyone with the link - Viewer" عشان يشتغل لأي زائر -->
+<a class="hero-cv-btn" href="https://docs.google.com/document/d/1oFcuNPTFegvpqrFP59NxpaW9RPagVQp0ZlXN0IByCU0/export?format=pdf" id="cv-btn" rel="noopener" target="_blank">📄 Download CV</a>
+</div>
+</header>
+<section id="about">
+<h2 id="a-title">About The Tech Innovator</h2>
+<p id="a-desc" style="line-height: 1.8; font-size: 1.2rem;">I am Ziad Walid, an innovator and inventor in the tech field. I harnessed my passion to explore the horizons of Artificial Intelligence and Robotics. I am not just a programmer, but a solution maker and tech lecturer aiming to pass my expertise in building smart systems to the next generation.</p>
+</section>
+<section id="skills">
+<h2 id="sk-title">Skills &amp; Tech Stack</h2>
+<div class="skills-container">
+<div class="skill-tag">C++ (Microcontrollers)</div>
+<div class="skill-tag">Python (AI &amp; Vision)</div>
+<div class="skill-tag">Arduino Uno &amp; Nano</div>
+<div class="skill-tag">ESP32 &amp; ESP32-CAM</div>
+<div class="skill-tag">Raspberry Pi 5</div>
+<div class="skill-tag">OpenCV (Computer Vision)</div>
+<div class="skill-tag">MediaPipe (Gesture Control)</div>
+<div class="skill-tag">Embedded Systems Design</div>
+<div class="skill-tag">Circuit Troubleshooting</div>
+<div class="skill-tag">UI/UX Design &amp; HTML/CSS</div>
+</div>
+</section>
+<section id="achievements">
+<h2 id="ac-title">Digital Achievements &amp; Initiatives</h2>
+<div class="grid">
+<div class="card">
+<h3 id="ac1-title">Digital Egypt Pupils Initiative (DECA)</h3>
+<p id="ac1-desc">Joining the presidential scholarship and initiative specialized in preparing and developing young tech talents in advanced technology tracks.</p>
+</div>
+<div class="card">
+<h3 id="ac2-title">Build with AI: Egypt Edition</h3>
+<p id="ac2-desc">Active participation in Google's program for innovating and applying advanced AI solutions and exploring AI Vision technologies.</p>
+</div>
+<div class="card">
+<h3 id="ac3-title">Hack Club Arcade</h3>
+<p id="ac3-desc">Participating in global programming and engineering challenges to build innovative tech projects and share codes with the international developer community.</p>
+</div>
+</div>
+</section>
+<section id="services">
+<h2 id="s-title">My Technical Services (Khamsat)</h2>
+<div class="grid">
+<div class="card">
+<h3 id="s1-title">Professional Arduino &amp; IoT Project Programming &amp; Design with Circuit Diagram</h3>
+<p id="s1-desc">Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://khamsat.com/programming/it-support-services/4256730" id="s1-btn" rel="noopener" target="_blank">Order Service on Khamsat</a>
+<details class="service-alt">
+<summary class="alt-platforms-label">Other platforms</summary>
+<div class="service-alt-links">
+<a href="https://kafiil.com/service/222010-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88-esp32" id="s1-btn2" rel="noopener" target="_blank">Kafiil</a>
+</div>
+</details>
+</div>
+</div>
+<div class="card">
+<h3 id="s2-title">Consultation &amp; Troubleshooting for Arduino &amp; IoT Projects</h3>
+<p id="s2-desc">Reviewing and debugging source code, diagnosing hardware and connection errors in circuits, and providing complete technical consultations to optimize performance.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://khamsat.com/programming/code-review/4299185" id="s2-btn" rel="noopener" target="_blank">Order Service on Khamsat</a>
+<details class="service-alt">
+<summary class="alt-platforms-label">Other platforms</summary>
+<div class="service-alt-links">
+<a href="https://nafezly.com/service/75738-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-ESP32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" id="s2-btn2" rel="noopener" target="_blank">Nafezly</a>
+<a href="https://kafiil.com/service/222394-%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%88%D8%AD%D9%84-%D9%85%D8%B4%D8%A7%D9%83%D9%84-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88%D8%8C-esp32%D8%8C-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86" id="s2-btn3" rel="noopener" target="_blank">Kafiil</a>
+</div>
+</details>
+</div>
+</div>
+<div class="card">
+<h3 id="s3-title">Virtual Arduino Circuit Design &amp; Simulation via Tinkercad &amp; Wokwi</h3>
+<p id="s3-desc">Building and testing virtual electronic circuits completely online to ensure programmatic and structural integrity before practical implementation.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://khamsat.com/programming/software-testing/4306427" id="s3-btn" rel="noopener" target="_blank">Order Service on Khamsat</a>
+<details class="service-alt">
+<summary class="alt-platforms-label">Other platforms</summary>
+<div class="service-alt-links">
+<a href="https://nafezly.com/service/75740-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6%D9%8A%D8%A7%D9%8B-%D8%B9%D8%A8%D8%B1-Wokwi-%D9%88-Tinkercad" id="s3-btn2" rel="noopener" target="_blank">Nafezly</a>
+<a href="https://kafiil.com/service/222396-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D8%AF%D9%88%D8%A7%D8%A6%D8%B1-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%88%D9%8A%D9%86%D9%88-%D9%88%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA-%D8%A7%D9%81%D8%AA%D8%B1%D8%A7%D8%B6" id="s3-btn3" rel="noopener" target="_blank">Kafiil</a>
+</div>
+</details>
+</div>
+</div>
+<div class="card">
+<h3 id="s4-title">Connecting &amp; Deploying IoT Projects Online with Remote Control</h3>
+<p id="s4-desc">Designing and building fully integrated embedded systems connected to the internet, letting you monitor and control your project from anywhere via dashboards and dedicated apps.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://khamsat.com/engineering/embedded-systems/4324499-%D8%B1%D8%A8%D8%B7-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D9%88%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1iot-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D9%84%D9%88%D8%AD%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%85" id="s4-btn" rel="noopener" target="_blank">Order Service on Khamsat</a>
+<details class="service-alt">
+<summary class="alt-platforms-label">Other platforms</summary>
+<div class="service-alt-links">
+<a href="https://nafezly.com/service/75379-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" id="s4-btn2" rel="noopener" target="_blank">Nafezly</a>
+<a href="https://kafiil.com/service/222011-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A8%D9%86%D8%A7%D8%A1-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D9%85%D8%AF%D9%85%D8%AC%D8%A9-%D9%88-%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-iot" id="s4-btn3" rel="noopener" target="_blank">Kafiil</a>
+</div>
+</details>
+</div>
+</div>
+<div class="card">
+<h3 id="s5-title">Professional Presentation Design (Canva/PowerPoint) for Graduation Projects</h3>
+<p id="s5-desc">Preparing a distinctive, professional presentation to showcase your graduation or engineering project in an attractive and organized way, highlighting all its technical and scientific details.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://nafezly.com/service/75733-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC" id="s5-btn" rel="noopener" target="_blank">Order Service on Nafezly</a>
+<details class="service-alt">
+<summary class="alt-platforms-label">Other platforms</summary>
+<div class="service-alt-links">
+<a href="https://kafiil.com/service/222392-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B9%D8%B1%D9%88%D8%B6-%D8%AA%D9%82%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-canvapowerpoint-%D9%84%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%87" id="s5-btn2" rel="noopener" target="_blank">Kafiil</a>
+</div>
+</details>
+</div>
+</div>
+<div class="card">
+<h3 id="s6-title">Design &amp; Engineering of Integrated Smart Home Systems</h3>
+<p id="s6-desc">Building and programming a fully integrated smart home system based on the Internet of Things to remotely control lighting, appliances, and security.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://nafezly.com/service/76171-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Home-%D9%88%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A7%D9%84%D8%A3%D8%B4%D9%8A%D8%A7%D8%A1-IoT" id="s6-btn" rel="noopener" target="_blank">Order Service on Nafezly</a>
+</div>
+</div>
+<div class="card">
+<h3 id="s7-title">Design &amp; Automation of Smart Farming Systems</h3>
+<p id="s7-desc">Developing smart agricultural systems based on sensors and IoT to automatically monitor and automate irrigation, ventilation, and humidity.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://nafezly.com/service/76173-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%88%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D8%A3%D9%86%D8%B8%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%B5%D9%88%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9-Smart-Farming-%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D9%80-IoT" id="s7-btn" rel="noopener" target="_blank">Order Service on Nafezly</a>
+</div>
+</div>
+<div class="card">
+<h3 id="s8-title">Design, Simulation &amp; Programming of Robotic Arms</h3>
+<p id="s8-desc">Designing and programming functional robotic arms with servo motors and precise control systems, suitable for graduation projects and industrial applications.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://nafezly.com/service/76172-%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D8%8C-%D9%85%D8%AD%D8%A7%D9%83%D8%A7%D8%A9-%D9%88%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A7%D9%84%D8%A3%D8%B0%D8%B1%D8%B9-%D9%88%D8%A7%D9%84%D8%A3%D9%8A%D8%AF%D9%8A-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D9%8A%D8%A9-Robotic-Arms---" id="s8-btn" rel="noopener" target="_blank">Order Service on Nafezly</a>
+</div>
+</div>
+<div class="card">
+<h3 id="s9-title">3D Robot Models &amp; Graduation Project Structures (SolidWorks/Fusion 360)</h3>
+<p id="s9-desc">Designing professional 3D models for robot structures and graduation project components using SolidWorks and Fusion 360, ready for printing or manufacturing.</p>
+<div class="service-actions">
+<a class="btn-sm" href="https://nafezly.com/service/78849-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D9%85%D8%AC%D8%B3%D9%85%D8%A7%D8%AA-%D9%88%D9%87%D9%8A%D8%A7%D9%83%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A8%D9%88%D8%AA%D8%A7%D8%AA-%D9%88%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D8%AA%D8%AE%D8%B1%D8%AC-3D-%D8%B9%D8%A8%D8%B1-SolidWorks-%D9%88-Fusion-360" id="s9-btn" rel="noopener" target="_blank">Order Service on Nafezly</a>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+<a class="btn" href="https://khamsat.com/user/zw_2503_o8bx" id="main-khamsat-btn" rel="noopener" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;" target="_blank">💼 Visit My Main Profile on Khamsat</a>
+</div>
+</section>
+<section id="projects">
+<h2 id="p-title">Innovative Projects Gallery</h2>
+<div class="grid">
+<a class="card" href="https://youtu.be/ALOXriHfY5w" rel="noopener" target="_blank">
+<h3 id="p1-title">Smart Service Robot</h3>
+<p id="p1-desc">An advanced robot with autonomous navigation capabilities.</p>
+</a>
+<a class="card" href="https://youtu.be/LNi_gEQzdWA" rel="noopener" target="_blank">
+<h3 id="p2-title">Morse Code Project</h3>
+<p id="p2-desc">Translating signals physically and programmatically.</p>
+</a>
+<a class="card" href="https://youtu.be/92r0lysDW6I" rel="noopener" target="_blank">
+<h3 id="p3-title">Smart Home Project</h3>
+<p id="p3-desc">An integrated home automation system.</p>
+</a>
+</div>
+<div style="text-align: center; margin-top: 40px;">
+<a class="btn" href="https://youtube.com/@ziadwaleedmohamed?si=qrFoZAU11A9xjG9o" id="main-youtube-btn" rel="noopener" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;" target="_blank">🎬 Visit My YouTube Channel</a>
+</div>
+</section>
+<section id="testimonials">
+<h2 id="tst-title">Clients &amp; Students Feedback</h2>
+<div class="grid">
+<div class="card">
+<div aria-label="تقييم 5 من 5 نجوم" class="stars">★★★★★</div>
+<h3 id="tst1-user">Ahmed M. (Khamsat Client)</h3>
+<p id="tst1-text">"Incredible speed in detecting and debugging the source code of my Arduino project. A highly professional engineer who truly masters his tools."</p>
+</div>
+<div class="card">
+<div aria-label="تقييم 5 من 5 نجوم" class="stars">★★★★★</div>
+<h3 id="tst2-user">Training Consultant (Abdeen Educational Admin.)</h3>
+<p id="tst2-text">"Ziad delivered an outstanding educational lecture for students in the Smart Schools seminar. He has a brilliant ability to simplify complex topics despite his young age."</p>
+</div>
+<div class="card">
+<div aria-label="تقييم 5 من 5 نجوم" class="stars">★★★★★</div>
+<h3 id="tst3-user">Khaled A. (Software Student)</h3>
+<p id="tst3-text">"The YouTube courses combined with the schematics on the blog helped me immensely in building my first integrated home automation system."</p>
+</div>
+</div>
+</section>
+<section id="training">
+<h2 id="t-title">Seminars &amp; Events (Training Side)</h2>
+<div class="grid">
+<a class="card" href="https://www.facebook.com/share/p/1Cd435tnyT/" rel="noopener" target="_blank">
+<h3 id="t1-title">First Training Seminar</h3>
+<p id="t1-desc">Sharing experiences in the field of digital transformation.</p>
+</a>
+<a class="card" href="https://www.facebook.com/share/p/1Dckqt3iBd/" rel="noopener" target="_blank">
+<h3 id="t2-title">Third Training Seminar</h3>
+<p id="t2-desc">Modern technology strategies.</p>
+</a>
+<a class="card" href="https://www.facebook.com/share/p/1D5kEzi9CX/" rel="noopener" target="_blank">
+<h3 id="t3-title">Fourth Training Seminar</h3>
+<p id="t3-desc">An interactive workshop for students.</p>
+</a>
+<a class="card" href="https://www.facebook.com/share/p/1F64HBiFjW/" rel="noopener" target="_blank">
+<h3 id="t4-title">Smart Schools Initiative</h3>
+<p id="t4-desc">Abdeen Educational Administration - Developing technical thinking.</p>
+</a>
+<a class="card" href="https://www.facebook.com/share/p/1HzuNEBrqM/" rel="noopener" target="_blank">
+<h3 id="t5-title">Training Workshop</h3>
+<p id="t5-desc">Intensive practical training on innovation tools.</p>
+</a>
+</div>
+</section>
+<section id="courses">
+<h2 id="c-title">Ziad Educational Academy (YouTube)</h2>
+<div class="grid">
+<a class="card" href="https://youtube.com/playlist?list=PLXc_TLMtdyRvjcZF1eyLWsF9vNGk771me" rel="noopener" target="_blank">
+<h3 id="c1-title">Python Course</h3>
+<p id="c1-desc">Learn the language of the future from scratch to mastery.</p>
+</a>
+<a class="card" href="https://youtube.com/playlist?list=PLXc_TLMtdyRupSwUWZhrH2aj8hDfbHlJ6" rel="noopener" target="_blank">
+<h3 id="c2-title">Electronics Course</h3>
+<p id="c2-desc">Building electrical circuits and embedded systems.</p>
+</a>
+<a class="card" href="https://youtube.com/playlist?list=PLXc_TLMtdyRtaa-M6xLCL-Mb3ibWic_iN" rel="noopener" target="_blank">
+<h3 id="c3-title">AI Course</h3>
+<p id="c3-desc">Understanding algorithms and AI applications.</p>
+</a>
+<a class="card" href="https://youtube.com/playlist?list=PLXc_TLMtdyRsMCxS305ZNtrVIl4GUHQeX" rel="noopener" target="_blank">
+<h3 id="c4-title">Graphic Design Course</h3>
+<p id="c4-desc">The art of digital visual design.</p>
+</a>
+</div>
+</section>
+<section id="blog-preview">
+<h2 id="bp-title">Latest Blog Posts</h2>
+<p class="blog-preview-note" id="bp-note">The latest 3 posts load automatically from the ziadai Blogspot blog.</p>
+<div class="grid" id="blog-preview-grid">
+<!-- المقالات هتتحمل هنا تلقائياً بالجافاسكريبت -->
+</div>
+</section>
+<section id="social-media">
+<h2 id="sm-title">Social Media Pages</h2>
+<div class="grid">
+<a class="card" href="https://www.tiktok.com/@ziadai0?_r=1&amp;_t=ZS-96ulPsCDlSv" rel="noopener" target="_blank">
+<h3 id="sm1-title">TikTok</h3>
+<p id="sm1-desc">Follow the latest short videos of inventions, project showcases, quick technical explanations, and practical experiments.</p>
+</a>
+<a class="card" href="https://www.instagram.com/ziadai763?igsh=OWw2cGNvOGJmZ2l2" rel="noopener" target="_blank">
+<h3 id="sm2-title">Instagram</h3>
+<p id="sm2-desc">Behind the scenes of building robots, exclusive photos from inside the lab, engineering schematics, and daily updates on upcoming projects.</p>
+</a>
+<a class="card" href="https://www.facebook.com/share/1BDHiNGrks/" rel="noopener" target="_blank">
+<h3 id="sm3-title">Facebook</h3>
+<p id="sm3-desc">Broader social connection, detailed technical posts, sharing events and training seminars, and continuous scientific discussions.</p>
+</a>
+</div>
+</section>
+<section id="faq">
+<h2 id="faq-title">Frequently Asked Questions</h2>
+<div class="grid">
+<div class="card">
+<h3 id="faq1-q">Is it worth learning Arduino from scratch?</h3>
+<p id="faq1-a">Yes, Arduino is one of the easiest entry points into embedded systems. I offer free courses on my YouTube channel starting from zero, plus consulting services if you need help with a specific project.</p>
+</div>
+<div class="card">
+<h3 id="faq2-q">What is the difference between full project programming and consulting?</h3>
+<p id="faq2-a">Full programming means I build your project from scratch (code and schematic). Consulting means you already have a working or partially working project and need a review or a specific fix.</p>
+</div>
+<div class="card">
+<h3 id="faq3-q">Do you work on university graduation projects?</h3>
+<p id="faq3-a">Yes, graduation projects are one of the main things I work on — whether Arduino, IoT, robotics, or even presentation design and 3D models for the project.</p>
+</div>
+<div class="card">
+<h3 id="faq4-q">How do I order a service from you?</h3>
+<p id="faq4-a">You can order directly through Khamsat, Nafezly, or Kafiil using the service links on the site, or reach me directly via WhatsApp or the contact form at the bottom of the page.</p>
+</div>
+</div>
+</section>
+<section id="contact">
+<div style="background: var(--card-bg); padding: 40px; border-radius: 20px;">
+<h2 id="cnt-title" style="text-align: center;">Contact Me</h2>
+<form action="https://formspree.io/f/xqeokbwy" class="contact-form" id="contact-form" method="POST">
+<div class="form-group">
+<input id="f-name" name="name" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<input id="f-email" name="email" placeholder="Your Email" required="" type="email"/>
+</div>
+<div class="form-group">
+<textarea id="f-msg" name="message" placeholder="Your message or project details..." required="" rows="5"></textarea>
+</div>
+<div aria-hidden="true" style="position:absolute; left:-9999px;">
+<input autocomplete="off" name="_gotcha" tabindex="-1" type="text"/>
+</div>
+<div style="text-align: center;">
+<button class="btn" id="f-btn" type="submit">Send Message</button>
+</div>
+<p class="form-status" id="form-status" role="status"></p>
+</form>
+<div class="contact-direct" id="contact-direct">
+<p id="contact-direct-text">You can also reach me directly here:</p>
+<p><span id="email-link"></span> | <span id="phone-link"></span></p>
+</div>
+</div>
+</section>
+<section id="copyright">
+<h2 id="cr-title">Intellectual Property &amp; Content Protection</h2>
+<div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); line-height: 1.8;">
+<h3 id="cr-sub" style="color: var(--main-color); margin-top: 0;">Copyright © 2026</h3>
+<p id="cr-p1" style="font-size: 1.1rem; color: #e6edf3;">This website, including interface designs, source code, texts, and introductory content, is the exclusive intellectual property of the innovator and programmer Ziad Walid (ziadai).</p>
+<p id="cr-p2" style="font-size: 1.1rem; color: #e6edf3;">It is strictly forbidden to copy, modify, or redistribute the source code of the site or any digital content displayed on it for commercial purposes without prior written permission. All innovations and projects shown are documented and protected under intellectual property laws.</p>
+</div>
+</section>
+<script>
+    // الوضع الليلي/النهاري: افتراضي دارك، والاختيار بيتحفظ للزيارة الجاية
+    (function initTheme() {
+        var saved = localStorage.getItem('ziadaiTheme');
+        if (saved === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    })();
+
+    function toggleTheme() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        var themeBtn = document.getElementById('themeBtn');
+        if (isLight) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('ziadaiTheme', 'dark');
+            themeBtn.textContent = '🌙';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('ziadaiTheme', 'light');
+            themeBtn.textContent = '☀️';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.documentElement.getAttribute('data-theme') === 'light') {
+            document.getElementById('themeBtn').textContent = '☀️';
+        }
+    });
+
+    function toggleMenu() {
+        var dd = document.getElementById("myDropdown");
+        var btn = document.getElementById("menuBtn");
+        var isOpen = dd.classList.toggle("show");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.menu-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                    document.getElementById("menuBtn").setAttribute("aria-expanded", "false");
+                }
+            }
+        }
+    }
+
+    var mybutton = document.getElementById("scrollTopBtn");
+    window.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== تحميل آخر 3 مقالات من مدونة Blogspot تلقائياً =====
+    (function loadBlogPosts() {
+        var grid = document.getElementById('blog-preview-grid');
+        var feedUrl = 'https://ziadai-maker.blogspot.com/feeds/posts/default?alt=json&max-results=3';
+        fetch(feedUrl)
+            .then(function(res) { if (!res.ok) throw new Error('feed error'); return res.json(); })
+            .then(function(data) {
+                var entries = (data.feed && data.feed.entry) ? data.feed.entry : [];
+                if (!entries.length) { document.getElementById('blog-preview').style.display = 'none'; return; }
+                grid.innerHTML = '';
+                entries.forEach(function(entry) {
+                    var title = entry.title.$t;
+                    var link = '#';
+                    for (var i = 0; i < entry.link.length; i++) {
+                        if (entry.link[i].rel === 'alternate') { link = entry.link[i].href; break; }
+                    }
+                    var summaryRaw = entry.summary ? entry.summary.$t : '';
+                    var summary = summaryRaw.replace(/<[^>]*>/g, '').slice(0, 110) + '...';
+                    var a = document.createElement('a');
+                    a.href = link; a.target = '_blank'; a.rel = 'noopener'; a.className = 'card';
+                    a.innerHTML = '<h3>' + title + '</h3><p>' + summary + '</p>';
+                    grid.appendChild(a);
+                });
+            })
+            .catch(function() {
+                // لو المدونة مقفولة أو فيها مشكلة في الـ feed، نخفي القسم بهدوء
+                var section = document.getElementById('blog-preview');
+                if (section) section.style.display = 'none';
+            });
+    })();
+
+    (function() {
+        var userPart = "ziadwaleed5454648hh";
+        var domainPart = "gmail.com";
+        var email = userPart + "@" + domainPart;
+        var emailEl = document.getElementById("email-link");
+        var a = document.createElement("a");
+        a.href = "mailto:" + email;
+        a.textContent = "📧 " + email;
+        emailEl.appendChild(a);
+
+        var phoneDigits = ["0", "1", "1", "5", "8", "3", "5", "7", "5", "9", "5"];
+        var phone = phoneDigits.join("");
+        var phoneEl = document.getElementById("phone-link");
+        var p = document.createElement("a");
+        p.href = "tel:+2" + phone;
+        p.textContent = "📞 " + phone;
+        phoneEl.appendChild(p);
+    })();
+
+    var contactForm = document.getElementById("contact-form");
+    var formStatus = document.getElementById("form-status");
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var data = new FormData(contactForm);
+        formStatus.textContent = "جاري الإرسال...";
+        fetch(contactForm.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+        }).then(function(response) {
+            if (response.ok) {
+                formStatus.textContent = "✅ تم إرسال رسالتك بنجاح، هرد عليك في أقرب وقت!";
+                contactForm.reset();
+            } else {
+                formStatus.textContent = "⚠️ حصل خطأ أثناء الإرسال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
+            }
+        }).catch(function() {
+            formStatus.textContent = "⚠️ حصل خطأ في الاتصال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
+        });
+    });
+
+    let currentLang = 'en';
+    const langData = {
+        ar: {
+            dir: 'rtl',
+            pageTitle: 'ziadai | زياد وليد - خبير التكنولوجيا والاختراعات',
+            metaDesc: 'مبتكر تقني متخصص في البرمجة، الروبوتات، وإنترنت الأشياء (IoT). شاهد مشاريعي وخدماتي التقنية.',
+            menuBtn: 'القائمة ☰',
+            navAbout: 'عن ziadai', navBlog: '📜 الأكواد والمخططات', navServices: 'الخدمات (خمسات)',
+            navSkills: 'المهارات والتقنيات', navAchievements: 'الإنجازات والمبادرات', navTestimonials: 'آراء العملاء والطلاب',
+            navBlogpreview: 'أحدث المقالات',
+            navSocial: 'صفحات التواصل', navTraining: 'الندوات', navCourses: 'الكورسات', navProjects: 'المشاريع',
+            navFaq: 'أسئلة شائعة',
+            navCopyright: 'حقوق الملكية', navContact: 'تواصل معي',
+            heroSubtitle: 'مبتكر تقني • مبرمج أنظمة ذكية • صانع محتوى اختراعات',
+            heroAvailability: '🟢 متاح لاستلام مشاريع جديدة الآن',
+            heroPrimaryBtn: '🚀 اطلب خدمتك دلوقتي',
+            heroBtn: '📥 رؤية المخططات والأكواد البرمجية',
+            cvBtn: '📄 تحميل السيرة الذاتية',
+            altPlatforms: 'منصات أخرى',
+            bpTitle: 'أحدث المقالات من المدونة', bpNote: 'بيتم تحميل آخر 3 مقالات تلقائياً من مدونة ziadai على Blogspot.',
+            sTitle: 'خدماتي التقنية (خمسات)',
+            s1Title: 'برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل',
+            s1Desc: 'تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.',
+            s1Btn: 'طلب الخدمة من خمسات', s1Btn2: 'طلب الخدمة من كفيل',
+            s2Title: 'استشارات وحل مشاكل مشاريع الأردوينو وإنترنت الأشياء IoT',
+            s2Desc: 'مراجعة وتصحيح الأكواد المصدريّة، واكتشاف الأخطاء البرمجية أو الهندسية في الدوائر، وتقديم استشارات تقنية متكاملة لضمان عمل مشروعك بكفاءة.',
+            s2Btn: 'طلب الخدمة من خمسات', s2Btn2: 'طلب الخدمة من نفذلي', s2Btn3: 'طلب الخدمة من كفيل',
+            s3Title: 'تصميم ومحاكاة دوائر الأردوينو افتراضياً Tinkercad و Wokwi',
+            s3Desc: 'بناء واختبار الدوائر الإلكترونية بالكامل افتراضياً عبر منصات المحاكاة للتأكد من سلامة التوصيلات البرمجية والفيزيائية قبل البدء في التنفيذ الفعلي.',
+            s3Btn: 'طلب الخدمة من خمسات', s3Btn2: 'طلب الخدمة من نفذلي', s3Btn3: 'طلب الخدمة من كفيل',
+            s4Title: 'ربط ونشر مشاريع IoT على الإنترنت والتحكم فيها عن بُعد',
+            s4Desc: 'تصميم وبناء أنظمة مدمجة متكاملة وربطها بشبكة الإنترنت، لتتمكن من مراقبة والتحكم في مشروعك من أي مكان في العالم عبر لوحات تحكم وتطبيقات مخصصة.',
+            s4Btn: 'طلب الخدمة من خمسات', s4Btn2: 'طلب الخدمة من نفذلي', s4Btn3: 'طلب الخدمة من كفيل',
+            s5Title: 'تصميم عروض تقديمية احترافية (Canva/PowerPoint) لمشروع التخرج',
+            s5Desc: 'إعداد بريزنتيشن مميز واحترافي لعرض مشروع التخرج أو المشروع الهندسي بشكل جذاب ومنظم يبرز جميع تفاصيله الفنية والعلمية.',
+            s5Btn: 'طلب الخدمة من نفذلي', s5Btn2: 'طلب الخدمة من كفيل',
+            s6Title: 'تصميم وهندسة أنظمة البيت الذكي المتكامل (Smart Home)',
+            s6Desc: 'بناء وبرمجة نظام بيت ذكي متكامل يعتمد على إنترنت الأشياء للتحكم في الإضاءة والأجهزة والأمان عن بعد.',
+            s6Btn: 'طلب الخدمة من نفذلي',
+            s7Title: 'تصميم وأتمتة أنظمة المزارع والصوبات الذكية (Smart Farming)',
+            s7Desc: 'تطوير أنظمة زراعية ذكية تعتمد على أجهزة استشعار وإنترنت الأشياء لمراقبة وأتمتة الري والتهوية والرطوبة تلقائياً.',
+            s7Btn: 'طلب الخدمة من نفذلي',
+            s8Title: 'تصميم ومحاكاة وبرمجة الأذرع والأيدي الروبوتية (Robotic Arms)',
+            s8Desc: 'تصميم وبرمجة أذرع روبوتية وظيفية بمحركات السيرفو وأنظمة تحكم دقيقة تناسب مشاريع التخرج والتطبيقات الصناعية.',
+            s8Btn: 'طلب الخدمة من نفذلي',
+            s9Title: 'تصميم مجسمات وهياكل الروبوتات ومشاريع التخرج 3D (SolidWorks/Fusion 360)',
+            s9Desc: 'تصميم نماذج ثلاثية الأبعاد احترافية لهياكل الروبوتات ومكونات مشاريع التخرج باستخدام برامج SolidWorks وFusion 360 جاهزة للطباعة أو التصنيع.',
+            s9Btn: 'طلب الخدمة من نفذلي',
+            mainKhamsatBtn: '💼 زيارة حسابي الشخصي على خمسات',
+            aTitle: 'نبذة عن العبقرية التقنية',
+            aDesc: 'أنا زياد وليد، مبتكر ومخترع في مجال التكنولوجيا. سخرت شغفي لاستكشاف آفاق الذكاء الاصطناعي والروبوتات. لست مجرد مبرمج، بل صانع حلول ومحاضر تقني أسعى لنقل خبرتي في بناء الأنظمة الذكية للجيل القادم.',
+            skTitle: 'المهارات والتقنيات (Tech Stack)',
+            acTitle: 'الإنجازات والمبادرات الرقمية',
+            ac1Title: 'مبادرة أشبال مصر الرقمية (DECA)',
+            ac1Desc: 'الالتحاق بالمنحة والمبادرة الرئاسية المتخصصة في إعداد وتطوير الكوادر التقنية الناشئة في مسارات التكنولوجيا المتقدمة.',
+            ac2Title: 'Build with AI: Egypt Edition',
+            ac2Desc: 'المشاركة الفعالة في برنامج جوجل لابتكار وتطبيق حلول الذكاء الاصطناعي المتقدمة واستكشاف خدمات وتقنيات الـ AI Vision.',
+            ac3Title: 'Hack Club Arcade',
+            ac3Desc: 'المشاركة في التحديات البرمجية والهندسية العالمية لبناء مشروعات تقنية مبتكرة ومشاركة الأكواد مع مجتمع المطورين الدولي.',
+            tstTitle: 'آراء العملاء والطلاب',
+            tst1User: 'أحمد م. (عميل خمسات)',
+            tst1Text: '"سرعة مذهلة في اكتشاف وتصحيح الكود المصدري لمشروع الأردوينو الخاص بي. مهندس محترف ومتمكن جداً من أدواته الإلكترونية."',
+            tst2User: 'استشاري تدريب (إدارة عابدين التعليمية)',
+            tst2Text: '"قدم زياد مادة تدريبية علمية ممتازة للطلاب في ندوة المدارس الذكية، يتمتع بأسلوب تبسيط رائع ومبهر رغم صغر سنه."',
+            tst3User: 'خالد ع. (طالب برمجيات)',
+            tst3Text: '"كورسات اليوتيوب المرفقة بالمخططات الهندسية في المدونة ساعدتني جداً في بناء أول نظام ذكي متكامل لمنزلي."',
+            smTitle: 'صفحات التواصل الاجتماعي',
+            sm1Title: 'تيك توك (TikTok)',
+            sm1Desc: 'تابع أحدث مقاطع الفيديو القصيرة للاختراعات، استعراض المشاريع، الشروحات التقنية السريعة، والتجارب العملية.',
+            sm2Title: 'إنستغرام (Instagram)',
+            sm2Desc: 'كواليس بناء الروبوتات، صور حصرية من داخل المعمل، المخططات الهندسية، وتحديثات يومية عن مشروعاتي القادمة.',
+            sm3Title: 'فيسبوك (Facebook)',
+            sm3Desc: 'تواصل اجتماعي أوسع، منشورات تقنية مفصلة، مشاركة الفعاليات والندوات التدريبية، ومناقشات علمية مستمرة.',
+            tTitle: 'الندوات والفعاليات (الجانب التدريبي)',
+            t1Title: 'الندوة التدريبية الأولى',
+            t1Desc: 'مشاركة الخبرات في مجال التحول الرقمي.',
+            t2Title: 'الندوة التدريبية الثالثة',
+            t2Desc: 'استراتيجيات التكنولوجيا الحديثة.',
+            t3Title: 'الندوة التدريبية الرابعة',
+            t3Desc: 'ورشة عمل تفاعلية للطلاب.',
+            t4Title: 'مبادرة المدارس الذكية',
+            t4Desc: 'إدارة عابدين التعليمية - تطوير الفكر التقني.',
+            t5Title: 'ورشة عمل تدريبية',
+            t5Desc: 'تدريب عملي مكثف على أدوات الابتكار.',
+            cTitle: 'أكاديمية زياد التعليمية (YouTube)',
+            c1Title: 'كورس Python',
+            c1Desc: 'تعلم لغة المستقبل من الصفر للاحتراف.',
+            c2Title: 'كورس الإلكترونيات',
+            c2Desc: 'بناء الدوائر الكهربائية والأنظمة المدمجة.',
+            c3Title: 'كورس الذكاء الاصطناعي',
+            c3Desc: 'فهم الخوارزميات وتطبيقات الـ AI.',
+            c4Title: 'كورس الجرافيك ديزاين',
+            c4Desc: 'فن التصميم البصري الرقمي.',
+            pTitle: 'معرض المشاريع المبتكرة',
+            p1Title: 'روبوت الخدمة الذكي',
+            p1Desc: 'روبوت متطور بقدرات الملاحة الذاتية.',
+            p2Title: 'مشروع Morse Code',
+            p2Desc: 'ترجمة الإشارات فيزيائياً وبرمجياً.',
+            p3Title: 'مشروع Smart Home',
+            p3Desc: 'نظام أتمتة منزلية متكامل.',
+            mainYoutubeBtn: '🎬 زور قناتي على يوتيوب',
+            faqTitle: 'أسئلة شائعة',
+            faq1Q: 'هل ينفع أتعلم برمجة الأردوينو من الصفر؟',
+            faq1A: 'أيوه، أردوينو من أسهل نقاط البداية في عالم الأنظمة المدمجة. أقدم كورسات مجانية على قناتي في اليوتيوب تبدأ من الصفر، وخدمات استشارية لو احتجت مساعدة في مشروع محدد.',
+            faq2Q: 'إيه الفرق بين خدمة برمجة مشروع أردوينو وخدمة الاستشارات؟',
+            faq2A: 'خدمة البرمجة الكاملة يعني بابني لك المشروع من الصفر (الكود والمخطط الهندسي). خدمة الاستشارات يعني عندك مشروع شغال أو نص شغال ومحتاج مراجعة أو حل مشكلة معينة فيه.',
+            faq3Q: 'هل بتشتغل على مشاريع تخرج جامعية؟',
+            faq3A: 'أيوه، من أكتر المشاريع اللي بشتغل عليها هي مشاريع التخرج سواء في الأردوينو، إنترنت الأشياء، الروبوتات، أو حتى تصميم العروض التقديمية والمجسمات ثلاثية الأبعاد للمشروع.',
+            faq4Q: 'ازاي أطلب خدمة منك؟',
+            faq4A: 'تقدر تطلب مباشرة من خمسات أو نفذلي أو كفيل من خلال روابط الخدمات في الموقع، أو تتواصل معايا مباشرة عبر الواتساب أو نموذج التواصل في أسفل الصفحة.',
+            crTitle: 'حقوق الملكية الفكرية وحماية المحتوى',
+            crSub: 'حقوق النشر والتأليف © 2026',
+            crP1: 'هذا الموقع، بما يتضمنه من تصميم واجهات، شيفرات برمجية (Source Code), نصوص، ومحتوى تعريفي، هو ملكية فكرية حصرية وخاصة بالمبتكر والمبرمج زياد وليد (ziadai).',
+            crP2: 'يُحظر تماماً إعادة نسخ، أو تعديل، أو إعادة توزيع الكود المصدري للموقع أو أي محتوى رقمي معروض فيه لأغراض تجارية دون الحصول على إذن كتابي مسبق. جميع الابتكارات والمشاريع المعروضة موثقة ومحمية بموجب قوانين حماية الملكية الفكرية وحقوق المؤلف الرقمية.',
+            cntTitle: 'تواصل معي',
+            fName: 'الاسم الكريم', fEmail: 'بريدك الإلكتروني', fMsg: 'تفاصيل مشروعك أو رسالتك...',
+            fBtn: 'إرسال الرسالة', contactDirectText: 'تقدر كمان تتواصل معايا مباشرة من هنا:'
+        },
+        en: {
+            dir: 'ltr',
+            pageTitle: 'ziadai | Ziad Walid - Tech & Invention Expert',
+            metaDesc: 'A tech innovator specialized in programming, robotics, and IoT. Check out my projects and technical services.',
+            menuBtn: 'Menu ☰',
+            navAbout: 'About ziadai', navBlog: '📜 Codes & Schematics', navServices: 'Services (Khamsat)',
+            navSkills: 'Skills & Tech Stack', navAchievements: 'Achievements', navTestimonials: 'Reviews & Feedback',
+            navBlogpreview: 'Latest Posts',
+            navSocial: 'Social Media', navTraining: 'Seminars', navCourses: 'Courses', navProjects: 'Projects',
+            navFaq: 'FAQ',
+            navCopyright: 'Copyright', navContact: 'Contact Me',
+            heroSubtitle: 'Tech Innovator • Smart Systems Programmer • Inventions Content Creator',
+            heroAvailability: '🟢 Available for new projects',
+            heroPrimaryBtn: '🚀 Get Your Project Started',
+            heroBtn: '📥 View Schematics & Source Codes',
+            cvBtn: '📄 Download CV',
+            altPlatforms: 'Other platforms',
+            bpTitle: 'Latest Blog Posts', bpNote: 'The latest 3 posts load automatically from the ziadai Blogspot blog.',
+            sTitle: 'My Technical Services (Khamsat)',
+            s1Title: 'Professional Arduino & IoT Project Programming & Design with Circuit Diagram',
+            s1Desc: 'Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.',
+            s1Btn: 'Order Service on Khamsat', s1Btn2: 'Kafiil',
+            s2Title: 'Consultation & Troubleshooting for Arduino & IoT Projects',
+            s2Desc: 'Reviewing and debugging source code, diagnosing hardware and connection errors in circuits, and providing complete technical consultations to optimize performance.',
+            s2Btn: 'Order Service on Khamsat', s2Btn2: 'Nafezly', s2Btn3: 'Kafiil',
+            s3Title: 'Virtual Arduino Circuit Design & Simulation via Tinkercad & Wokwi',
+            s3Desc: 'Building and testing virtual electronic circuits completely online to ensure programmatic and structural integrity before practical implementation.',
+            s3Btn: 'Order Service on Khamsat', s3Btn2: 'Nafezly', s3Btn3: 'Kafiil',
+            s4Title: 'Connecting & Deploying IoT Projects Online with Remote Control',
+            s4Desc: 'Designing and building fully integrated embedded systems connected to the internet, letting you monitor and control your project from anywhere via dashboards and dedicated apps.',
+            s4Btn: 'Order Service on Khamsat', s4Btn2: 'Nafezly', s4Btn3: 'Kafiil',
+            s5Title: 'Professional Presentation Design (Canva/PowerPoint) for Graduation Projects',
+            s5Desc: 'Preparing a distinctive, professional presentation to showcase your graduation or engineering project in an attractive and organized way, highlighting all its technical and scientific details.',
+            s5Btn: 'Order Service on Nafezly', s5Btn2: 'Kafiil',
+            s6Title: 'Design & Engineering of Integrated Smart Home Systems',
+            s6Desc: 'Building and programming a fully integrated smart home system based on the Internet of Things to remotely control lighting, appliances, and security.',
+            s6Btn: 'Order Service on Nafezly',
+            s7Title: 'Design & Automation of Smart Farming Systems',
+            s7Desc: 'Developing smart agricultural systems based on sensors and IoT to automatically monitor and automate irrigation, ventilation, and humidity.',
+            s7Btn: 'Order Service on Nafezly',
+            s8Title: 'Design, Simulation & Programming of Robotic Arms',
+            s8Desc: 'Designing and programming functional robotic arms with servo motors and precise control systems, suitable for graduation projects and industrial applications.',
+            s8Btn: 'Order Service on Nafezly',
+            s9Title: '3D Robot Models & Graduation Project Structures (SolidWorks/Fusion 360)',
+            s9Desc: 'Designing professional 3D models for robot structures and graduation project components using SolidWorks and Fusion 360, ready for printing or manufacturing.',
+            s9Btn: 'Order Service on Nafezly',
+            mainKhamsatBtn: '💼 Visit My Main Profile on Khamsat',
+            aTitle: 'About The Tech Innovator',
+            aDesc: 'I am Ziad Walid, an innovator and inventor in the tech field. I harnessed my passion to explore the horizons of Artificial Intelligence and Robotics. I am not just a programmer, but a solution maker and tech lecturer aiming to pass my expertise in building smart systems to the next generation.',
+            skTitle: 'Skills & Tech Stack',
+            acTitle: 'Digital Achievements & Initiatives',
+            ac1Title: 'Digital Egypt Pupils Initiative (DECA)',
+            ac1Desc: 'Joining the presidential scholarship and initiative specialized in preparing and developing young tech talents in advanced technology tracks.',
+            ac2Title: 'Build with AI: Egypt Edition',
+            ac2Desc: 'Active participation in Google\'s program for innovating and applying advanced AI solutions and exploring AI Vision technologies.',
+            ac3Title: 'Hack Club Arcade',
+            ac3Desc: 'Participating in global programming and engineering challenges to build innovative tech projects and share codes with the international developer community.',
+            tstTitle: 'Clients & Students Feedback',
+            tst1User: 'Ahmed M. (Khamsat Client)',
+            tst1Text: '"Incredible speed in detecting and debugging the source code of my Arduino project. A highly professional engineer who truly masters his tools."',
+            tst2User: 'Training Consultant (Abdeen Educational Admin.)',
+            tst2Text: '"Ziad delivered an outstanding educational lecture for students in the Smart Schools seminar. He has a brilliant ability to simplify complex topics despite his young age."',
+            tst3User: 'Khaled A. (Software Student)',
+            tst3Text: '"The YouTube courses combined with the schematics on the blog helped me immensely in building my first integrated home automation system."',
+            smTitle: 'Social Media Pages',
+            sm1Title: 'TikTok',
+            sm1Desc: 'Follow the latest short videos of inventions, project showcases, quick technical explanations, and practical experiments.',
+            sm2Title: 'Instagram',
+            sm2Desc: 'Behind the scenes of building robots, exclusive photos from inside the lab, engineering schematics, and daily updates on upcoming projects.',
+            sm3Title: 'Facebook',
+            sm3Desc: 'Broader social connection, detailed technical posts, sharing events and training seminars, and continuous scientific discussions.',
+            tTitle: 'Seminars & Events (Training Side)',
+            t1Title: 'First Training Seminar',
+            t1Desc: 'Sharing experiences in the field of digital transformation.',
+            t2Title: 'Third Training Seminar',
+            t2Desc: 'Modern technology strategies.',
+            t3Title: 'Fourth Training Seminar',
+            t3Desc: 'An interactive workshop for students.',
+            t4Title: 'Smart Schools Initiative',
+            t4Desc: 'Abdeen Educational Administration - Developing technical thinking.',
+            t5Title: 'Training Workshop',
+            t5Desc: 'Intensive practical training on innovation tools.',
+            cTitle: 'Ziad Educational Academy (YouTube)',
+            c1Title: 'Python Course',
+            c1Desc: 'Learn the language of the future from scratch to mastery.',
+            c2Title: 'Electronics Course',
+            c2Desc: 'Building electrical circuits and embedded systems.',
+            c3Title: 'AI Course',
+            c3Desc: 'Understanding algorithms and AI applications.',
+            c4Title: 'Graphic Design Course',
+            c4Desc: 'The art of digital visual design.',
+            pTitle: 'Innovative Projects Gallery',
+            p1Title: 'Smart Service Robot',
+            p1Desc: 'An advanced robot with autonomous navigation capabilities.',
+            p2Title: 'Morse Code Project',
+            p2Desc: 'Translating signals physically and programmatically.',
+            p3Title: 'Smart Home Project',
+            p3Desc: 'An integrated home automation system.',
+            mainYoutubeBtn: '🎬 Visit My YouTube Channel',
+            faqTitle: 'Frequently Asked Questions',
+            faq1Q: 'Is it worth learning Arduino from scratch?',
+            faq1A: 'Yes, Arduino is one of the easiest entry points into embedded systems. I offer free courses on my YouTube channel starting from zero, plus consulting services if you need help with a specific project.',
+            faq2Q: 'What is the difference between full project programming and consulting?',
+            faq2A: 'Full programming means I build your project from scratch (code and schematic). Consulting means you already have a working or partially working project and need a review or a specific fix.',
+            faq3Q: 'Do you work on university graduation projects?',
+            faq3A: 'Yes, graduation projects are one of the main things I work on — whether Arduino, IoT, robotics, or even presentation design and 3D models for the project.',
+            faq4Q: 'How do I order a service from you?',
+            faq4A: 'You can order directly through Khamsat, Nafezly, or Kafiil using the service links on the site, or reach me directly via WhatsApp or the contact form at the bottom of the page.',
+            crTitle: 'Intellectual Property & Content Protection',
+            crSub: 'Copyright © 2026',
+            crP1: 'This website, including interface designs, source code, texts, and introductory content, is the exclusive intellectual property of the innovator and programmer Ziad Walid (ziadai).',
+            crP2: 'It is strictly forbidden to copy, modify, or redistribute the source code of the site or any digital content displayed on it for commercial purposes without prior written permission. All innovations and projects shown are documented and protected under intellectual property laws.',
+            cntTitle: 'Contact Me',
+            fName: 'Your Name', fEmail: 'Your Email', fMsg: 'Your message or project details...',
+            fBtn: 'Send Message', contactDirectText: 'You can also reach me directly here:'
+        },
+        fr: {
+            dir: 'ltr',
+            pageTitle: "ziadai | Ziad Walid - Expert en technologie et inventions",
+            metaDesc: "Un innovateur technologique spécialisé en programmation, robotique et IoT. Découvrez mes projets et services techniques.",
+            menuBtn: "Menu ☰",
+            navAbout: "À propos de ziadai", navBlog: "📜 Codes et schémas", navServices: "Services (Khamsat)",
+            navSkills: "Compétences et technologies", navAchievements: "Réalisations", navTestimonials: "Avis et témoignages",
+            navBlogpreview: "Derniers articles",
+            navSocial: "Réseaux sociaux", navTraining: "Séminaires", navCourses: "Cours", navProjects: "Projets",
+            navFaq: "FAQ",
+            navCopyright: "Droits d'auteur", navContact: "Me contacter",
+            heroSubtitle: "Innovateur technologique • Programmeur de systèmes intelligents • Créateur de contenu d'inventions",
+            heroAvailability: "🟢 Disponible pour de nouveaux projets",
+            heroPrimaryBtn: "🚀 Démarrer votre projet",
+            heroBtn: "📥 Voir les schémas et les codes sources",
+            cvBtn: "📄 Télécharger le CV",
+            altPlatforms: "Autres plateformes",
+            bpTitle: "Derniers articles du blog", bpNote: "Les 3 derniers articles se chargent automatiquement depuis le blog ziadai sur Blogspot.",
+            sTitle: "Mes services techniques (Khamsat)",
+            s1Title: "Programmation et conception professionnelle de projets Arduino et IoT avec schéma de câblage",
+            s1Desc: "Conception et programmation complètes de circuits électroniques et de projets IoT, avec des schémas précis pour un assemblage du matériel sans erreur.",
+            s1Btn: "Commander sur Khamsat", s1Btn2: "Kafiil",
+            s2Title: "Conseil et dépannage pour les projets Arduino et IoT",
+            s2Desc: "Révision et correction du code source, diagnostic des erreurs matérielles et de connexion, et conseils techniques complets pour optimiser les performances.",
+            s2Btn: "Commander sur Khamsat", s2Btn2: "Nafezly", s2Btn3: "Kafiil",
+            s3Title: "Conception et simulation virtuelle de circuits Arduino via Tinkercad et Wokwi",
+            s3Desc: "Construction et test complets de circuits électroniques virtuels afin de garantir la fiabilité logicielle et physique avant la mise en œuvre réelle.",
+            s3Btn: "Commander sur Khamsat", s3Btn2: "Nafezly", s3Btn3: "Kafiil",
+            s4Title: "Connexion et déploiement de projets IoT en ligne avec contrôle à distance",
+            s4Desc: "Conception et construction de systèmes embarqués entièrement connectés à Internet, pour surveiller et contrôler votre projet de partout via des tableaux de bord et des applications dédiées.",
+            s4Btn: "Commander sur Khamsat", s4Btn2: "Nafezly", s4Btn3: "Kafiil",
+            s5Title: "Conception de présentations professionnelles (Canva/PowerPoint) pour projets de fin d'études",
+            s5Desc: "Préparation d'une présentation distinctive et professionnelle pour votre projet de fin d'études ou d'ingénierie, mettant en valeur tous ses détails techniques et scientifiques.",
+            s5Btn: "Commander sur Nafezly", s5Btn2: "Kafiil",
+            s6Title: "Conception et ingénierie de systèmes domotiques intégrés (Smart Home)",
+            s6Desc: "Construction et programmation d'un système domotique complet basé sur l'IoT pour contrôler à distance l'éclairage, les appareils et la sécurité.",
+            s6Btn: "Commander sur Nafezly",
+            s7Title: "Conception et automatisation de systèmes agricoles intelligents (Smart Farming)",
+            s7Desc: "Développement de systèmes agricoles intelligents basés sur des capteurs et l'IoT pour surveiller et automatiser l'irrigation, la ventilation et l'humidité.",
+            s7Btn: "Commander sur Nafezly",
+            s8Title: "Conception, simulation et programmation de bras robotiques",
+            s8Desc: "Conception et programmation de bras robotiques fonctionnels avec servomoteurs et systèmes de contrôle précis, adaptés aux projets de fin d'études et aux applications industrielles.",
+            s8Btn: "Commander sur Nafezly",
+            s9Title: "Modèles 3D de robots et structures de projets de fin d'études (SolidWorks/Fusion 360)",
+            s9Desc: "Conception de modèles 3D professionnels pour structures de robots et composants de projets de fin d'études avec SolidWorks et Fusion 360, prêts à imprimer ou à fabriquer.",
+            s9Btn: "Commander sur Nafezly",
+            mainKhamsatBtn: "💼 Visiter mon profil principal sur Khamsat",
+            aTitle: "À propos de l'innovateur technologique",
+            aDesc: "Je suis Ziad Walid, innovateur et inventeur dans le domaine technologique. J'ai mis ma passion au service de l'exploration de l'intelligence artificielle et de la robotique. Je ne suis pas seulement programmeur, mais aussi créateur de solutions et formateur technique, avec pour objectif de transmettre mon expertise en systèmes intelligents à la nouvelle génération.",
+            skTitle: "Compétences et technologies (Tech Stack)",
+            acTitle: "Réalisations et initiatives numériques",
+            ac1Title: "Initiative Digital Egypt Pupils (DECA)",
+            ac1Desc: "Participation à la bourse et à l'initiative présidentielle spécialisée dans la formation des jeunes talents technologiques dans des filières technologiques avancées.",
+            ac2Title: "Build with AI: Egypt Edition",
+            ac2Desc: "Participation active au programme de Google pour l'innovation et l'application de solutions avancées d'IA, et exploration des technologies AI Vision.",
+            ac3Title: "Hack Club Arcade",
+            ac3Desc: "Participation à des défis internationaux de programmation et d'ingénierie pour créer des projets technologiques innovants et partager du code avec la communauté internationale des développeurs.",
+            tstTitle: "Avis des clients et des étudiants",
+            tst1User: "Ahmed M. (client Khamsat)",
+            tst1Text: "« Rapidité incroyable pour détecter et corriger le code source de mon projet Arduino. Un ingénieur très professionnel qui maîtrise parfaitement ses outils. »",
+            tst2User: "Consultant en formation (Administration éducative d'Abdeen)",
+            tst2Text: "« Ziad a donné un excellent cours aux élèves lors du séminaire sur les écoles intelligentes, avec une grande capacité à simplifier des sujets complexes malgré son jeune âge. »",
+            tst3User: "Khaled A. (étudiant en informatique)",
+            tst3Text: "« Les cours YouTube accompagnés des schémas du blog m'ont énormément aidé à construire mon premier système domotique intégré. »",
+            smTitle: "Réseaux sociaux",
+            sm1Title: "TikTok",
+            sm1Desc: "Suivez les dernières vidéos courtes sur les inventions, les présentations de projets, les explications techniques rapides et les expériences pratiques.",
+            sm2Title: "Instagram",
+            sm2Desc: "Les coulisses de la construction des robots, des photos exclusives du laboratoire, des schémas techniques et des mises à jour quotidiennes sur les projets à venir.",
+            sm3Title: "Facebook",
+            sm3Desc: "Une connexion sociale plus large, des publications techniques détaillées, le partage d'événements et de séminaires de formation, et des discussions scientifiques continues.",
+            tTitle: "Séminaires et événements (volet formation)",
+            t1Title: "Premier séminaire de formation",
+            t1Desc: "Partage d'expériences dans le domaine de la transformation numérique.",
+            t2Title: "Troisième séminaire de formation",
+            t2Desc: "Stratégies technologiques modernes.",
+            t3Title: "Quatrième séminaire de formation",
+            t3Desc: "Un atelier interactif pour les étudiants.",
+            t4Title: "Initiative des écoles intelligentes",
+            t4Desc: "Administration éducative d'Abdeen - Développement de la pensée technique.",
+            t5Title: "Atelier de formation",
+            t5Desc: "Formation pratique intensive sur les outils d'innovation.",
+            cTitle: "Académie éducative de Ziad (YouTube)",
+            c1Title: "Cours Python",
+            c1Desc: "Apprenez le langage de l'avenir, du niveau débutant à expert.",
+            c2Title: "Cours d'électronique",
+            c2Desc: "Construction de circuits électriques et de systèmes embarqués.",
+            c3Title: "Cours d'intelligence artificielle",
+            c3Desc: "Comprendre les algorithmes et les applications de l'IA.",
+            c4Title: "Cours de graphisme",
+            c4Desc: "L'art du design visuel numérique.",
+            pTitle: "Galerie de projets innovants",
+            p1Title: "Robot de service intelligent",
+            p1Desc: "Un robot avancé doté de capacités de navigation autonome.",
+            p2Title: "Projet code Morse",
+            p2Desc: "Traduction des signaux, physiquement et par logiciel.",
+            p3Title: "Projet maison intelligente",
+            p3Desc: "Un système domotique intégré.",
+            mainYoutubeBtn: "🎬 Visiter ma chaîne YouTube",
+            faqTitle: "Questions fréquentes",
+            faq1Q: "Est-ce utile d'apprendre l'Arduino à partir de zéro ?",
+            faq1A: "Oui, l'Arduino est l'un des points d'entrée les plus faciles dans le monde des systèmes embarqués. Je propose des cours gratuits sur ma chaîne YouTube dès le niveau débutant, ainsi que des services de conseil pour un projet spécifique.",
+            faq2Q: "Quelle est la différence entre la programmation complète d'un projet et le conseil ?",
+            faq2A: "La programmation complète signifie que je construis votre projet de zéro (code et schéma). Le conseil signifie que vous avez déjà un projet fonctionnel ou partiellement fonctionnel et que vous avez besoin d'une révision ou d'une correction précise.",
+            faq3Q: "Travaillez-vous sur des projets de fin d'études universitaires ?",
+            faq3A: "Oui, les projets de fin d'études font partie des projets sur lesquels je travaille le plus, que ce soit en Arduino, IoT, robotique, ou même en conception de présentations et de modèles 3D pour le projet.",
+            faq4Q: "Comment commander un service auprès de vous ?",
+            faq4A: "Vous pouvez commander directement via Khamsat, Nafezly ou Kafiil grâce aux liens des services sur le site, ou me contacter directement via WhatsApp ou le formulaire de contact en bas de page.",
+            crTitle: "Propriété intellectuelle et protection du contenu",
+            crSub: "Droits d'auteur © 2026",
+            crP1: "Ce site, y compris la conception de l'interface, le code source, les textes et le contenu de présentation, est la propriété intellectuelle exclusive de l'innovateur et programmeur Ziad Walid (ziadai).",
+            crP2: "Il est strictement interdit de copier, modifier ou redistribuer le code source du site ou tout contenu numérique qui y est présenté à des fins commerciales sans autorisation écrite préalable. Toutes les innovations et tous les projets présentés sont documentés et protégés par les lois sur la propriété intellectuelle.",
+            cntTitle: "Me contacter",
+            fName: "Votre nom", fEmail: "Votre e-mail", fMsg: "Détails de votre projet ou votre message...",
+            fBtn: "Envoyer le message", contactDirectText: "Vous pouvez aussi me contacter directement ici :"
+        },
+        es: {
+            dir: 'ltr',
+            pageTitle: "ziadai | Ziad Walid - Experto en tecnología e inventos",
+            metaDesc: "Un innovador tecnológico especializado en programación, robótica e IoT. Descubre mis proyectos y servicios técnicos.",
+            menuBtn: "Menú ☰",
+            navAbout: "Sobre ziadai", navBlog: "📜 Códigos y esquemas", navServices: "Servicios (Khamsat)",
+            navSkills: "Habilidades y tecnologías", navAchievements: "Logros", navTestimonials: "Opiniones y testimonios",
+            navBlogpreview: "Últimas publicaciones",
+            navSocial: "Redes sociales", navTraining: "Seminarios", navCourses: "Cursos", navProjects: "Proyectos",
+            navFaq: "Preguntas frecuentes",
+            navCopyright: "Derechos de autor", navContact: "Contáctame",
+            heroSubtitle: "Innovador tecnológico • Programador de sistemas inteligentes • Creador de contenido sobre inventos",
+            heroAvailability: "🟢 Disponible para nuevos proyectos",
+            heroPrimaryBtn: "🚀 Empieza tu proyecto",
+            heroBtn: "📥 Ver esquemas y códigos fuente",
+            cvBtn: "📄 Descargar currículum",
+            altPlatforms: "Otras plataformas",
+            bpTitle: "Últimas publicaciones del blog", bpNote: "Las últimas 3 publicaciones se cargan automáticamente desde el blog de ziadai en Blogspot.",
+            sTitle: "Mis servicios técnicos (Khamsat)",
+            s1Title: "Programación y diseño profesional de proyectos Arduino e IoT con esquema de conexión",
+            s1Desc: "Diseño y programación completos de circuitos electrónicos y proyectos de Internet de las cosas, con esquemas precisos para un montaje sin errores.",
+            s1Btn: "Pedir en Khamsat", s1Btn2: "Kafiil",
+            s2Title: "Consultoría y solución de problemas en proyectos Arduino e IoT",
+            s2Desc: "Revisión y depuración del código fuente, diagnóstico de errores de hardware y conexión, y asesoría técnica completa para optimizar el rendimiento.",
+            s2Btn: "Pedir en Khamsat", s2Btn2: "Nafezly", s2Btn3: "Kafiil",
+            s3Title: "Diseño y simulación virtual de circuitos Arduino con Tinkercad y Wokwi",
+            s3Desc: "Construcción y prueba de circuitos electrónicos totalmente virtuales para garantizar la fiabilidad del software y del hardware antes de la implementación real.",
+            s3Btn: "Pedir en Khamsat", s3Btn2: "Nafezly", s3Btn3: "Kafiil",
+            s4Title: "Conexión y publicación de proyectos IoT en línea con control remoto",
+            s4Desc: "Diseño y construcción de sistemas embebidos totalmente conectados a internet, para monitorear y controlar tu proyecto desde cualquier lugar mediante paneles y aplicaciones dedicadas.",
+            s4Btn: "Pedir en Khamsat", s4Btn2: "Nafezly", s4Btn3: "Kafiil",
+            s5Title: "Diseño de presentaciones profesionales (Canva/PowerPoint) para proyectos de graduación",
+            s5Desc: "Preparación de una presentación distintiva y profesional para tu proyecto de graduación o de ingeniería, destacando todos sus detalles técnicos y científicos.",
+            s5Btn: "Pedir en Nafezly", s5Btn2: "Kafiil",
+            s6Title: "Diseño e ingeniería de sistemas de hogar inteligente integrados (Smart Home)",
+            s6Desc: "Construcción y programación de un sistema de hogar inteligente totalmente integrado basado en IoT para controlar remotamente iluminación, dispositivos y seguridad.",
+            s6Btn: "Pedir en Nafezly",
+            s7Title: "Diseño y automatización de sistemas agrícolas inteligentes (Smart Farming)",
+            s7Desc: "Desarrollo de sistemas agrícolas inteligentes basados en sensores e IoT para monitorear y automatizar el riego, la ventilación y la humedad.",
+            s7Btn: "Pedir en Nafezly",
+            s8Title: "Diseño, simulación y programación de brazos robóticos",
+            s8Desc: "Diseño y programación de brazos robóticos funcionales con servomotores y sistemas de control precisos, ideales para proyectos de graduación y aplicaciones industriales.",
+            s8Btn: "Pedir en Nafezly",
+            s9Title: "Modelos 3D de robots y estructuras para proyectos de graduación (SolidWorks/Fusion 360)",
+            s9Desc: "Diseño de modelos 3D profesionales para estructuras de robots y componentes de proyectos de graduación con SolidWorks y Fusion 360, listos para imprimir o fabricar.",
+            s9Btn: "Pedir en Nafezly",
+            mainKhamsatBtn: "💼 Visitar mi perfil principal en Khamsat",
+            aTitle: "Sobre el innovador tecnológico",
+            aDesc: "Soy Ziad Walid, innovador e inventor en el campo tecnológico. He puesto mi pasión al servicio de explorar los horizontes de la inteligencia artificial y la robótica. No soy solo programador, sino también creador de soluciones y formador técnico que busca transmitir su experiencia en sistemas inteligentes a la próxima generación.",
+            skTitle: "Habilidades y tecnologías (Tech Stack)",
+            acTitle: "Logros e iniciativas digitales",
+            ac1Title: "Iniciativa Digital Egypt Pupils (DECA)",
+            ac1Desc: "Incorporación a la beca e iniciativa presidencial especializada en formar y desarrollar jóvenes talentos tecnológicos en áreas de tecnología avanzada.",
+            ac2Title: "Build with AI: Egypt Edition",
+            ac2Desc: "Participación activa en el programa de Google para innovar y aplicar soluciones avanzadas de IA, además de explorar tecnologías de AI Vision.",
+            ac3Title: "Hack Club Arcade",
+            ac3Desc: "Participación en retos internacionales de programación e ingeniería para crear proyectos tecnológicos innovadores y compartir código con la comunidad internacional de desarrolladores.",
+            tstTitle: "Opiniones de clientes y estudiantes",
+            tst1User: "Ahmed M. (cliente de Khamsat)",
+            tst1Text: "\"Velocidad increíble para detectar y corregir el código fuente de mi proyecto Arduino. Un ingeniero muy profesional que domina totalmente sus herramientas.\"",
+            tst2User: "Consultor de formación (Administración Educativa de Abdeen)",
+            tst2Text: "\"Ziad impartió una excelente clase a los estudiantes en el seminario de escuelas inteligentes, con una gran capacidad para simplificar temas complejos a pesar de su corta edad.\"",
+            tst3User: "Khaled A. (estudiante de software)",
+            tst3Text: "\"Los cursos de YouTube junto con los esquemas del blog me ayudaron muchísimo a construir mi primer sistema de hogar inteligente integrado.\"",
+            smTitle: "Redes sociales",
+            sm1Title: "TikTok",
+            sm1Desc: "Sigue los últimos videos cortos de inventos, presentaciones de proyectos, explicaciones técnicas rápidas y experimentos prácticos.",
+            sm2Title: "Instagram",
+            sm2Desc: "El detrás de escena de la construcción de robots, fotos exclusivas del laboratorio, esquemas técnicos y actualizaciones diarias sobre próximos proyectos.",
+            sm3Title: "Facebook",
+            sm3Desc: "Una conexión social más amplia, publicaciones técnicas detalladas, difusión de eventos y seminarios de formación, y discusiones científicas continuas.",
+            tTitle: "Seminarios y eventos (aspecto formativo)",
+            t1Title: "Primer seminario de formación",
+            t1Desc: "Compartir experiencias en el campo de la transformación digital.",
+            t2Title: "Tercer seminario de formación",
+            t2Desc: "Estrategias tecnológicas modernas.",
+            t3Title: "Cuarto seminario de formación",
+            t3Desc: "Un taller interactivo para estudiantes.",
+            t4Title: "Iniciativa de escuelas inteligentes",
+            t4Desc: "Administración Educativa de Abdeen: desarrollo del pensamiento técnico.",
+            t5Title: "Taller de formación",
+            t5Desc: "Formación práctica intensiva en herramientas de innovación.",
+            cTitle: "Academia Educativa de Ziad (YouTube)",
+            c1Title: "Curso de Python",
+            c1Desc: "Aprende el lenguaje del futuro, desde cero hasta el dominio total.",
+            c2Title: "Curso de electrónica",
+            c2Desc: "Construcción de circuitos eléctricos y sistemas embebidos.",
+            c3Title: "Curso de inteligencia artificial",
+            c3Desc: "Comprender los algoritmos y las aplicaciones de la IA.",
+            c4Title: "Curso de diseño gráfico",
+            c4Desc: "El arte del diseño visual digital.",
+            pTitle: "Galería de proyectos innovadores",
+            p1Title: "Robot de servicio inteligente",
+            p1Desc: "Un robot avanzado con capacidades de navegación autónoma.",
+            p2Title: "Proyecto de código Morse",
+            p2Desc: "Traducción de señales, física y programáticamente.",
+            p3Title: "Proyecto de hogar inteligente",
+            p3Desc: "Un sistema de automatización del hogar totalmente integrado.",
+            mainYoutubeBtn: "🎬 Visita mi canal de YouTube",
+            faqTitle: "Preguntas frecuentes",
+            faq1Q: "¿Vale la pena aprender Arduino desde cero?",
+            faq1A: "Sí, Arduino es uno de los puntos de entrada más sencillos al mundo de los sistemas embebidos. Ofrezco cursos gratuitos en mi canal de YouTube desde cero, además de servicios de consultoría para un proyecto específico.",
+            faq2Q: "¿Cuál es la diferencia entre programar un proyecto completo y la consultoría?",
+            faq2A: "Programar el proyecto completo significa que lo construyo desde cero (código y esquema). La consultoría significa que ya tienes un proyecto funcionando o parcialmente funcionando y necesitas una revisión o una solución específica.",
+            faq3Q: "¿Trabajas en proyectos de graduación universitaria?",
+            faq3A: "Sí, los proyectos de graduación son de los que más trabajo, ya sea en Arduino, IoT, robótica, o incluso en diseño de presentaciones y modelos 3D para el proyecto.",
+            faq4Q: "¿Cómo puedo pedir un servicio contigo?",
+            faq4A: "Puedes pedir directamente a través de Khamsat, Nafezly o Kafiil usando los enlaces de servicios en el sitio, o contactarme directamente por WhatsApp o el formulario de contacto al final de la página.",
+            crTitle: "Propiedad intelectual y protección de contenido",
+            crSub: "Derechos de autor © 2026",
+            crP1: "Este sitio web, incluyendo el diseño de la interfaz, el código fuente, los textos y el contenido de presentación, es propiedad intelectual exclusiva del innovador y programador Ziad Walid (ziadai).",
+            crP2: "Está totalmente prohibido copiar, modificar o redistribuir el código fuente del sitio o cualquier contenido digital que se muestre en él con fines comerciales sin permiso escrito previo. Todas las innovaciones y proyectos mostrados están documentados y protegidos por las leyes de propiedad intelectual.",
+            cntTitle: "Contáctame",
+            fName: "Tu nombre", fEmail: "Tu correo electrónico", fMsg: "Detalles de tu proyecto o tu mensaje...",
+            fBtn: "Enviar mensaje", contactDirectText: "También puedes contactarme directamente aquí:"
+        },
+        zh: {
+            dir: 'ltr',
+            pageTitle: "ziadai | Ziad Walid - 科技与发明专家",
+            metaDesc: "一位专注于编程、机器人技术和物联网的科技创新者。查看我的项目与技术服务。",
+            menuBtn: "菜单 ☰",
+            navAbout: "关于 ziadai", navBlog: "📜 代码与电路图", navServices: "服务(Khamsat)",
+            navSkills: "技能与技术栈", navAchievements: "成就与项目", navTestimonials: "客户与学员评价",
+            navBlogpreview: "最新文章",
+            navSocial: "社交媒体", navTraining: "培训讲座", navCourses: "课程", navProjects: "项目作品",
+            navFaq: "常见问题",
+            navCopyright: "版权信息", navContact: "联系我",
+            heroSubtitle: "科技创新者 • 智能系统程序员 • 发明内容创作者",
+            heroAvailability: "🟢 目前可接新项目",
+            heroPrimaryBtn: "🚀 立即开始你的项目",
+            heroBtn: "📥 查看电路图与源代码",
+            cvBtn: "📄 下载简历",
+            altPlatforms: "其他平台",
+            bpTitle: "博客最新文章", bpNote: "自动从 ziadai 的 Blogspot 博客加载最新 3 篇文章。",
+            sTitle: "我的技术服务(Khamsat)",
+            s1Title: "Arduino 与 IoT 项目专业编程与设计,附接线图",
+            s1Desc: "全面设计与编程电子电路及物联网项目,并提供精确的电路图,确保硬件组装无误。",
+            s1Btn: "在 Khamsat 下单", s1Btn2: "Kafiil",
+            s2Title: "Arduino 与 IoT 项目咨询与故障排查",
+            s2Desc: "审查并调试源代码,诊断电路中的硬件与连接错误,并提供全面的技术咨询以优化性能。",
+            s2Btn: "在 Khamsat 下单", s2Btn2: "Nafezly", s2Btn3: "Kafiil",
+            s3Title: "通过 Tinkercad 与 Wokwi 进行 Arduino 电路虚拟设计与仿真",
+            s3Desc: "完全在线构建并测试虚拟电子电路,在实际实施前确保软件与结构的完整性。",
+            s3Btn: "在 Khamsat 下单", s3Btn2: "Nafezly", s3Btn3: "Kafiil",
+            s4Title: "将 IoT 项目连接并部署到线上,实现远程控制",
+            s4Desc: "设计并构建完全联网的嵌入式系统,让您可以通过仪表盘和专属应用随时随地监控和控制您的项目。",
+            s4Btn: "在 Khamsat 下单", s4Btn2: "Nafezly", s4Btn3: "Kafiil",
+            s5Title: "为毕业设计项目制作专业演示文稿(Canva/PowerPoint)",
+            s5Desc: "为您的毕业设计或工程项目制作独特而专业的演示文稿,以美观有序的方式呈现所有技术与科学细节。",
+            s5Btn: "在 Nafezly 下单", s5Btn2: "Kafiil",
+            s6Title: "智能家居集成系统设计与工程",
+            s6Desc: "构建并编程基于物联网的完整智能家居系统,实现对照明、电器和安防的远程控制。",
+            s6Btn: "在 Nafezly 下单",
+            s7Title: "智能农业系统设计与自动化",
+            s7Desc: "开发基于传感器与物联网的智能农业系统,自动监测并控制灌溉、通风与湿度。",
+            s7Btn: "在 Nafezly 下单",
+            s8Title: "机械臂设计、仿真与编程",
+            s8Desc: "设计并编程功能性机械臂,配备伺服电机与精密控制系统,适用于毕业设计项目与工业应用。",
+            s8Btn: "在 Nafezly 下单",
+            s9Title: "机器人 3D 模型与毕业设计结构件(SolidWorks/Fusion 360)",
+            s9Desc: "使用 SolidWorks 与 Fusion 360 为机器人结构及毕业设计部件设计专业 3D 模型,可直接用于打印或制造。",
+            s9Btn: "在 Nafezly 下单",
+            mainKhamsatBtn: "💼 访问我在 Khamsat 的主页",
+            aTitle: "关于这位科技创新者",
+            aDesc: "我是 Ziad Walid,科技领域的创新者与发明家。我将自己的热情投入到探索人工智能与机器人技术的前沿。我不仅是一名程序员,更是一名解决方案提供者和技术讲师,致力于将智能系统的经验传授给下一代。",
+            skTitle: "技能与技术栈",
+            acTitle: "数字成就与项目",
+            ac1Title: "埃及数字青少年计划(DECA)",
+            ac1Desc: "加入专门培养和发展年轻科技人才的总统奖学金与倡议项目,涉及先进技术领域。",
+            ac2Title: "Build with AI: 埃及版",
+            ac2Desc: "积极参与谷歌关于创新与应用先进人工智能解决方案的项目,并探索 AI Vision 相关技术。",
+            ac3Title: "Hack Club Arcade",
+            ac3Desc: "参与全球编程与工程挑战,构建创新科技项目,并与国际开发者社区分享代码。",
+            tstTitle: "客户与学员评价",
+            tst1User: "Ahmed M.(Khamsat 客户)",
+            tst1Text: "\"在发现并修复我的 Arduino 项目源代码方面速度惊人。是一位非常专业、精通工具的工程师。\"",
+            tst2User: "培训顾问(阿卜丁教育管理局)",
+            tst2Text: "\"Ziad 在智能学校讲座中为学生提供了出色的教学内容,尽管年纪轻轻,却能将复杂主题讲解得非常清晰。\"",
+            tst3User: "Khaled A.(软件专业学生)",
+            tst3Text: "\"YouTube 课程配合博客上的电路图,极大地帮助我搭建了第一个完整的智能家居系统。\"",
+            smTitle: "社交媒体主页",
+            sm1Title: "抖音国际版(TikTok)",
+            sm1Desc: "关注最新的发明短视频、项目展示、快速技术讲解与实操实验。",
+            sm2Title: "Instagram",
+            sm2Desc: "机器人制作幕后花絮、实验室独家照片、工程电路图以及即将推出项目的每日更新。",
+            sm3Title: "Facebook",
+            sm3Desc: "更广泛的社交联系、详细的技术帖子、活动与培训讲座分享,以及持续的科学讨论。",
+            tTitle: "讲座与活动(培训方面)",
+            t1Title: "第一场培训讲座",
+            t1Desc: "分享数字化转型领域的经验。",
+            t2Title: "第三场培训讲座",
+            t2Desc: "现代科技战略。",
+            t3Title: "第四场培训讲座",
+            t3Desc: "面向学生的互动工作坊。",
+            t4Title: "智能学校计划",
+            t4Desc: "阿卜丁教育管理局 - 培养技术思维。",
+            t5Title: "培训工作坊",
+            t5Desc: "关于创新工具的强化实操培训。",
+            cTitle: "Ziad 教育学院(YouTube)",
+            c1Title: "Python 课程",
+            c1Desc: "从零开始学习面向未来的编程语言,直至精通。",
+            c2Title: "电子学课程",
+            c2Desc: "构建电路与嵌入式系统。",
+            c3Title: "人工智能课程",
+            c3Desc: "理解算法与人工智能应用。",
+            c4Title: "平面设计课程",
+            c4Desc: "数字视觉设计的艺术。",
+            pTitle: "创新项目展示",
+            p1Title: "智能服务机器人",
+            p1Desc: "具备自主导航能力的先进机器人。",
+            p2Title: "摩尔斯电码项目",
+            p2Desc: "通过硬件与软件实现信号翻译。",
+            p3Title: "智能家居项目",
+            p3Desc: "完整的家庭自动化系统。",
+            mainYoutubeBtn: "🎬 访问我的 YouTube 频道",
+            faqTitle: "常见问题",
+            faq1Q: "从零开始学习 Arduino 编程值得吗?",
+            faq1A: "当然值得,Arduino 是进入嵌入式系统领域最简单的入门方式之一。我在 YouTube 频道上提供从零开始的免费课程,如果您在具体项目中需要帮助,也可以获得咨询服务。",
+            faq2Q: "完整项目编程服务与咨询服务有什么区别?",
+            faq2A: "完整编程服务是指我从零为您构建整个项目(代码与电路图)。咨询服务则是指您已经拥有一个可运行或部分可运行的项目,需要审查或解决特定问题。",
+            faq3Q: "您承接大学毕业设计项目吗?",
+            faq3A: "是的,毕业设计项目是我最常承接的项目之一,无论是 Arduino、物联网、机器人技术,还是演示文稿设计和项目的 3D 模型制作。",
+            faq4Q: "如何向您下单服务?",
+            faq4A: "您可以通过网站上的服务链接直接在 Khamsat、Nafezly 或 Kafiil 下单,也可以通过 WhatsApp 或页面底部的联系表单直接联系我。",
+            crTitle: "知识产权与内容保护",
+            crSub: "版权所有 © 2026",
+            crP1: "本网站,包括界面设计、源代码、文字及介绍性内容,均为科技创新者与程序员 Ziad Walid(ziadai)独有的知识产权。",
+            crP2: "严禁未经事先书面许可,出于商业目的复制、修改或再分发本网站的源代码或其中展示的任何数字内容。所有展示的创新与项目均已记录在案,并受知识产权相关法律保护。",
+            cntTitle: "联系我",
+            fName: "您的姓名", fEmail: "您的电子邮箱", fMsg: "请描述您的项目详情或留言...",
+            fBtn: "发送消息", contactDirectText: "您也可以通过以下方式直接联系我:"
+        },
+        hi: {
+            dir: 'ltr',
+            pageTitle: "ziadai | ज़ियाद वलीद - टेक्नोलॉजी और इन्वेंशन एक्सपर्ट",
+            metaDesc: "प्रोग्रामिंग, रोबोटिक्स और IoT में विशेषज्ञ एक टेक इनोवेटर। मेरे प्रोजेक्ट्स और तकनीकी सेवाएँ देखें।",
+            menuBtn: "मेनू ☰",
+            navAbout: "ziadai के बारे में", navBlog: "📜 कोड और डायग्राम", navServices: "सेवाएँ (Khamsat)",
+            navSkills: "कौशल और तकनीकें", navAchievements: "उपलब्धियाँ और पहलें", navTestimonials: "ग्राहकों और छात्रों की राय",
+            navBlogpreview: "नवीनतम लेख",
+            navSocial: "सोशल मीडिया", navTraining: "सेमिनार", navCourses: "कोर्सेज़", navProjects: "प्रोजेक्ट्स",
+            navFaq: "अक्सर पूछे जाने वाले सवाल",
+            navCopyright: "कॉपीराइट", navContact: "मुझसे संपर्क करें",
+            heroSubtitle: "टेक इनोवेटर • स्मार्ट सिस्टम प्रोग्रामर • इन्वेंशन कंटेंट क्रिएटर",
+            heroAvailability: "🟢 नए प्रोजेक्ट्स के लिए उपलब्ध",
+            heroPrimaryBtn: "🚀 अपना प्रोजेक्ट शुरू करें",
+            heroBtn: "📥 डायग्राम और सोर्स कोड देखें",
+            cvBtn: "📄 सीवी डाउनलोड करें",
+            altPlatforms: "अन्य प्लेटफ़ॉर्म",
+            bpTitle: "ब्लॉग के नवीनतम लेख", bpNote: "ziadai के Blogspot ब्लॉग से नवीनतम 3 लेख अपने आप लोड होते हैं।",
+            sTitle: "मेरी तकनीकी सेवाएँ (Khamsat)",
+            s1Title: "वायरिंग डायग्राम के साथ पेशेवर Arduino और IoT प्रोजेक्ट प्रोग्रामिंग और डिज़ाइन",
+            s1Desc: "इलेक्ट्रॉनिक सर्किट और IoT प्रोजेक्ट्स की पूरी डिज़ाइन और प्रोग्रामिंग, साथ ही बिना गलती के हार्डवेयर असेंबली के लिए सटीक डायग्राम।",
+            s1Btn: "Khamsat पर ऑर्डर करें", s1Btn2: "Kafiil",
+            s2Title: "Arduino और IoT प्रोजेक्ट्स के लिए परामर्श और समस्या समाधान",
+            s2Desc: "सोर्स कोड की समीक्षा और डीबगिंग, सर्किट में हार्डवेयर और कनेक्शन त्रुटियों की पहचान, और प्रदर्शन बेहतर बनाने के लिए पूर्ण तकनीकी परामर्श।",
+            s2Btn: "Khamsat पर ऑर्डर करें", s2Btn2: "Nafezly", s2Btn3: "Kafiil",
+            s3Title: "Tinkercad और Wokwi के ज़रिए वर्चुअल Arduino सर्किट डिज़ाइन और सिमुलेशन",
+            s3Desc: "वास्तविक कार्यान्वयन से पहले सॉफ़्टवेयर और संरचनात्मक शुद्धता सुनिश्चित करने के लिए पूरी तरह ऑनलाइन वर्चुअल इलेक्ट्रॉनिक सर्किट बनाना और परखना।",
+            s3Btn: "Khamsat पर ऑर्डर करें", s3Btn2: "Nafezly", s3Btn3: "Kafiil",
+            s4Title: "IoT प्रोजेक्ट्स को ऑनलाइन जोड़ना और रिमोट कंट्रोल के साथ डिप्लॉय करना",
+            s4Desc: "इंटरनेट से पूरी तरह जुड़े एम्बेडेड सिस्टम डिज़ाइन और तैयार करना, ताकि आप डैशबोर्ड और खास ऐप्स के ज़रिए कहीं से भी अपने प्रोजेक्ट को मॉनिटर और कंट्रोल कर सकें।",
+            s4Btn: "Khamsat पर ऑर्डर करें", s4Btn2: "Nafezly", s4Btn3: "Kafiil",
+            s5Title: "ग्रेजुएशन प्रोजेक्ट्स के लिए पेशेवर प्रेजेंटेशन डिज़ाइन (Canva/PowerPoint)",
+            s5Desc: "आपके ग्रेजुएशन या इंजीनियरिंग प्रोजेक्ट को आकर्षक और सुव्यवस्थित तरीके से पेश करने के लिए एक खास, पेशेवर प्रेजेंटेशन तैयार करना, जिसमें सभी तकनीकी और वैज्ञानिक विवरण शामिल हों।",
+            s5Btn: "Nafezly पर ऑर्डर करें", s5Btn2: "Kafiil",
+            s6Title: "इंटीग्रेटेड स्मार्ट होम सिस्टम्स का डिज़ाइन और इंजीनियरिंग",
+            s6Desc: "IoT पर आधारित पूरी तरह इंटीग्रेटेड स्मार्ट होम सिस्टम बनाना और प्रोग्राम करना, जिससे लाइटिंग, उपकरण और सुरक्षा को रिमोटली नियंत्रित किया जा सके।",
+            s6Btn: "Nafezly पर ऑर्डर करें",
+            s7Title: "स्मार्ट फार्मिंग सिस्टम्स का डिज़ाइन और ऑटोमेशन",
+            s7Desc: "सेंसर और IoT पर आधारित स्मार्ट कृषि सिस्टम विकसित करना, ताकि सिंचाई, वेंटिलेशन और नमी को अपने आप मॉनिटर और ऑटोमेट किया जा सके।",
+            s7Btn: "Nafezly पर ऑर्डर करें",
+            s8Title: "रोबोटिक आर्म्स का डिज़ाइन, सिमुलेशन और प्रोग्रामिंग",
+            s8Desc: "सर्वो मोटर्स और सटीक कंट्रोल सिस्टम के साथ कार्यशील रोबोटिक आर्म्स डिज़ाइन और प्रोग्राम करना, जो ग्रेजुएशन प्रोजेक्ट्स और औद्योगिक उपयोग दोनों के लिए उपयुक्त हैं।",
+            s8Btn: "Nafezly पर ऑर्डर करें",
+            s9Title: "रोबोट के 3D मॉडल्स और ग्रेजुएशन प्रोजेक्ट संरचनाएँ (SolidWorks/Fusion 360)",
+            s9Desc: "SolidWorks और Fusion 360 का उपयोग करके रोबोट संरचनाओं और ग्रेजुएशन प्रोजेक्ट पार्ट्स के लिए पेशेवर 3D मॉडल डिज़ाइन करना, जो प्रिंटिंग या निर्माण के लिए तैयार हों।",
+            s9Btn: "Nafezly पर ऑर्डर करें",
+            mainKhamsatBtn: "💼 Khamsat पर मेरी मुख्य प्रोफ़ाइल देखें",
+            aTitle: "टेक इनोवेटर के बारे में",
+            aDesc: "मैं ज़ियाद वलीद हूँ, टेक्नोलॉजी के क्षेत्र में एक इनोवेटर और इन्वेंटर। मैंने आर्टिफिशियल इंटेलिजेंस और रोबोटिक्स की दुनिया को एक्सप्लोर करने के लिए अपने जुनून का इस्तेमाल किया है। मैं सिर्फ़ एक प्रोग्रामर नहीं, बल्कि एक सॉल्यूशन मेकर और टेक लेक्चरर हूँ, जो स्मार्ट सिस्टम बनाने का अपना अनुभव अगली पीढ़ी तक पहुँचाना चाहता है।",
+            skTitle: "कौशल और तकनीकें (Tech Stack)",
+            acTitle: "डिजिटल उपलब्धियाँ और पहलें",
+            ac1Title: "डिजिटल इजिप्ट प्यूपिल्स इनिशिएटिव (DECA)",
+            ac1Desc: "एडवांस्ड टेक्नोलॉजी क्षेत्रों में युवा टेक टैलेंट को तैयार करने और विकसित करने के लिए विशेष राष्ट्रपति छात्रवृत्ति और पहल में शामिल होना।",
+            ac2Title: "Build with AI: Egypt Edition",
+            ac2Desc: "एडवांस्ड AI समाधानों को इनोवेट और लागू करने के गूगल के कार्यक्रम में सक्रिय भागीदारी, और AI Vision तकनीकों की खोज।",
+            ac3Title: "Hack Club Arcade",
+            ac3Desc: "इनोवेटिव टेक प्रोजेक्ट्स बनाने और अंतरराष्ट्रीय डेवलपर समुदाय के साथ कोड शेयर करने के लिए वैश्विक प्रोग्रामिंग और इंजीनियरिंग चैलेंजेज़ में भाग लेना।",
+            tstTitle: "ग्राहकों और छात्रों की राय",
+            tst1User: "अहमद एम. (Khamsat ग्राहक)",
+            tst1Text: "\"मेरे Arduino प्रोजेक्ट के सोर्स कोड में गड़बड़ी ढूँढने और ठीक करने की अविश्वसनीय गति। एक बेहद पेशेवर इंजीनियर जो अपने टूल्स में पूरी तरह माहिर है।\"",
+            tst2User: "ट्रेनिंग कंसल्टेंट (अब्दीन एजुकेशनल एडमिनिस्ट्रेशन)",
+            tst2Text: "\"ज़ियाद ने स्मार्ट स्कूल्स सेमिनार में छात्रों के लिए शानदार शैक्षणिक व्याख्यान दिया, अपनी कम उम्र के बावजूद जटिल विषयों को सरल बनाने की शानदार क्षमता के साथ।\"",
+            tst3User: "खालिद ए. (सॉफ्टवेयर छात्र)",
+            tst3Text: "\"ब्लॉग पर मौजूद डायग्राम के साथ YouTube कोर्सेज़ ने मुझे अपना पहला इंटीग्रेटेड होम ऑटोमेशन सिस्टम बनाने में बहुत मदद की।\"",
+            smTitle: "सोशल मीडिया पेज",
+            sm1Title: "TikTok",
+            sm1Desc: "इन्वेंशन्स के नवीनतम शॉर्ट वीडियो, प्रोजेक्ट शोकेस, त्वरित तकनीकी व्याख्या और व्यावहारिक प्रयोगों को फॉलो करें।",
+            sm2Title: "Instagram",
+            sm2Desc: "रोबोट बनाने के पीछे की झलकियाँ, लैब की खास तस्वीरें, इंजीनियरिंग डायग्राम, और आने वाले प्रोजेक्ट्स के रोज़ाना अपडेट्स।",
+            sm3Title: "Facebook",
+            sm3Desc: "व्यापक सामाजिक जुड़ाव, विस्तृत तकनीकी पोस्ट्स, इवेंट्स और ट्रेनिंग सेमिनार शेयर करना, और लगातार वैज्ञानिक चर्चाएँ।",
+            tTitle: "सेमिनार और इवेंट्स (ट्रेनिंग पक्ष)",
+            t1Title: "पहला ट्रेनिंग सेमिनार",
+            t1Desc: "डिजिटल ट्रांसफॉर्मेशन के क्षेत्र में अनुभव साझा करना।",
+            t2Title: "तीसरा ट्रेनिंग सेमिनार",
+            t2Desc: "आधुनिक टेक्नोलॉजी रणनीतियाँ।",
+            t3Title: "चौथा ट्रेनिंग सेमिनार",
+            t3Desc: "छात्रों के लिए एक इंटरैक्टिव वर्कशॉप।",
+            t4Title: "स्मार्ट स्कूल्स इनिशिएटिव",
+            t4Desc: "अब्दीन एजुकेशनल एडमिनिस्ट्रेशन - तकनीकी सोच का विकास।",
+            t5Title: "ट्रेनिंग वर्कशॉप",
+            t5Desc: "इनोवेशन टूल्स पर गहन व्यावहारिक प्रशिक्षण।",
+            cTitle: "ज़ियाद एजुकेशनल एकेडमी (YouTube)",
+            c1Title: "Python कोर्स",
+            c1Desc: "भविष्य की भाषा को शुरुआत से महारत तक सीखें।",
+            c2Title: "इलेक्ट्रॉनिक्स कोर्स",
+            c2Desc: "इलेक्ट्रिकल सर्किट और एम्बेडेड सिस्टम बनाना।",
+            c3Title: "आर्टिफिशियल इंटेलिजेंस कोर्स",
+            c3Desc: "एल्गोरिद्म और AI ऐप्लिकेशन्स को समझना।",
+            c4Title: "ग्राफिक डिज़ाइन कोर्स",
+            c4Desc: "डिजिटल विज़ुअल डिज़ाइन की कला।",
+            pTitle: "इनोवेटिव प्रोजेक्ट्स गैलरी",
+            p1Title: "स्मार्ट सर्विस रोबोट",
+            p1Desc: "ऑटोनॉमस नेविगेशन क्षमताओं वाला एक एडवांस्ड रोबोट।",
+            p2Title: "मोर्स कोड प्रोजेक्ट",
+            p2Desc: "फिजिकली और प्रोग्रामेटिकली सिग्नल्स का अनुवाद।",
+            p3Title: "स्मार्ट होम प्रोजेक्ट",
+            p3Desc: "एक पूर्णतः इंटीग्रेटेड होम ऑटोमेशन सिस्टम।",
+            mainYoutubeBtn: "🎬 मेरा YouTube चैनल देखें",
+            faqTitle: "अक्सर पूछे जाने वाले सवाल",
+            faq1Q: "क्या शुरुआत से Arduino प्रोग्रामिंग सीखना फायदेमंद है?",
+            faq1A: "हाँ, एम्बेडेड सिस्टम्स की दुनिया में Arduino सबसे आसान शुरुआती बिंदुओं में से एक है। मैं अपने YouTube चैनल पर शुरुआत से मुफ़्त कोर्सेज़ देता हूँ, साथ ही किसी खास प्रोजेक्ट में मदद के लिए परामर्श सेवाएँ भी।",
+            faq2Q: "पूरी प्रोजेक्ट प्रोग्रामिंग सेवा और परामर्श सेवा में क्या अंतर है?",
+            faq2A: "पूरी प्रोग्रामिंग सेवा का मतलब है कि मैं आपका प्रोजेक्ट शुरुआत से बनाता हूँ (कोड और डायग्राम)। परामर्श सेवा का मतलब है कि आपके पास पहले से एक चालू या आंशिक रूप से चालू प्रोजेक्ट है और उसकी समीक्षा या किसी खास समस्या के समाधान की ज़रूरत है।",
+            faq3Q: "क्या आप यूनिवर्सिटी ग्रेजुएशन प्रोजेक्ट्स पर काम करते हैं?",
+            faq3A: "हाँ, ग्रेजुएशन प्रोजेक्ट्स उन प्रमुख कामों में से हैं जिन पर मैं काम करता हूँ, चाहे वो Arduino, IoT, रोबोटिक्स हो, या यहाँ तक कि प्रोजेक्ट के लिए प्रेजेंटेशन डिज़ाइन और 3D मॉडल्स।",
+            faq4Q: "मुझसे सेवा कैसे ऑर्डर करूँ?",
+            faq4A: "आप साइट पर दिए गए सर्विस लिंक्स के ज़रिए सीधे Khamsat, Nafezly या Kafiil से ऑर्डर कर सकते हैं, या सीधे WhatsApp या पेज के नीचे मौजूद कॉन्टैक्ट फॉर्म के ज़रिए मुझसे संपर्क कर सकते हैं।",
+            crTitle: "बौद्धिक संपदा और कंटेंट सुरक्षा",
+            crSub: "कॉपीराइट © 2026",
+            crP1: "यह वेबसाइट, जिसमें इंटरफ़ेस डिज़ाइन, सोर्स कोड, टेक्स्ट और परिचयात्मक कंटेंट शामिल है, इनोवेटर और प्रोग्रामर ज़ियाद वलीद (ziadai) की विशेष बौद्धिक संपदा है।",
+            crP2: "बिना पूर्व लिखित अनुमति के इस साइट के सोर्स कोड या इस पर दिखाए गए किसी भी डिजिटल कंटेंट को व्यावसायिक उद्देश्यों के लिए कॉपी, संशोधित या पुनर्वितरित करना पूरी तरह वर्जित है। दिखाए गए सभी इनोवेशन और प्रोजेक्ट्स दस्तावेज़ीकृत हैं और बौद्धिक संपदा कानूनों के तहत सुरक्षित हैं।",
+            cntTitle: "मुझसे संपर्क करें",
+            fName: "आपका नाम", fEmail: "आपका ईमेल", fMsg: "आपके प्रोजेक्ट का विवरण या आपका संदेश...",
+            fBtn: "संदेश भेजें", contactDirectText: "आप यहाँ से भी सीधे मुझसे संपर्क कर सकते हैं:"
+        }
+    };
+
+    function setText(id, val) { var el = document.getElementById(id); if (el) el.innerText = val; }
+    function setAll(selector, val) { document.querySelectorAll(selector).forEach(function(el) { el.textContent = val; }); }
+
+    function setLanguage(lang) {
+        if (!langData[lang]) return;
+        currentLang = lang;
+        const data = langData[lang];
+
+        document.documentElement.dir = data.dir;
+        document.documentElement.lang = lang;
+        document.getElementById('langSelect').value = lang;
+
+        document.title = data.pageTitle;
+        var metaDescEl = document.querySelector('meta[name="description"]');
+        if (metaDescEl) metaDescEl.setAttribute('content', data.metaDesc);
+        var ogDescEl = document.querySelector('meta[property="og:description"]');
+        if (ogDescEl) ogDescEl.setAttribute('content', data.metaDesc);
+
+        setText('menuBtn', data.menuBtn);
+        setText('nav-about', data.navAbout); setText('nav-blog', data.navBlog); setText('nav-services', data.navServices);
+        setText('nav-skills', data.navSkills); setText('nav-achievements', data.navAchievements); setText('nav-testimonials', data.navTestimonials);
+        setText('nav-blogpreview', data.navBlogpreview);
+        setText('nav-social', data.navSocial); setText('nav-training', data.navTraining); setText('nav-courses', data.navCourses);
+        setText('nav-projects', data.navProjects); setText('nav-faq', data.navFaq); setText('nav-copyright', data.navCopyright); setText('nav-contact', data.navContact);
+
+        setText('hero-subtitle', data.heroSubtitle); setText('hero-btn', data.heroBtn); setText('cv-btn', data.cvBtn);
+        setText('hero-availability', data.heroAvailability); setText('hero-primary-btn', data.heroPrimaryBtn);
+
+        setAll('.alt-platforms-label', data.altPlatforms);
+
+        setText('bp-title', data.bpTitle); setText('bp-note', data.bpNote);
+
+        setText('s-title', data.sTitle);
+        setText('s1-title', data.s1Title); setText('s1-desc', data.s1Desc); setText('s1-btn', data.s1Btn); setText('s1-btn2', data.s1Btn2);
+        setText('s2-title', data.s2Title); setText('s2-desc', data.s2Desc); setText('s2-btn', data.s2Btn); setText('s2-btn2', data.s2Btn2); setText('s2-btn3', data.s2Btn3);
+        setText('s3-title', data.s3Title); setText('s3-desc', data.s3Desc); setText('s3-btn', data.s3Btn); setText('s3-btn2', data.s3Btn2); setText('s3-btn3', data.s3Btn3);
+        setText('s4-title', data.s4Title); setText('s4-desc', data.s4Desc); setText('s4-btn', data.s4Btn); setText('s4-btn2', data.s4Btn2); setText('s4-btn3', data.s4Btn3);
+        setText('s5-title', data.s5Title); setText('s5-desc', data.s5Desc); setText('s5-btn', data.s5Btn); setText('s5-btn2', data.s5Btn2);
+        setText('s6-title', data.s6Title); setText('s6-desc', data.s6Desc); setText('s6-btn', data.s6Btn);
+        setText('s7-title', data.s7Title); setText('s7-desc', data.s7Desc); setText('s7-btn', data.s7Btn);
+        setText('s8-title', data.s8Title); setText('s8-desc', data.s8Desc); setText('s8-btn', data.s8Btn);
+        setText('s9-title', data.s9Title); setText('s9-desc', data.s9Desc); setText('s9-btn', data.s9Btn);
+        setText('main-khamsat-btn', data.mainKhamsatBtn);
+
+        setText('a-title', data.aTitle); setText('a-desc', data.aDesc);
+        setText('sk-title', data.skTitle);
+
+        setText('ac-title', data.acTitle);
+        setText('ac1-title', data.ac1Title); setText('ac1-desc', data.ac1Desc);
+        setText('ac2-title', data.ac2Title); setText('ac2-desc', data.ac2Desc);
+        setText('ac3-title', data.ac3Title); setText('ac3-desc', data.ac3Desc);
+
+        setText('tst-title', data.tstTitle);
+        setText('tst1-user', data.tst1User); setText('tst1-text', data.tst1Text);
+        setText('tst2-user', data.tst2User); setText('tst2-text', data.tst2Text);
+        setText('tst3-user', data.tst3User); setText('tst3-text', data.tst3Text);
+
+        setText('sm-title', data.smTitle);
+        setText('sm1-title', data.sm1Title); setText('sm1-desc', data.sm1Desc);
+        setText('sm2-title', data.sm2Title); setText('sm2-desc', data.sm2Desc);
+        setText('sm3-title', data.sm3Title); setText('sm3-desc', data.sm3Desc);
+
+        setText('t-title', data.tTitle);
+        setText('t1-title', data.t1Title); setText('t1-desc', data.t1Desc);
+        setText('t2-title', data.t2Title); setText('t2-desc', data.t2Desc);
+        setText('t3-title', data.t3Title); setText('t3-desc', data.t3Desc);
+        setText('t4-title', data.t4Title); setText('t4-desc', data.t4Desc);
+        setText('t5-title', data.t5Title); setText('t5-desc', data.t5Desc);
+
+        setText('c-title', data.cTitle);
+        setText('c1-title', data.c1Title); setText('c1-desc', data.c1Desc);
+        setText('c2-title', data.c2Title); setText('c2-desc', data.c2Desc);
+        setText('c3-title', data.c3Title); setText('c3-desc', data.c3Desc);
+        setText('c4-title', data.c4Title); setText('c4-desc', data.c4Desc);
+
+        setText('p-title', data.pTitle);
+        setText('p1-title', data.p1Title); setText('p1-desc', data.p1Desc);
+        setText('p2-title', data.p2Title); setText('p2-desc', data.p2Desc);
+        setText('p3-title', data.p3Title); setText('p3-desc', data.p3Desc);
+        setText('main-youtube-btn', data.mainYoutubeBtn);
+
+        setText('faq-title', data.faqTitle);
+        setText('faq1-q', data.faq1Q); setText('faq1-a', data.faq1A);
+        setText('faq2-q', data.faq2Q); setText('faq2-a', data.faq2A);
+        setText('faq3-q', data.faq3Q); setText('faq3-a', data.faq3A);
+        setText('faq4-q', data.faq4Q); setText('faq4-a', data.faq4A);
+
+        setText('cr-title', data.crTitle); setText('cr-sub', data.crSub);
+        setText('cr-p1', data.crP1); setText('cr-p2', data.crP2);
+
+        setText('cnt-title', data.cntTitle);
+        document.getElementById('f-name').placeholder = data.fName;
+        document.getElementById('f-email').placeholder = data.fEmail;
+        document.getElementById('f-msg').placeholder = data.fMsg;
+        setText('f-btn', data.fBtn);
+        setText('contact-direct-text', data.contactDirectText);
+    }
+</script>
+</body>
+</html>
