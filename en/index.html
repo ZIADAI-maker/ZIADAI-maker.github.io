@@ -659,6 +659,39 @@
 
         #whatsappBtn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(37,211,102,0.6); }
 
+        #project-search:focus {
+            outline: 2px solid var(--main-color);
+            outline-offset: 2px;
+        }
+
+        .feedback-widget {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .feedback-label { color: var(--muted-text); }
+
+        .feedback-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            transition: 0.25s;
+        }
+
+        .feedback-btn:hover { border-color: var(--main-color); color: var(--main-color); }
+        .feedback-btn.voted { border-color: var(--main-color); color: var(--main-color); background: rgba(0,242,254,0.08); }
+
         .contact-direct {
             text-align: center;
             margin-top: 30px;
@@ -706,6 +739,7 @@
 <a href="#skills" id="nav-skills">Skills &amp; Tech Stack</a>
 <a href="#achievements" id="nav-achievements">Achievements</a>
 <a href="#services" id="nav-services">Services (Khamsat)</a>
+<a href="#process" id="nav-process">How We Work</a>
 <a href="#projects" id="nav-projects">Projects</a>
 <a href="#testimonials" id="nav-testimonials">Reviews &amp; Feedback</a>
 <a href="#training" id="nav-training">Seminars</a>
@@ -771,7 +805,7 @@
 </section>
 <section id="services">
 <h2 id="s-title">My Technical Services (Khamsat)</h2>
-<div class="grid">
+<div class="grid" id="services-grid">
 <div class="card">
 <h3 id="s1-title">Professional Arduino &amp; IoT Project Programming &amp; Design with Circuit Diagram</h3>
 <p id="s1-desc">Full design and programming of electronics circuits and Internet of Things projects, delivering precise schematic diagrams for error-free hardware assembly.</p>
@@ -873,21 +907,79 @@
 <a class="btn" href="https://khamsat.com/user/zw_2503_o8bx" id="main-khamsat-btn" rel="noopener" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;" target="_blank">💼 Visit My Main Profile on Khamsat</a>
 </div>
 </section>
+<section id="process">
+<h2 id="proc-title">How We Work Together</h2>
+<div class="grid">
+<div class="card">
+<h3 id="proc1-title">1️⃣ Get in Touch</h3>
+<p id="proc1-desc">Send me your project details via WhatsApp or the contact form below, and I'll review your requirements and ask about anything missing.</p>
+</div>
+<div class="card">
+<h3 id="proc2-title">2️⃣ Quote &amp; Agreement</h3>
+<p id="proc2-desc">Once I understand the scope, I'll give you an estimated price and timeline. If we agree, we start officially through one of the service platforms (Khamsat/Nafezly/Kafiil) to protect both sides.</p>
+</div>
+<div class="card">
+<h3 id="proc3-title">3️⃣ Execution &amp; Updates</h3>
+<p id="proc3-desc">I work on your project step by step with periodic updates, and you can check progress or ask questions anytime.</p>
+</div>
+<div class="card">
+<h3 id="proc4-title">4️⃣ Delivery &amp; Support</h3>
+<p id="proc4-desc">I deliver the full project (code + diagrams) with a simple usage guide, plus one free revision round within the agreed scope.</p>
+</div>
+</div>
+</section>
 <section id="projects">
 <h2 id="p-title">Innovative Projects Gallery</h2>
-<div class="grid">
-<a class="card" href="https://youtu.be/ALOXriHfY5w" rel="noopener" target="_blank">
+<div class="form-group" style="max-width: 420px; margin: 0 auto 30px;">
+<input type="search" id="project-search" placeholder="🔍 Search projects or services by name..." aria-label="Search projects and services" style="width:100%; padding:12px 18px; border-radius:30px; border:1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-family:'Cairo',sans-serif;">
+<p id="search-no-results" style="display:none; text-align:center; color: var(--muted-text); margin-top:15px;">No matching results, try another keyword.</p>
+</div>
+<div class="grid" id="projects-grid">
+<div class="card">
+<a href="https://youtu.be/ALOXriHfY5w" rel="noopener" target="_blank" style="text-decoration:none; color:inherit; display:block;">
 <h3 id="p1-title">Smart Service Robot</h3>
 <p id="p1-desc">An advanced robot with autonomous navigation capabilities.</p>
 </a>
-<a class="card" href="https://youtu.be/LNi_gEQzdWA" rel="noopener" target="_blank">
+<details class="service-alt">
+<summary id="p1-more">More project details</summary>
+<p id="p1-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">The goal was to build a service robot capable of navigating an indoor environment without human intervention, using distance sensors and a simple obstacle-avoidance algorithm written in C++ on a microcontroller. The main challenge was stabilizing movement and minimizing sensor response time.</p>
+</details>
+<div class="feedback-widget" data-project="p1">
+<span class="feedback-label">Was this project useful?</span>
+<button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+<button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+</div>
+</div>
+<div class="card">
+<a href="https://youtu.be/LNi_gEQzdWA" rel="noopener" target="_blank" style="text-decoration:none; color:inherit; display:block;">
 <h3 id="p2-title">Morse Code Project</h3>
 <p id="p2-desc">Translating signals physically and programmatically.</p>
 </a>
-<a class="card" href="https://youtu.be/92r0lysDW6I" rel="noopener" target="_blank">
+<details class="service-alt">
+<summary id="p2-more">More project details</summary>
+<p id="p2-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">A project that converts light or sound pulses into readable characters and back, by timing the signals and translating them into Morse code and then plain text programmatically. I used it as a teaching tool to explain digital signal processing to students.</p>
+</details>
+<div class="feedback-widget" data-project="p2">
+<span class="feedback-label">Was this project useful?</span>
+<button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+<button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+</div>
+</div>
+<div class="card">
+<a href="https://youtu.be/92r0lysDW6I" rel="noopener" target="_blank" style="text-decoration:none; color:inherit; display:block;">
 <h3 id="p3-title">Smart Home Project</h3>
 <p id="p3-desc">An integrated home automation system.</p>
 </a>
+<details class="service-alt">
+<summary id="p3-more">More project details</summary>
+<p id="p3-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">A fully integrated smart home system connecting lighting, appliances, and security sensors to the internet, with a simple dashboard for remote control and live status updates from your phone.</p>
+</details>
+<div class="feedback-widget" data-project="p3">
+<span class="feedback-label">Was this project useful?</span>
+<button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+<button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+</div>
+</div>
 </div>
 <div style="text-align: center; margin-top: 40px;">
 <a class="btn" href="https://youtube.com/@ziadwaleedmohamed?si=qrFoZAU11A9xjG9o" id="main-youtube-btn" rel="noopener" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;" target="_blank">🎬 Visit My YouTube Channel</a>
@@ -1001,6 +1093,18 @@
 <div class="card">
 <h3 id="faq4-q">How do I order a service from you?</h3>
 <p id="faq4-a">You can order directly through Khamsat, Nafezly, or Kafiil using the service links on the site, or reach me directly via WhatsApp or the contact form at the bottom of the page.</p>
+</div>
+<div class="card">
+<h3 id="faq5-q">How is the price of a service decided?</h3>
+<p id="faq5-a">Pricing depends on the size and complexity of the project and the number of components involved. The best way is to send me your project details via WhatsApp or the form below, and I'll reply with an estimated price within a few hours.</p>
+</div>
+<div class="card">
+<h3 id="faq6-q">Are there free revisions after delivery?</h3>
+<p id="faq6-a">Yes, I offer one free revision round for any feedback within the originally agreed scope. Any new addition outside the original agreement is quoted separately.</p>
+</div>
+<div class="card">
+<h3 id="faq7-q">How long does a project take to deliver?</h3>
+<p id="faq7-a">It ranges from 2-3 days for simple projects up to two weeks for fully integrated projects like smart homes or robotic arms. The exact timeline is confirmed after reviewing your project details.</p>
 </div>
 </div>
 </section>
@@ -1134,6 +1238,61 @@
             });
     })();
 
+    // ===== Simple text search across services and projects (no external API) =====
+    (function() {
+        var searchInput = document.getElementById('project-search');
+        if (!searchInput) return;
+        var noResultsMsg = document.getElementById('search-no-results');
+        var containers = [document.getElementById('services-grid'), document.getElementById('projects-grid')].filter(Boolean);
+
+        searchInput.addEventListener('input', function() {
+            var term = searchInput.value.trim().toLowerCase();
+            var anyVisible = false;
+            containers.forEach(function(grid) {
+                var cards = grid.querySelectorAll(':scope > .card');
+                cards.forEach(function(card) {
+                    var text = card.textContent.toLowerCase();
+                    var matches = term === '' || text.indexOf(term) !== -1;
+                    card.style.display = matches ? '' : 'none';
+                    if (matches) anyVisible = true;
+                });
+            });
+            if (noResultsMsg) noResultsMsg.style.display = (term !== '' && !anyVisible) ? 'block' : 'none';
+        });
+    })();
+
+    // ===== "Was this project useful?" widget - stored locally in the visitor's browser only =====
+    (function() {
+        var widgets = document.querySelectorAll('.feedback-widget');
+        widgets.forEach(function(widget) {
+            var key = 'ziadaiFeedback_' + widget.getAttribute('data-project');
+            var stored = JSON.parse(localStorage.getItem(key) || '{"up":0,"down":0,"voted":null}');
+
+            function render() {
+                widget.querySelectorAll('.feedback-btn').forEach(function(btn) {
+                    var vote = btn.getAttribute('data-vote');
+                    var countEl = btn.querySelector('.feedback-count');
+                    if (countEl) countEl.textContent = stored[vote];
+                    btn.classList.toggle('voted', stored.voted === vote);
+                });
+            }
+
+            widget.querySelectorAll('.feedback-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var vote = btn.getAttribute('data-vote');
+                    if (stored.voted === vote) return;
+                    if (stored.voted) { stored[stored.voted] = Math.max(0, stored[stored.voted] - 1); }
+                    stored[vote] += 1;
+                    stored.voted = vote;
+                    localStorage.setItem(key, JSON.stringify(stored));
+                    render();
+                });
+            });
+
+            render();
+        });
+    })();
+
     (function() {
         var userPart = "ziadwaleed5454648hh";
         var domainPart = "gmail.com";
@@ -1155,23 +1314,48 @@
 
     var contactForm = document.getElementById("contact-form");
     var formStatus = document.getElementById("form-status");
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
     contactForm.addEventListener("submit", function(e) {
         e.preventDefault();
+
+        var nameVal = document.getElementById("f-name").value.trim();
+        var emailVal = document.getElementById("f-email").value.trim();
+        var msgVal = document.getElementById("f-msg").value.trim();
+
+        if (nameVal.length < 2) {
+            formStatus.textContent = "⚠️ Please enter a valid name.";
+            document.getElementById("f-name").focus();
+            return;
+        }
+        if (!isValidEmail(emailVal)) {
+            formStatus.textContent = "⚠️ Please enter a valid email address.";
+            document.getElementById("f-email").focus();
+            return;
+        }
+        if (msgVal.length < 10) {
+            formStatus.textContent = "⚠️ Please add a bit more detail about your project or message (at least 10 characters).";
+            document.getElementById("f-msg").focus();
+            return;
+        }
+
         var data = new FormData(contactForm);
-        formStatus.textContent = "جاري الإرسال...";
+        formStatus.textContent = "Sending...";
         fetch(contactForm.action, {
             method: "POST",
             body: data,
             headers: { "Accept": "application/json" }
         }).then(function(response) {
             if (response.ok) {
-                formStatus.textContent = "✅ تم إرسال رسالتك بنجاح، هرد عليك في أقرب وقت!";
+                formStatus.textContent = "✅ Your message was sent successfully, I'll get back to you soon!";
                 contactForm.reset();
             } else {
-                formStatus.textContent = "⚠️ حصل خطأ أثناء الإرسال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
+                formStatus.textContent = "⚠️ Something went wrong while sending, try again or contact me directly by email.";
             }
         }).catch(function() {
-            formStatus.textContent = "⚠️ حصل خطأ في الاتصال، جرب تاني أو تواصل مباشرة عبر الإيميل.";
+            formStatus.textContent = "⚠️ A connection error occurred, try again or contact me directly by email.";
         });
     });
 
