@@ -663,6 +663,39 @@
 
         #whatsappBtn:hover { transform: scale(1.08); box-shadow: 0 0 20px rgba(37,211,102,0.6); }
 
+        #project-search:focus {
+            outline: 2px solid var(--main-color);
+            outline-offset: 2px;
+        }
+
+        .feedback-widget {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .feedback-label { color: var(--muted-text); }
+
+        .feedback-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            transition: 0.25s;
+        }
+
+        .feedback-btn:hover { border-color: var(--main-color); color: var(--main-color); }
+        .feedback-btn.voted { border-color: var(--main-color); color: var(--main-color); background: rgba(0,242,254,0.08); }
+
         .contact-direct {
             text-align: center;
             margin-top: 30px;
@@ -714,6 +747,7 @@
         <a href="#skills" id="nav-skills">المهارات والتقنيات</a>
         <a href="#achievements" id="nav-achievements">الإنجازات والمبادرات</a>
         <a href="#services" id="nav-services">الخدمات (خمسات)</a>
+        <a href="#process" id="nav-process">خطوات العمل</a>
         <a href="#projects" id="nav-projects">المشاريع</a>
         <a href="#testimonials" id="nav-testimonials">آراء العملاء والطلاب</a>
         <a href="#training" id="nav-training">الندوات</a>
@@ -786,7 +820,7 @@
 
 <section id="services">
     <h2 id="s-title">خدماتي التقنية (خمسات)</h2>
-    <div class="grid">
+    <div class="grid" id="services-grid">
         <div class="card">
             <h3 id="s1-title">برمجة وتصميم مشاريع Arduino و IoT احترافية مع مخطط التوصيل</h3>
             <p id="s1-desc">تصميم وبرمجة دوائر الإلكترونيات وأنظمة إنترنت الأشياء باحترافية كاملة مع تزويدك بمخططات هندسية دقيقة لتوصيل المكونات بدون أخطاء.</p>
@@ -889,21 +923,82 @@
     </div>
 </section>
 
+<section id="process">
+    <h2 id="proc-title">ازاي بنبدأ الشغل سوا؟</h2>
+    <div class="grid">
+        <div class="card">
+            <h3 id="proc1-title">1️⃣ تواصل وتوضيح الفكرة</h3>
+            <p id="proc1-desc">تبعتلي تفاصيل مشروعك عبر الواتساب أو فورم التواصل تحت، وأنا براجع المتطلبات وأسألك أي نقطة ناقصة.</p>
+        </div>
+        <div class="card">
+            <h3 id="proc2-title">2️⃣ تسعير مبدئي واتفاق</h3>
+            <p id="proc2-desc">بعد ما أفهم حجم المشروع بديك سعر تقريبي ومدة تنفيذ متوقعة، ولو اتفقنا نبدأ الشغل رسمياً عبر إحدى منصات الخدمات (خمسات/نفذلي/كفيل) لضمان حقوق الطرفين.</p>
+        </div>
+        <div class="card">
+            <h3 id="proc3-title">3️⃣ التنفيذ والمتابعة</h3>
+            <p id="proc3-desc">بشتغل على مشروعك خطوة بخطوة وباخد بالك بتحديثات دورية، وممكن تتابع تقدم الشغل أو تسأل أي سؤال في أي وقت.</p>
+        </div>
+        <div class="card">
+            <h3 id="proc4-title">4️⃣ التسليم والدعم</h3>
+            <p id="proc4-desc">بسلّمك المشروع كامل (كود + مخططات) مع شرح مبسط لطريقة الاستخدام، وجولة تعديلات مجانية على نفس نطاق العمل المتفق عليه.</p>
+        </div>
+    </div>
+</section>
+
 <section id="projects">
     <h2 id="p-title">معرض المشاريع المبتكرة</h2>
-    <div class="grid">
-        <a href="https://youtu.be/ALOXriHfY5w" class="card" target="_blank" rel="noopener">
-            <h3 id="p1-title">روبوت الخدمة الذكي</h3>
-            <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
-        </a>
-        <a href="https://youtu.be/LNi_gEQzdWA" class="card" target="_blank" rel="noopener">
-            <h3 id="p2-title">مشروع Morse Code</h3>
-            <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
-        </a>
-        <a href="https://youtu.be/92r0lysDW6I" class="card" target="_blank" rel="noopener">
-            <h3 id="p3-title">مشروع Smart Home</h3>
-            <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
-        </a>
+
+    <div class="form-group" style="max-width: 420px; margin: 0 auto 30px;">
+        <input type="search" id="project-search" placeholder="🔍 دور على مشروع أو خدمة بالاسم..." aria-label="بحث في المشاريع والخدمات" style="width:100%; padding:12px 18px; border-radius:30px; border:1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-family:'Cairo',sans-serif;">
+        <p id="search-no-results" style="display:none; text-align:center; color: var(--muted-text); margin-top:15px;">مفيش نتائج مطابقة، جرب كلمة تانية.</p>
+    </div>
+
+    <div class="grid" id="projects-grid">
+        <div class="card">
+            <a href="https://youtu.be/ALOXriHfY5w" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block;">
+                <h3 id="p1-title">روبوت الخدمة الذكي</h3>
+                <p id="p1-desc">روبوت متطور بقدرات الملاحة الذاتية.</p>
+            </a>
+            <details class="service-alt">
+                <summary id="p1-more">تفاصيل أكتر عن المشروع</summary>
+                <p id="p1-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">الفكرة كانت بناء روبوت خدمي قادر على التنقل الذاتي داخل بيئة داخلية من غير تدخل بشري، باستخدام حساسات مسافة وخوارزمية تفادي عوائق بسيطة مبنية بلغة C++ على متحكم دقيق. التحدي الأساسي كان ضبط استقرار الحركة وتقليل زمن استجابة الحساسات.</p>
+            </details>
+            <div class="feedback-widget" data-project="p1">
+                <span class="feedback-label">هل المشروع ده مفيد؟</span>
+                <button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+                <button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="https://youtu.be/LNi_gEQzdWA" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block;">
+                <h3 id="p2-title">مشروع Morse Code</h3>
+                <p id="p2-desc">ترجمة الإشارات فيزيائياً وبرمجياً.</p>
+            </a>
+            <details class="service-alt">
+                <summary id="p2-more">تفاصيل أكتر عن المشروع</summary>
+                <p id="p2-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">مشروع بيحول النبضات الضوئية أو الصوتية إلى حروف مقروءة والعكس، عن طريق قراءة توقيت الإشارات وتحويلها لشيفرة مورس ثم لنص عادي برمجياً. استخدمته كمدخل تعليمي لشرح فكرة معالجة الإشارات الرقمية للطلاب.</p>
+            </details>
+            <div class="feedback-widget" data-project="p2">
+                <span class="feedback-label">هل المشروع ده مفيد؟</span>
+                <button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+                <button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="https://youtu.be/92r0lysDW6I" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block;">
+                <h3 id="p3-title">مشروع Smart Home</h3>
+                <p id="p3-desc">نظام أتمتة منزلية متكامل.</p>
+            </a>
+            <details class="service-alt">
+                <summary id="p3-more">تفاصيل أكتر عن المشروع</summary>
+                <p id="p3-case" style="margin-top:10px; line-height:1.7; color: var(--soft-text);">نظام بيت ذكي متكامل بيربط الإضاءة والأجهزة الكهربائية وحساسات الأمان بشبكة الإنترنت، مع لوحة تحكم بسيطة تسمح بالتحكم عن بُعد ومتابعة حالة الأجهزة لحظياً من الموبايل.</p>
+            </details>
+            <div class="feedback-widget" data-project="p3">
+                <span class="feedback-label">هل المشروع ده مفيد؟</span>
+                <button type="button" class="feedback-btn" data-vote="up">👍 <span class="feedback-count" data-count="up">0</span></button>
+                <button type="button" class="feedback-btn" data-vote="down">👎 <span class="feedback-count" data-count="down">0</span></button>
+            </div>
+        </div>
     </div>
     <div style="text-align: center; margin-top: 40px;">
         <a href="https://youtube.com/@ziadwaleedmohamed?si=qrFoZAU11A9xjG9o" target="_blank" rel="noopener" class="btn" id="main-youtube-btn" style="background: transparent; border: 2px solid var(--main-color); color: var(--main-color); padding: 12px 40px;">🎬 زور قناتي على يوتيوب</a>
@@ -1023,6 +1118,18 @@
         <div class="card">
             <h3 id="faq4-q">ازاي أطلب خدمة منك؟</h3>
             <p id="faq4-a">تقدر تطلب مباشرة من خمسات أو نفذلي أو كفيل من خلال روابط الخدمات في الموقع، أو تتواصل معايا مباشرة عبر الواتساب أو نموذج التواصل في أسفل الصفحة.</p>
+        </div>
+        <div class="card">
+            <h3 id="faq5-q">إزاي بيتحدد سعر الخدمة؟</h3>
+            <p id="faq5-a">السعر بيختلف حسب حجم المشروع وتعقيده وعدد المكونات المطلوبة. أفضل طريقة هي إنك تبعتلي تفاصيل مشروعك عبر الواتساب أو الفورم تحت، وهرد عليك بسعر مبدئي تقريبي خلال ساعات.</p>
+        </div>
+        <div class="card">
+            <h3 id="faq6-q">فيه تعديلات مجانية بعد التسليم؟</h3>
+            <p id="faq6-a">أيوه، بقدم جولة تعديلات مجانية على أي ملاحظة خاصة بنفس نطاق العمل المتفق عليه من الأول، وبعد كده أي إضافة جديدة خارج الاتفاق الأصلي بتتحسب بشكل منفصل.</p>
+        </div>
+        <div class="card">
+            <h3 id="faq7-q">قد إيه بياخد وقت تنفيذ المشروع؟</h3>
+            <p id="faq7-a">بيتراوح من 2-3 أيام للمشاريع البسيطة، لحد أسبوعين للمشاريع المتكاملة زي البيت الذكي أو الأذرع الروبوتية. المدة الدقيقة بتتحدد بعد مراجعة تفاصيل مشروعك.</p>
         </div>
     </div>
 </section>
@@ -1165,6 +1272,61 @@
             });
     })();
 
+    // ===== بحث نصي بسيط داخل الخدمات والمشاريع (بدون أي API خارجي) =====
+    (function() {
+        var searchInput = document.getElementById('project-search');
+        if (!searchInput) return;
+        var noResultsMsg = document.getElementById('search-no-results');
+        var containers = [document.getElementById('services-grid'), document.getElementById('projects-grid')].filter(Boolean);
+
+        searchInput.addEventListener('input', function() {
+            var term = searchInput.value.trim().toLowerCase();
+            var anyVisible = false;
+            containers.forEach(function(grid) {
+                var cards = grid.querySelectorAll(':scope > .card');
+                cards.forEach(function(card) {
+                    var text = card.textContent.toLowerCase();
+                    var matches = term === '' || text.indexOf(term) !== -1;
+                    card.style.display = matches ? '' : 'none';
+                    if (matches) anyVisible = true;
+                });
+            });
+            if (noResultsMsg) noResultsMsg.style.display = (term !== '' && !anyVisible) ? 'block' : 'none';
+        });
+    })();
+
+    // ===== ودجت "هل المشروع ده مفيد؟" - تخزين محلي في متصفح الزائر فقط =====
+    (function() {
+        var widgets = document.querySelectorAll('.feedback-widget');
+        widgets.forEach(function(widget) {
+            var key = 'ziadaiFeedback_' + widget.getAttribute('data-project');
+            var stored = JSON.parse(localStorage.getItem(key) || '{"up":0,"down":0,"voted":null}');
+
+            function render() {
+                widget.querySelectorAll('.feedback-btn').forEach(function(btn) {
+                    var vote = btn.getAttribute('data-vote');
+                    var countEl = btn.querySelector('.feedback-count');
+                    if (countEl) countEl.textContent = stored[vote];
+                    btn.classList.toggle('voted', stored.voted === vote);
+                });
+            }
+
+            widget.querySelectorAll('.feedback-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var vote = btn.getAttribute('data-vote');
+                    if (stored.voted === vote) return; // منع التصويت المتكرر بنفس الاختيار
+                    if (stored.voted) { stored[stored.voted] = Math.max(0, stored[stored.voted] - 1); }
+                    stored[vote] += 1;
+                    stored.voted = vote;
+                    localStorage.setItem(key, JSON.stringify(stored));
+                    render();
+                });
+            });
+
+            render();
+        });
+    })();
+
     (function() {
         var userPart = "ziadwaleed5454648hh";
         var domainPart = "gmail.com";
@@ -1186,8 +1348,33 @@
 
     var contactForm = document.getElementById("contact-form");
     var formStatus = document.getElementById("form-status");
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
     contactForm.addEventListener("submit", function(e) {
         e.preventDefault();
+
+        var nameVal = document.getElementById("f-name").value.trim();
+        var emailVal = document.getElementById("f-email").value.trim();
+        var msgVal = document.getElementById("f-msg").value.trim();
+
+        if (nameVal.length < 2) {
+            formStatus.textContent = "⚠️ من فضلك اكتب اسمك بشكل صحيح.";
+            document.getElementById("f-name").focus();
+            return;
+        }
+        if (!isValidEmail(emailVal)) {
+            formStatus.textContent = "⚠️ من فضلك اكتب بريد إلكتروني صحيح.";
+            document.getElementById("f-email").focus();
+            return;
+        }
+        if (msgVal.length < 10) {
+            formStatus.textContent = "⚠️ من فضلك اكتب تفاصيل أوضح عن مشروعك أو رسالتك (10 حروف على الأقل).";
+            document.getElementById("f-msg").focus();
+            return;
+        }
+
         var data = new FormData(contactForm);
         formStatus.textContent = "جاري الإرسال...";
         fetch(contactForm.action, {
